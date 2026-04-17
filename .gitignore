@@ -1,0 +1,26 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Project Specific
+service/user_db.json
+service/.env
+*.log
+
+# Large Binaries & Backups (Prevent GitHub 100MB limit issues)
+*.zip
+*.pdf
+*.pptx
+*.pkl
+eval_results.txt
+extracted_features.csv

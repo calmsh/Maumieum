@@ -1,0 +1,7170 @@
+{
+  "assessment": {
+    "ADNM-4": {
+      "dialog": [
+        {
+          "a_ts": 1754469845732,
+          "answer": "없음",
+          "id": "adnm4_sv_event",
+          "q_ts": 1754469831295
+        }
+      ],
+      "end_ts": 1754469849866,
+      "start_ts": 1754469829231
+    },
+    "CSS": {
+      "dialog": [
+        {
+          "a_ts": 1754469859136,
+          "answer": "2",
+          "id": "css_sv_01",
+          "point": 0,
+          "q_ts": 1754469854968
+        },
+        {
+          "a_ts": 1754469864477,
+          "answer": "2",
+          "id": "css_sv_02",
+          "point": 0,
+          "q_ts": 1754469859887
+        },
+        {
+          "a_ts": 1754469867932,
+          "answer": "2",
+          "id": "css_sv_11",
+          "point": 0,
+          "q_ts": 1754469865229
+        }
+      ],
+      "end_ts": 1754469871597,
+      "start_ts": 1754469849867
+    },
+    "GAD-7": {
+      "dialog": [
+        {
+          "a_ts": 1754469794691,
+          "answer": "1",
+          "id": "gad7_sv_01",
+          "point": 0,
+          "q_ts": 1754469790505
+        },
+        {
+          "a_ts": 1754469799704,
+          "answer": "1",
+          "id": "gad7_sv_02",
+          "point": 0,
+          "q_ts": 1754469795442
+        },
+        {
+          "a_ts": 1754469805467,
+          "answer": "1",
+          "id": "gad7_sv_03",
+          "point": 0,
+          "q_ts": 1754469800456
+        },
+        {
+          "a_ts": 1754469809642,
+          "answer": "1",
+          "id": "gad7_sv_04",
+          "point": 0,
+          "q_ts": 1754469806218
+        },
+        {
+          "a_ts": 1754469813863,
+          "answer": "1",
+          "id": "gad7_sv_05",
+          "point": 0,
+          "q_ts": 1754469810393
+        },
+        {
+          "a_ts": 1754469819942,
+          "answer": "1",
+          "id": "gad7_sv_06",
+          "point": 0,
+          "q_ts": 1754469814614
+        },
+        {
+          "a_ts": 1754469823868,
+          "answer": "1",
+          "id": "gad7_sv_07",
+          "point": 0,
+          "q_ts": 1754469820693
+        }
+      ],
+      "end_ts": 1754469829231,
+      "start_ts": 1754469788438
+    },
+    "PHQ-9": {
+      "dialog": [
+        {
+          "a_ts": 1754469747872,
+          "answer": "1",
+          "id": "phq9_sv_01",
+          "point": 0,
+          "q_ts": 1754469729421
+        },
+        {
+          "a_ts": 1754469752306,
+          "answer": "1",
+          "id": "phq9_sv_02",
+          "point": 0,
+          "q_ts": 1754469748624
+        },
+        {
+          "a_ts": 1754469756489,
+          "answer": "1",
+          "id": "phq9_sv_03",
+          "point": 0,
+          "q_ts": 1754469753057
+        },
+        {
+          "a_ts": 1754469760148,
+          "answer": "1",
+          "id": "phq9_sv_04",
+          "point": 0,
+          "q_ts": 1754469757241
+        },
+        {
+          "a_ts": 1754469766490,
+          "answer": "1",
+          "id": "phq9_sv_05",
+          "point": 0,
+          "q_ts": 1754469760899
+        },
+        {
+          "a_ts": 1754469769778,
+          "answer": "1",
+          "id": "phq9_sv_06",
+          "point": 0,
+          "q_ts": 1754469767241
+        },
+        {
+          "a_ts": 1754469773998,
+          "answer": "1",
+          "id": "phq9_sv_07",
+          "point": 0,
+          "q_ts": 1754469770529
+        },
+        {
+          "a_ts": 1754469777699,
+          "answer": "1",
+          "id": "phq9_sv_08",
+          "point": 0,
+          "q_ts": 1754469774750
+        },
+        {
+          "a_ts": 1754469782432,
+          "answer": "1",
+          "id": "phq9_sv_09",
+          "point": 0,
+          "q_ts": 1754469778450
+        }
+      ],
+      "end_ts": 1754469788438,
+      "start_ts": 1754469727347
+    }
+  },
+  "date": 1754469881110,
+  "hrv_deep": {
+    "data": {
+      "meta": [
+        {
+          "qualityCheck": false,
+          "sigB": 35.734825,
+          "sigG": 45.06702,
+          "sigR": 64.87069,
+          "time": 1754469745021206
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.690174,
+          "sigG": 44.948196,
+          "sigR": 64.70346,
+          "time": 1754469745062833
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.61897,
+          "sigG": 44.806427,
+          "sigR": 64.48679,
+          "time": 1754469745103788
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.728382,
+          "sigG": 44.960518,
+          "sigR": 64.73291,
+          "time": 1754469745145082
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.734386,
+          "sigG": 44.921913,
+          "sigR": 64.75256,
+          "time": 1754469745187114
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.722546,
+          "sigG": 44.909615,
+          "sigR": 64.740616,
+          "time": 1754469745231296
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.71946,
+          "sigG": 44.8466,
+          "sigR": 64.675705,
+          "time": 1754469745269567
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.68976,
+          "sigG": 44.84618,
+          "sigR": 64.69724,
+          "time": 1754469745311549
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.65624,
+          "sigG": 44.770428,
+          "sigR": 64.63403,
+          "time": 1754469745353460
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.64477,
+          "sigG": 44.748978,
+          "sigR": 64.6133,
+          "time": 1754469745391470
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.6366,
+          "sigG": 44.720066,
+          "sigR": 64.60225,
+          "time": 1754469745436683
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.69597,
+          "sigG": 44.72432,
+          "sigR": 64.63193,
+          "time": 1754469745479065
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.707703,
+          "sigG": 44.740204,
+          "sigR": 64.644066,
+          "time": 1754469745520061
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.588844,
+          "sigG": 44.64202,
+          "sigR": 64.50817,
+          "time": 1754469745561901
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.579067,
+          "sigG": 44.607,
+          "sigR": 64.43415,
+          "time": 1754469745603411
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.695187,
+          "sigG": 44.795082,
+          "sigR": 64.646324,
+          "time": 1754469745645916
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.674442,
+          "sigG": 44.791904,
+          "sigR": 64.633446,
+          "time": 1754469745687171
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.708584,
+          "sigG": 44.835247,
+          "sigR": 64.69664,
+          "time": 1754469745729248
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.75037,
+          "sigG": 44.863472,
+          "sigR": 64.72813,
+          "time": 1754469745769992
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.757286,
+          "sigG": 44.928535,
+          "sigR": 64.79894,
+          "time": 1754469745812761
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.760754,
+          "sigG": 44.969013,
+          "sigR": 64.83946,
+          "time": 1754469745854040
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.828457,
+          "sigG": 45.028286,
+          "sigR": 64.85045,
+          "time": 1754469745892996
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.837345,
+          "sigG": 45.034515,
+          "sigR": 64.85479,
+          "time": 1754469745937225
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.804615,
+          "sigG": 44.993294,
+          "sigR": 64.84964,
+          "time": 1754469745978590
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.60221,
+          "sigG": 44.716045,
+          "sigR": 64.49159,
+          "time": 1754469746020819
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.583725,
+          "sigG": 44.70605,
+          "sigR": 64.47643,
+          "time": 1754469746061961
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.46389,
+          "sigG": 44.528587,
+          "sigR": 64.28325,
+          "time": 1754469746101555
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.41115,
+          "sigG": 44.422386,
+          "sigR": 64.18955,
+          "time": 1754469746145398
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.686928,
+          "sigG": 44.74302,
+          "sigR": 64.65473,
+          "time": 1754469746186044
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.701508,
+          "sigG": 44.779575,
+          "sigR": 64.68977,
+          "time": 1754469746229729
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.71266,
+          "sigG": 44.774185,
+          "sigR": 64.716,
+          "time": 1754469746270029
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.69409,
+          "sigG": 44.784943,
+          "sigR": 64.707,
+          "time": 1754469746311505
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.661236,
+          "sigG": 44.766685,
+          "sigR": 64.691536,
+          "time": 1754469746352396
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.700165,
+          "sigG": 44.81557,
+          "sigR": 64.761215,
+          "time": 1754469746392675
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.74655,
+          "sigG": 44.855247,
+          "sigR": 64.79399,
+          "time": 1754469746436817
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.917717,
+          "sigG": 45.065334,
+          "sigR": 65.06594,
+          "time": 1754469746478691
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.90673,
+          "sigG": 45.09277,
+          "sigR": 65.09566,
+          "time": 1754469746520970
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.87863,
+          "sigG": 45.08112,
+          "sigR": 65.056404,
+          "time": 1754469746562108
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.865902,
+          "sigG": 45.102676,
+          "sigR": 65.089714,
+          "time": 1754469746601231
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.86588,
+          "sigG": 45.109905,
+          "sigR": 65.06756,
+          "time": 1754469746644924
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.964417,
+          "sigG": 45.21104,
+          "sigR": 65.18586,
+          "time": 1754469746686522
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.948177,
+          "sigG": 45.18867,
+          "sigR": 65.12461,
+          "time": 1754469746728554
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.881138,
+          "sigG": 45.13931,
+          "sigR": 64.99189,
+          "time": 1754469746770515
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.84122,
+          "sigG": 45.124783,
+          "sigR": 64.925186,
+          "time": 1754469746811939
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.794235,
+          "sigG": 45.09733,
+          "sigR": 64.88543,
+          "time": 1754469746853419
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.713108,
+          "sigG": 45.000416,
+          "sigR": 64.7464,
+          "time": 1754469746894060
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.83607,
+          "sigG": 45.179146,
+          "sigR": 64.99865,
+          "time": 1754469746936338
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.807068,
+          "sigG": 45.128525,
+          "sigR": 64.93848,
+          "time": 1754469746978162
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.75655,
+          "sigG": 45.053066,
+          "sigR": 64.87502,
+          "time": 1754469747020193
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.7074,
+          "sigG": 44.95064,
+          "sigR": 64.803795,
+          "time": 1754469747062042
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.6875,
+          "sigG": 44.92357,
+          "sigR": 64.78095,
+          "time": 1754469747101550
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.679436,
+          "sigG": 44.89148,
+          "sigR": 64.745125,
+          "time": 1754469747145048
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.779945,
+          "sigG": 45.02712,
+          "sigR": 64.94292,
+          "time": 1754469747187040
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.757084,
+          "sigG": 44.970135,
+          "sigR": 64.90795,
+          "time": 1754469747230242
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.662167,
+          "sigG": 44.857754,
+          "sigR": 64.72058,
+          "time": 1754469747270224
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.70002,
+          "sigG": 44.872326,
+          "sigR": 64.75746,
+          "time": 1754469747311567
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.674854,
+          "sigG": 44.852013,
+          "sigR": 64.72672,
+          "time": 1754469747353199
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.661175,
+          "sigG": 44.866085,
+          "sigR": 64.736046,
+          "time": 1754469747394090
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.63524,
+          "sigG": 44.88217,
+          "sigR": 64.71285,
+          "time": 1754469747436773
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.840664,
+          "sigG": 45.171066,
+          "sigR": 65.08474,
+          "time": 1754469747478522
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.86828,
+          "sigG": 45.174908,
+          "sigR": 65.08139,
+          "time": 1754469747520931
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.853943,
+          "sigG": 45.200474,
+          "sigR": 65.092155,
+          "time": 1754469747562462
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.845787,
+          "sigG": 45.20669,
+          "sigR": 65.04849,
+          "time": 1754469747601985
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.846924,
+          "sigG": 45.23294,
+          "sigR": 65.09147,
+          "time": 1754469747646458
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.910614,
+          "sigG": 45.287113,
+          "sigR": 65.14738,
+          "time": 1754469747687518
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.919537,
+          "sigG": 45.346222,
+          "sigR": 65.1878,
+          "time": 1754469747728479
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.954647,
+          "sigG": 45.393906,
+          "sigR": 65.23812,
+          "time": 1754469747769511
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.883064,
+          "sigG": 45.31328,
+          "sigR": 65.14934,
+          "time": 1754469747812182
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.830456,
+          "sigG": 45.169792,
+          "sigR": 64.97671,
+          "time": 1754469747853571
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.985607,
+          "sigG": 45.27422,
+          "sigR": 65.139565,
+          "time": 1754469747892946
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.691998,
+          "sigG": 44.94598,
+          "sigR": 64.74579,
+          "time": 1754469747936752
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.660202,
+          "sigG": 44.87623,
+          "sigR": 64.688866,
+          "time": 1754469747978163
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.01036,
+          "sigG": 45.272137,
+          "sigR": 65.20508,
+          "time": 1754469748021038
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.12561,
+          "sigG": 45.323772,
+          "sigR": 65.18343,
+          "time": 1754469748062246
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.058662,
+          "sigG": 45.264732,
+          "sigR": 64.99623,
+          "time": 1754469748102287
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.141113,
+          "sigG": 45.248955,
+          "sigR": 65.041214,
+          "time": 1754469748145402
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.109516,
+          "sigG": 45.243515,
+          "sigR": 65.05289,
+          "time": 1754469748187593
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.13706,
+          "sigG": 45.31264,
+          "sigR": 65.09427,
+          "time": 1754469748228921
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.040268,
+          "sigG": 45.17858,
+          "sigR": 64.88014,
+          "time": 1754469748270682
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.147377,
+          "sigG": 45.35043,
+          "sigR": 65.08116,
+          "time": 1754469748310857
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.15502,
+          "sigG": 45.3722,
+          "sigR": 65.10031,
+          "time": 1754469748353834
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.02782,
+          "sigG": 45.190186,
+          "sigR": 64.85082,
+          "time": 1754469748394728
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.121975,
+          "sigG": 45.37294,
+          "sigR": 65.037575,
+          "time": 1754469748436991
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.069122,
+          "sigG": 45.28735,
+          "sigR": 64.927704,
+          "time": 1754469748478235
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.07982,
+          "sigG": 45.33598,
+          "sigR": 64.97788,
+          "time": 1754469748520771
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.128574,
+          "sigG": 45.39881,
+          "sigR": 65.02243,
+          "time": 1754469748562213
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.080463,
+          "sigG": 45.331837,
+          "sigR": 64.90906,
+          "time": 1754469748600349
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.188133,
+          "sigG": 45.488377,
+          "sigR": 65.11264,
+          "time": 1754469748643571
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.180984,
+          "sigG": 45.40854,
+          "sigR": 65.03505,
+          "time": 1754469748685826
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.166893,
+          "sigG": 45.39722,
+          "sigR": 65.02408,
+          "time": 1754469748727626
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.04088,
+          "sigG": 45.216053,
+          "sigR": 64.76778,
+          "time": 1754469748769934
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.988888,
+          "sigG": 45.156784,
+          "sigR": 64.70906,
+          "time": 1754469748810877
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.982307,
+          "sigG": 45.13153,
+          "sigR": 64.7273,
+          "time": 1754469748853377
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.01109,
+          "sigG": 45.13073,
+          "sigR": 64.75146,
+          "time": 1754469748895163
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.160988,
+          "sigG": 45.309254,
+          "sigR": 64.994156,
+          "time": 1754469748937011
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.172714,
+          "sigG": 45.319157,
+          "sigR": 65.029495,
+          "time": 1754469748979042
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.114113,
+          "sigG": 45.307293,
+          "sigR": 64.99471,
+          "time": 1754469749020634
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.89971,
+          "sigG": 45.053833,
+          "sigR": 64.67821,
+          "time": 1754469749062676
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.176567,
+          "sigG": 45.36783,
+          "sigR": 65.12233,
+          "time": 1754469749102272
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.095444,
+          "sigG": 45.269985,
+          "sigR": 64.95997,
+          "time": 1754469749143651
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.059235,
+          "sigG": 45.227203,
+          "sigR": 64.88303,
+          "time": 1754469749187259
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.056995,
+          "sigG": 45.209908,
+          "sigR": 64.85229,
+          "time": 1754469749228434
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.140053,
+          "sigG": 45.342587,
+          "sigR": 65.01128,
+          "time": 1754469749268533
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.17294,
+          "sigG": 45.3573,
+          "sigR": 65.06218,
+          "time": 1754469749309729
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.423023,
+          "sigG": 45.671116,
+          "sigR": 65.480034,
+          "time": 1754469749353486
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.23094,
+          "sigG": 45.4901,
+          "sigR": 65.22283,
+          "time": 1754469749393884
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.20811,
+          "sigG": 45.504333,
+          "sigR": 65.19278,
+          "time": 1754469749435638
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.917477,
+          "sigG": 45.16292,
+          "sigR": 64.72748,
+          "time": 1754469749477998
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.86585,
+          "sigG": 45.121037,
+          "sigR": 64.635376,
+          "time": 1754469749520590
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.82728,
+          "sigG": 45.05942,
+          "sigR": 64.51606,
+          "time": 1754469749561992
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.099445,
+          "sigG": 45.353806,
+          "sigR": 64.92097,
+          "time": 1754469749601517
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.087696,
+          "sigG": 45.37745,
+          "sigR": 64.99167,
+          "time": 1754469749645660
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.104362,
+          "sigG": 45.39426,
+          "sigR": 65.03792,
+          "time": 1754469749686968
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.092613,
+          "sigG": 45.3714,
+          "sigR": 65.025764,
+          "time": 1754469749728064
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.11753,
+          "sigG": 45.32255,
+          "sigR": 64.99471,
+          "time": 1754469749770188
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.149754,
+          "sigG": 45.3121,
+          "sigR": 64.966995,
+          "time": 1754469749810884
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.13317,
+          "sigG": 45.33161,
+          "sigR": 64.983376,
+          "time": 1754469749853627
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.157032,
+          "sigG": 45.313755,
+          "sigR": 64.99391,
+          "time": 1754469749895393
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.04598,
+          "sigG": 45.162083,
+          "sigR": 64.80728,
+          "time": 1754469749935188
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.203785,
+          "sigG": 45.384773,
+          "sigR": 65.106834,
+          "time": 1754469749977284
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.23035,
+          "sigG": 45.409714,
+          "sigR": 65.10841,
+          "time": 1754469750018534
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.231236,
+          "sigG": 45.453354,
+          "sigR": 65.1528,
+          "time": 1754469750061247
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.279526,
+          "sigG": 45.518806,
+          "sigR": 65.24673,
+          "time": 1754469750100946
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.265,
+          "sigG": 45.506462,
+          "sigR": 65.219444,
+          "time": 1754469750143942
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.24218,
+          "sigG": 45.52251,
+          "sigR": 65.20693,
+          "time": 1754469750184958
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.264854,
+          "sigG": 45.52901,
+          "sigR": 65.23619,
+          "time": 1754469750226894
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.320515,
+          "sigG": 45.540535,
+          "sigR": 65.240845,
+          "time": 1754469750269742
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.32175,
+          "sigG": 45.57012,
+          "sigR": 65.23157,
+          "time": 1754469750309634
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.310555,
+          "sigG": 45.59288,
+          "sigR": 65.222595,
+          "time": 1754469750352857
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.30646,
+          "sigG": 45.594116,
+          "sigR": 65.22891,
+          "time": 1754469750394545
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.298107,
+          "sigG": 45.615246,
+          "sigR": 65.24093,
+          "time": 1754469750437171
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.325348,
+          "sigG": 45.631317,
+          "sigR": 65.23428,
+          "time": 1754469750478042
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.344032,
+          "sigG": 45.658455,
+          "sigR": 65.2621,
+          "time": 1754469750520275
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.307056,
+          "sigG": 45.61321,
+          "sigR": 65.18465,
+          "time": 1754469750560991
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.31004,
+          "sigG": 45.603867,
+          "sigR": 65.211914,
+          "time": 1754469750601076
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.23678,
+          "sigG": 45.48577,
+          "sigR": 65.094955,
+          "time": 1754469750644996
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.275852,
+          "sigG": 45.544586,
+          "sigR": 65.16359,
+          "time": 1754469750686586
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.341698,
+          "sigG": 45.574127,
+          "sigR": 65.24615,
+          "time": 1754469750728319
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.2722,
+          "sigG": 45.53936,
+          "sigR": 65.19563,
+          "time": 1754469750770086
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.333332,
+          "sigG": 45.60092,
+          "sigR": 65.28163,
+          "time": 1754469750809210
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.343338,
+          "sigG": 45.595837,
+          "sigR": 65.303154,
+          "time": 1754469750854300
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.318306,
+          "sigG": 45.564636,
+          "sigR": 65.271255,
+          "time": 1754469750899729
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.348217,
+          "sigG": 45.589996,
+          "sigR": 65.27202,
+          "time": 1754469750936173
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.466667,
+          "sigG": 45.64188,
+          "sigR": 65.360146,
+          "time": 1754469750977692
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.4836,
+          "sigG": 45.729176,
+          "sigR": 65.48632,
+          "time": 1754469751019947
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.434574,
+          "sigG": 45.590237,
+          "sigR": 65.27791,
+          "time": 1754469751062500
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.49055,
+          "sigG": 45.66812,
+          "sigR": 65.25119,
+          "time": 1754469751102555
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.559185,
+          "sigG": 45.699303,
+          "sigR": 65.25707,
+          "time": 1754469751144669
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.5918,
+          "sigG": 45.766586,
+          "sigR": 65.35352,
+          "time": 1754469751187201
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.53565,
+          "sigG": 45.753895,
+          "sigR": 65.30521,
+          "time": 1754469751228954
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.49108,
+          "sigG": 45.74604,
+          "sigR": 65.26454,
+          "time": 1754469751270780
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.70221,
+          "sigG": 45.76415,
+          "sigR": 65.29137,
+          "time": 1754469751308491
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.801544,
+          "sigG": 46.00673,
+          "sigR": 65.54671,
+          "time": 1754469751353578
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.602066,
+          "sigG": 45.704205,
+          "sigR": 65.097,
+          "time": 1754469751395779
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.5949,
+          "sigG": 45.707,
+          "sigR": 65.19946,
+          "time": 1754469751437216
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.5612,
+          "sigG": 45.64842,
+          "sigR": 65.120636,
+          "time": 1754469751479779
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.60016,
+          "sigG": 45.677162,
+          "sigR": 65.15577,
+          "time": 1754469751520179
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.581425,
+          "sigG": 45.654465,
+          "sigR": 65.208145,
+          "time": 1754469751560304
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.46999,
+          "sigG": 45.4838,
+          "sigR": 65.00821,
+          "time": 1754469751601196
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.494404,
+          "sigG": 45.4873,
+          "sigR": 65.12355,
+          "time": 1754469751643337
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.42243,
+          "sigG": 45.382008,
+          "sigR": 65.010925,
+          "time": 1754469751686865
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.4223,
+          "sigG": 45.416367,
+          "sigR": 65.119484,
+          "time": 1754469751727862
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.286163,
+          "sigG": 45.265152,
+          "sigR": 64.9289,
+          "time": 1754469751771191
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.261787,
+          "sigG": 45.21337,
+          "sigR": 64.88376,
+          "time": 1754469751808943
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.324123,
+          "sigG": 45.365288,
+          "sigR": 65.08182,
+          "time": 1754469751854683
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.13794,
+          "sigG": 45.14913,
+          "sigR": 64.8072,
+          "time": 1754469751895803
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.289417,
+          "sigG": 45.304615,
+          "sigR": 65.019165,
+          "time": 1754469751937490
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.216602,
+          "sigG": 45.277477,
+          "sigR": 65.00923,
+          "time": 1754469751979118
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.107334,
+          "sigG": 45.193054,
+          "sigR": 64.86467,
+          "time": 1754469752020864
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.097954,
+          "sigG": 45.289516,
+          "sigR": 64.954216,
+          "time": 1754469752062020
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.1401,
+          "sigG": 45.322266,
+          "sigR": 65.004326,
+          "time": 1754469752103182
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.134403,
+          "sigG": 45.357426,
+          "sigR": 65.060745,
+          "time": 1754469752145497
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.134144,
+          "sigG": 45.35829,
+          "sigR": 65.09025,
+          "time": 1754469752186208
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.13352,
+          "sigG": 45.398182,
+          "sigR": 65.13195,
+          "time": 1754469752228433
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.14809,
+          "sigG": 45.417946,
+          "sigR": 65.146416,
+          "time": 1754469752270150
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.01898,
+          "sigG": 45.350178,
+          "sigR": 65.00435,
+          "time": 1754469752307876
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.182667,
+          "sigG": 45.549973,
+          "sigR": 65.29646,
+          "time": 1754469752353444
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.096264,
+          "sigG": 45.349857,
+          "sigR": 65.13962,
+          "time": 1754469752394012
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.08276,
+          "sigG": 45.347317,
+          "sigR": 65.09447,
+          "time": 1754469752436761
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.17384,
+          "sigG": 45.415237,
+          "sigR": 65.195496,
+          "time": 1754469752479472
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.233055,
+          "sigG": 45.41251,
+          "sigR": 65.21908,
+          "time": 1754469752518170
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.184467,
+          "sigG": 45.36306,
+          "sigR": 65.1952,
+          "time": 1754469752562302
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.13582,
+          "sigG": 45.267006,
+          "sigR": 65.12509,
+          "time": 1754469752603322
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.04035,
+          "sigG": 45.107292,
+          "sigR": 64.92104,
+          "time": 1754469752645546
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.1177,
+          "sigG": 45.182507,
+          "sigR": 65.04283,
+          "time": 1754469752686608
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.157387,
+          "sigG": 45.24947,
+          "sigR": 65.14438,
+          "time": 1754469752728569
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.171856,
+          "sigG": 45.2366,
+          "sigR": 65.13689,
+          "time": 1754469752770636
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.154312,
+          "sigG": 45.25443,
+          "sigR": 65.184105,
+          "time": 1754469752808742
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.219738,
+          "sigG": 45.3423,
+          "sigR": 65.30984,
+          "time": 1754469752853845
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.267338,
+          "sigG": 45.391376,
+          "sigR": 65.38998,
+          "time": 1754469752895004
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.30595,
+          "sigG": 45.406715,
+          "sigR": 65.40708,
+          "time": 1754469752937493
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.223442,
+          "sigG": 45.312004,
+          "sigR": 65.27835,
+          "time": 1754469752979304
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.3058,
+          "sigG": 45.47655,
+          "sigR": 65.44137,
+          "time": 1754469753019781
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.164875,
+          "sigG": 45.29129,
+          "sigR": 65.18249,
+          "time": 1754469753062401
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.17247,
+          "sigG": 45.31042,
+          "sigR": 65.18896,
+          "time": 1754469753102765
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.157543,
+          "sigG": 45.342537,
+          "sigR": 65.17146,
+          "time": 1754469753144231
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.172813,
+          "sigG": 45.3406,
+          "sigR": 65.148575,
+          "time": 1754469753186314
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.199337,
+          "sigG": 45.357586,
+          "sigR": 65.10979,
+          "time": 1754469753228115
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.19651,
+          "sigG": 45.393646,
+          "sigR": 65.11459,
+          "time": 1754469753269377
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.197235,
+          "sigG": 45.39312,
+          "sigR": 65.107666,
+          "time": 1754469753309780
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.174553,
+          "sigG": 45.342617,
+          "sigR": 65.06424,
+          "time": 1754469753353656
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.153988,
+          "sigG": 45.29949,
+          "sigR": 65.00043,
+          "time": 1754469753394041
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.141586,
+          "sigG": 45.27444,
+          "sigR": 64.9936,
+          "time": 1754469753436050
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.126617,
+          "sigG": 45.213196,
+          "sigR": 64.95427,
+          "time": 1754469753478128
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.022118,
+          "sigG": 45.100677,
+          "sigR": 64.837204,
+          "time": 1754469753516705
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.988403,
+          "sigG": 45.01131,
+          "sigR": 64.74062,
+          "time": 1754469753561890
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.226074,
+          "sigG": 45.234604,
+          "sigR": 65.09917,
+          "time": 1754469753603263
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.207996,
+          "sigG": 45.17269,
+          "sigR": 65.056694,
+          "time": 1754469753643563
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.154858,
+          "sigG": 45.105133,
+          "sigR": 64.96504,
+          "time": 1754469753684948
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.050762,
+          "sigG": 45.019596,
+          "sigR": 64.77103,
+          "time": 1754469753726265
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.055107,
+          "sigG": 45.00982,
+          "sigR": 64.758705,
+          "time": 1754469753767626
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.068943,
+          "sigG": 45.05353,
+          "sigR": 64.8126,
+          "time": 1754469753809074
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.12508,
+          "sigG": 45.110638,
+          "sigR": 64.86811,
+          "time": 1754469753852503
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.137806,
+          "sigG": 45.12617,
+          "sigR": 64.90566,
+          "time": 1754469753893194
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.10254,
+          "sigG": 45.13912,
+          "sigR": 64.88932,
+          "time": 1754469753935161
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.100132,
+          "sigG": 45.126617,
+          "sigR": 64.897385,
+          "time": 1754469753978416
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.07054,
+          "sigG": 45.109425,
+          "sigR": 64.84624,
+          "time": 1754469754015958
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.051914,
+          "sigG": 45.113285,
+          "sigR": 64.82852,
+          "time": 1754469754062040
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.056377,
+          "sigG": 45.136555,
+          "sigR": 64.85741,
+          "time": 1754469754102984
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.085285,
+          "sigG": 45.152493,
+          "sigR": 64.85098,
+          "time": 1754469754144995
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.05846,
+          "sigG": 45.142918,
+          "sigR": 64.82795,
+          "time": 1754469754186937
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.05208,
+          "sigG": 45.150574,
+          "sigR": 64.83735,
+          "time": 1754469754228840
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.025635,
+          "sigG": 45.1533,
+          "sigR": 64.85064,
+          "time": 1754469754270764
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.022827,
+          "sigG": 45.09981,
+          "sigR": 64.817024,
+          "time": 1754469754309960
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.11637,
+          "sigG": 45.218914,
+          "sigR": 64.99602,
+          "time": 1754469754351326
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.15451,
+          "sigG": 45.24643,
+          "sigR": 65.06219,
+          "time": 1754469754394862
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.15888,
+          "sigG": 45.25196,
+          "sigR": 65.102264,
+          "time": 1754469754436269
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.164574,
+          "sigG": 45.25814,
+          "sigR": 65.10528,
+          "time": 1754469754478976
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.136658,
+          "sigG": 45.222435,
+          "sigR": 65.08121,
+          "time": 1754469754515871
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.118565,
+          "sigG": 45.19114,
+          "sigR": 65.06034,
+          "time": 1754469754561136
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.118183,
+          "sigG": 45.16574,
+          "sigR": 65.057785,
+          "time": 1754469754602715
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.13352,
+          "sigG": 45.16367,
+          "sigR": 65.049675,
+          "time": 1754469754644932
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.097412,
+          "sigG": 45.121864,
+          "sigR": 64.99634,
+          "time": 1754469754686527
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.083324,
+          "sigG": 45.132473,
+          "sigR": 65.02341,
+          "time": 1754469754727076
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.10379,
+          "sigG": 45.150043,
+          "sigR": 65.03828,
+          "time": 1754469754769611
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.131084,
+          "sigG": 45.163425,
+          "sigR": 65.04764,
+          "time": 1754469754810469
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.150444,
+          "sigG": 45.18516,
+          "sigR": 65.09606,
+          "time": 1754469754853812
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.128407,
+          "sigG": 45.179146,
+          "sigR": 65.04277,
+          "time": 1754469754895510
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.09423,
+          "sigG": 45.190556,
+          "sigR": 65.03494,
+          "time": 1754469754936660
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.078835,
+          "sigG": 45.20527,
+          "sigR": 65.02367,
+          "time": 1754469754977977
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.073822,
+          "sigG": 45.22596,
+          "sigR": 65.03369,
+          "time": 1754469755019144
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.115406,
+          "sigG": 45.290443,
+          "sigR": 65.09486,
+          "time": 1754469755062220
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.13571,
+          "sigG": 45.354385,
+          "sigR": 65.17132,
+          "time": 1754469755102916
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.094032,
+          "sigG": 45.357082,
+          "sigR": 65.16955,
+          "time": 1754469755145551
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.105846,
+          "sigG": 45.333214,
+          "sigR": 65.14614,
+          "time": 1754469755186526
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.111683,
+          "sigG": 45.33577,
+          "sigR": 65.13827,
+          "time": 1754469755226326
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.13994,
+          "sigG": 45.341545,
+          "sigR": 65.16003,
+          "time": 1754469755269897
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.13211,
+          "sigG": 45.340157,
+          "sigR": 65.18452,
+          "time": 1754469755311367
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.12104,
+          "sigG": 45.296604,
+          "sigR": 65.1525,
+          "time": 1754469755353396
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.271618,
+          "sigG": 45.43946,
+          "sigR": 65.369896,
+          "time": 1754469755394822
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.24864,
+          "sigG": 45.42733,
+          "sigR": 65.38933,
+          "time": 1754469755437211
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.20821,
+          "sigG": 45.38626,
+          "sigR": 65.346436,
+          "time": 1754469755479233
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.17065,
+          "sigG": 45.290688,
+          "sigR": 65.266945,
+          "time": 1754469755519531
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.205376,
+          "sigG": 45.33196,
+          "sigR": 65.32166,
+          "time": 1754469755562085
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.08267,
+          "sigG": 45.203068,
+          "sigR": 65.15036,
+          "time": 1754469755603227
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.053265,
+          "sigG": 45.20471,
+          "sigR": 65.15649,
+          "time": 1754469755645638
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.03449,
+          "sigG": 45.19336,
+          "sigR": 65.14536,
+          "time": 1754469755686767
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.055744,
+          "sigG": 45.197483,
+          "sigR": 65.14204,
+          "time": 1754469755726488
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.07366,
+          "sigG": 45.20801,
+          "sigR": 65.104164,
+          "time": 1754469755770291
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.08631,
+          "sigG": 45.23333,
+          "sigR": 65.16207,
+          "time": 1754469755812020
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.082508,
+          "sigG": 45.228386,
+          "sigR": 65.15851,
+          "time": 1754469755853110
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.055527,
+          "sigG": 45.225945,
+          "sigR": 65.17052,
+          "time": 1754469755895054
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.069016,
+          "sigG": 45.246384,
+          "sigR": 65.161354,
+          "time": 1754469755937149
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.030804,
+          "sigG": 45.238174,
+          "sigR": 65.15907,
+          "time": 1754469755978736
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.02356,
+          "sigG": 45.290817,
+          "sigR": 65.168015,
+          "time": 1754469756018739
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.014153,
+          "sigG": 45.29194,
+          "sigR": 65.173805,
+          "time": 1754469756062567
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.0031,
+          "sigG": 45.32933,
+          "sigR": 65.203064,
+          "time": 1754469756104370
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.960247,
+          "sigG": 45.32833,
+          "sigR": 65.21115,
+          "time": 1754469756145286
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.97954,
+          "sigG": 45.359474,
+          "sigR": 65.23031,
+          "time": 1754469756187592
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.979103,
+          "sigG": 45.38053,
+          "sigR": 65.26166,
+          "time": 1754469756227514
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.003662,
+          "sigG": 45.41344,
+          "sigR": 65.317924,
+          "time": 1754469756270465
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.041195,
+          "sigG": 45.43814,
+          "sigR": 65.381294,
+          "time": 1754469756311111
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.93017,
+          "sigG": 45.29416,
+          "sigR": 65.22675,
+          "time": 1754469756353898
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.93541,
+          "sigG": 45.306774,
+          "sigR": 65.266754,
+          "time": 1754469756396309
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.96878,
+          "sigG": 45.304684,
+          "sigR": 65.27566,
+          "time": 1754469756435593
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.272892,
+          "sigG": 45.598457,
+          "sigR": 65.75299,
+          "time": 1754469756477821
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.28892,
+          "sigG": 45.581738,
+          "sigR": 65.779236,
+          "time": 1754469756518186
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.303265,
+          "sigG": 45.626152,
+          "sigR": 65.794044,
+          "time": 1754469756561413
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.280743,
+          "sigG": 45.612022,
+          "sigR": 65.782135,
+          "time": 1754469756602337
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.363182,
+          "sigG": 45.634182,
+          "sigR": 65.805115,
+          "time": 1754469756642832
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.418648,
+          "sigG": 45.69591,
+          "sigR": 65.86521,
+          "time": 1754469756687267
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.370125,
+          "sigG": 45.654167,
+          "sigR": 65.738335,
+          "time": 1754469756725405
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.36284,
+          "sigG": 45.655457,
+          "sigR": 65.76307,
+          "time": 1754469756771188
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.45395,
+          "sigG": 45.750572,
+          "sigR": 65.89748,
+          "time": 1754469756812215
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.54919,
+          "sigG": 45.920902,
+          "sigR": 66.11474,
+          "time": 1754469756854317
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.59222,
+          "sigG": 45.937447,
+          "sigR": 66.100006,
+          "time": 1754469756895758
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.532322,
+          "sigG": 45.839874,
+          "sigR": 65.994446,
+          "time": 1754469756937060
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.462,
+          "sigG": 45.768444,
+          "sigR": 65.89842,
+          "time": 1754469756979124
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.355152,
+          "sigG": 45.63539,
+          "sigR": 65.67361,
+          "time": 1754469757018535
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.341343,
+          "sigG": 45.634926,
+          "sigR": 65.60325,
+          "time": 1754469757062066
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.372334,
+          "sigG": 45.67019,
+          "sigR": 65.620674,
+          "time": 1754469757103967
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.432095,
+          "sigG": 45.761883,
+          "sigR": 65.74422,
+          "time": 1754469757146023
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.33589,
+          "sigG": 45.616615,
+          "sigR": 65.52979,
+          "time": 1754469757187581
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.332497,
+          "sigG": 45.592255,
+          "sigR": 65.5524,
+          "time": 1754469757227036
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.31662,
+          "sigG": 45.552055,
+          "sigR": 65.47685,
+          "time": 1754469757267290
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.28844,
+          "sigG": 45.50812,
+          "sigR": 65.45758,
+          "time": 1754469757311740
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.27016,
+          "sigG": 45.44956,
+          "sigR": 65.38698,
+          "time": 1754469757352698
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.31068,
+          "sigG": 45.513252,
+          "sigR": 65.47645,
+          "time": 1754469757394209
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.254707,
+          "sigG": 45.471275,
+          "sigR": 65.44659,
+          "time": 1754469757436564
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.276382,
+          "sigG": 45.398876,
+          "sigR": 65.40144,
+          "time": 1754469757478217
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.27604,
+          "sigG": 45.392353,
+          "sigR": 65.371826,
+          "time": 1754469757518025
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.29622,
+          "sigG": 45.42063,
+          "sigR": 65.43267,
+          "time": 1754469757562237
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.275715,
+          "sigG": 45.42356,
+          "sigR": 65.46033,
+          "time": 1754469757603726
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.263836,
+          "sigG": 45.409847,
+          "sigR": 65.4558,
+          "time": 1754469757644150
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.18162,
+          "sigG": 45.33494,
+          "sigR": 65.31484,
+          "time": 1754469757686623
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.133385,
+          "sigG": 45.264645,
+          "sigR": 65.18762,
+          "time": 1754469757726370
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.133526,
+          "sigG": 45.240242,
+          "sigR": 65.13374,
+          "time": 1754469757767179
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.11799,
+          "sigG": 45.22184,
+          "sigR": 65.108055,
+          "time": 1754469757810760
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.093487,
+          "sigG": 45.22556,
+          "sigR": 65.1314,
+          "time": 1754469757852588
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.073288,
+          "sigG": 45.223618,
+          "sigR": 65.106964,
+          "time": 1754469757893595
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.0727,
+          "sigG": 45.219173,
+          "sigR": 65.05014,
+          "time": 1754469757935647
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.039776,
+          "sigG": 45.18156,
+          "sigR": 64.98598,
+          "time": 1754469757977111
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.20099,
+          "sigG": 45.412617,
+          "sigR": 65.2891,
+          "time": 1754469758017868
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.231598,
+          "sigG": 45.446236,
+          "sigR": 65.31398,
+          "time": 1754469758059328
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.108112,
+          "sigG": 45.29026,
+          "sigR": 65.05771,
+          "time": 1754469758101522
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.107647,
+          "sigG": 45.28915,
+          "sigR": 65.06424,
+          "time": 1754469758143142
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.084538,
+          "sigG": 45.25998,
+          "sigR": 65.008705,
+          "time": 1754469758186088
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.253593,
+          "sigG": 45.529564,
+          "sigR": 65.383545,
+          "time": 1754469758224549
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.229942,
+          "sigG": 45.472908,
+          "sigR": 65.35807,
+          "time": 1754469758269647
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.198727,
+          "sigG": 45.460373,
+          "sigR": 65.36952,
+          "time": 1754469758311565
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.218754,
+          "sigG": 45.43115,
+          "sigR": 65.32619,
+          "time": 1754469758353437
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.217445,
+          "sigG": 45.384758,
+          "sigR": 65.32963,
+          "time": 1754469758395372
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.184742,
+          "sigG": 45.364853,
+          "sigR": 65.32464,
+          "time": 1754469758434523
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.1752,
+          "sigG": 45.329548,
+          "sigR": 65.29354,
+          "time": 1754469758478960
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.183346,
+          "sigG": 45.39739,
+          "sigR": 65.3495,
+          "time": 1754469758519199
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.214367,
+          "sigG": 45.399334,
+          "sigR": 65.368256,
+          "time": 1754469758561212
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.24306,
+          "sigG": 45.451992,
+          "sigR": 65.44351,
+          "time": 1754469758602409
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.210796,
+          "sigG": 45.403286,
+          "sigR": 65.38062,
+          "time": 1754469758643609
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.177654,
+          "sigG": 45.395203,
+          "sigR": 65.363686,
+          "time": 1754469758686978
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.25686,
+          "sigG": 45.48077,
+          "sigR": 65.44536,
+          "time": 1754469758726149
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.284813,
+          "sigG": 45.547443,
+          "sigR": 65.52017,
+          "time": 1754469758768573
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.31499,
+          "sigG": 45.577847,
+          "sigR": 65.542496,
+          "time": 1754469758809489
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.330414,
+          "sigG": 45.60494,
+          "sigR": 65.5323,
+          "time": 1754469758853306
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.359108,
+          "sigG": 45.6446,
+          "sigR": 65.55268,
+          "time": 1754469758895168
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.233284,
+          "sigG": 45.50479,
+          "sigR": 65.36318,
+          "time": 1754469758936806
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.24186,
+          "sigG": 45.55464,
+          "sigR": 65.37763,
+          "time": 1754469758978107
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.287647,
+          "sigG": 45.59691,
+          "sigR": 65.42426,
+          "time": 1754469759019680
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.335205,
+          "sigG": 45.71146,
+          "sigR": 65.56473,
+          "time": 1754469759061605
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.35556,
+          "sigG": 45.715508,
+          "sigR": 65.54506,
+          "time": 1754469759103806
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.327965,
+          "sigG": 45.68212,
+          "sigR": 65.53267,
+          "time": 1754469759145063
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.33737,
+          "sigG": 45.691547,
+          "sigR": 65.56006,
+          "time": 1754469759186765
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.32626,
+          "sigG": 45.676426,
+          "sigR": 65.57197,
+          "time": 1754469759225763
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.332317,
+          "sigG": 45.642216,
+          "sigR": 65.56309,
+          "time": 1754469759271026
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.339695,
+          "sigG": 45.600826,
+          "sigR": 65.53271,
+          "time": 1754469759312635
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.186714,
+          "sigG": 45.401558,
+          "sigR": 65.27946,
+          "time": 1754469759353980
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.21135,
+          "sigG": 45.416245,
+          "sigR": 65.31842,
+          "time": 1754469759394867
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.195465,
+          "sigG": 45.409092,
+          "sigR": 65.332565,
+          "time": 1754469759435717
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.16116,
+          "sigG": 45.4003,
+          "sigR": 65.33129,
+          "time": 1754469759478654
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.214466,
+          "sigG": 45.423317,
+          "sigR": 65.38576,
+          "time": 1754469759520138
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.235207,
+          "sigG": 45.49049,
+          "sigR": 65.462036,
+          "time": 1754469759562080
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.2404,
+          "sigG": 45.515865,
+          "sigR": 65.48698,
+          "time": 1754469759603325
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.252926,
+          "sigG": 45.534966,
+          "sigR": 65.513885,
+          "time": 1754469759645219
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.299057,
+          "sigG": 45.634296,
+          "sigR": 65.641785,
+          "time": 1754469759686971
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.284714,
+          "sigG": 45.626633,
+          "sigR": 65.60871,
+          "time": 1754469759727391
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.323997,
+          "sigG": 45.687874,
+          "sigR": 65.6801,
+          "time": 1754469759771046
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.437164,
+          "sigG": 45.789112,
+          "sigR": 65.814026,
+          "time": 1754469759811907
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.362465,
+          "sigG": 45.729477,
+          "sigR": 65.70301,
+          "time": 1754469759854903
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.314476,
+          "sigG": 45.69504,
+          "sigR": 65.64618,
+          "time": 1754469759894427
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.348198,
+          "sigG": 45.72626,
+          "sigR": 65.69631,
+          "time": 1754469759934965
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.31881,
+          "sigG": 45.76658,
+          "sigR": 65.68385,
+          "time": 1754469759978354
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.32018,
+          "sigG": 45.79078,
+          "sigR": 65.69993,
+          "time": 1754469760020514
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.1397,
+          "sigG": 45.563656,
+          "sigR": 65.42358,
+          "time": 1754469760061612
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.08462,
+          "sigG": 45.536457,
+          "sigR": 65.40341,
+          "time": 1754469760103032
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.155777,
+          "sigG": 45.57417,
+          "sigR": 65.50796,
+          "time": 1754469760144654
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.314537,
+          "sigG": 45.731705,
+          "sigR": 65.75318,
+          "time": 1754469760186409
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.979366,
+          "sigG": 45.303875,
+          "sigR": 65.29362,
+          "time": 1754469760225911
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.178303,
+          "sigG": 45.531326,
+          "sigR": 65.61808,
+          "time": 1754469760269723
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.154736,
+          "sigG": 45.506668,
+          "sigR": 65.58054,
+          "time": 1754469760312387
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.13232,
+          "sigG": 45.404312,
+          "sigR": 65.465614,
+          "time": 1754469760353485
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.155647,
+          "sigG": 45.412777,
+          "sigR": 65.4375,
+          "time": 1754469760395297
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.15545,
+          "sigG": 45.36002,
+          "sigR": 65.39787,
+          "time": 1754469760433042
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.15829,
+          "sigG": 45.34031,
+          "sigR": 65.38152,
+          "time": 1754469760479206
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.20288,
+          "sigG": 45.34947,
+          "sigR": 65.38486,
+          "time": 1754469760520290
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.16205,
+          "sigG": 45.363598,
+          "sigR": 65.38452,
+          "time": 1754469760562451
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.273243,
+          "sigG": 45.49832,
+          "sigR": 65.59044,
+          "time": 1754469760604200
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.402256,
+          "sigG": 45.658203,
+          "sigR": 65.83992,
+          "time": 1754469760645376
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.349716,
+          "sigG": 45.593746,
+          "sigR": 65.77443,
+          "time": 1754469760686468
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.42712,
+          "sigG": 45.70195,
+          "sigR": 65.87285,
+          "time": 1754469760727604
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.413506,
+          "sigG": 45.702374,
+          "sigR": 65.78501,
+          "time": 1754469760770582
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.42728,
+          "sigG": 45.725468,
+          "sigR": 65.7978,
+          "time": 1754469760811639
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.390194,
+          "sigG": 45.65566,
+          "sigR": 65.68007,
+          "time": 1754469760853374
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.411877,
+          "sigG": 45.655304,
+          "sigR": 65.65071,
+          "time": 1754469760895162
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.31997,
+          "sigG": 45.599487,
+          "sigR": 65.53633,
+          "time": 1754469760934066
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.313675,
+          "sigG": 45.57165,
+          "sigR": 65.45607,
+          "time": 1754469760977401
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.27352,
+          "sigG": 45.569298,
+          "sigR": 65.44367,
+          "time": 1754469761019957
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.302784,
+          "sigG": 45.57591,
+          "sigR": 65.42914,
+          "time": 1754469761063004
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.286312,
+          "sigG": 45.55035,
+          "sigR": 65.385605,
+          "time": 1754469761104360
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.122086,
+          "sigG": 45.32447,
+          "sigR": 65.11169,
+          "time": 1754469761144428
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.13207,
+          "sigG": 45.315395,
+          "sigR": 65.13181,
+          "time": 1754469761186500
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.253178,
+          "sigG": 45.409412,
+          "sigR": 65.3253,
+          "time": 1754469761226253
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.25051,
+          "sigG": 45.384007,
+          "sigR": 65.29407,
+          "time": 1754469761270381
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.06486,
+          "sigG": 45.0854,
+          "sigR": 64.97214,
+          "time": 1754469761311527
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.202522,
+          "sigG": 45.321335,
+          "sigR": 65.33139,
+          "time": 1754469761353250
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.14867,
+          "sigG": 45.246296,
+          "sigR": 65.21062,
+          "time": 1754469761393733
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.127464,
+          "sigG": 45.226715,
+          "sigR": 65.19464,
+          "time": 1754469761434461
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.142353,
+          "sigG": 45.20593,
+          "sigR": 65.18591,
+          "time": 1754469761477929
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.14352,
+          "sigG": 45.21957,
+          "sigR": 65.204506,
+          "time": 1754469761519907
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.14772,
+          "sigG": 45.26489,
+          "sigR": 65.250275,
+          "time": 1754469761560611
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.227863,
+          "sigG": 45.285618,
+          "sigR": 65.25736,
+          "time": 1754469761602085
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.2342,
+          "sigG": 45.3246,
+          "sigR": 65.29166,
+          "time": 1754469761642661
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.205055,
+          "sigG": 45.3385,
+          "sigR": 65.28489,
+          "time": 1754469761684459
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.225193,
+          "sigG": 45.340797,
+          "sigR": 65.30083,
+          "time": 1754469761726538
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.217926,
+          "sigG": 45.375504,
+          "sigR": 65.31601,
+          "time": 1754469761768339
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.228836,
+          "sigG": 45.38873,
+          "sigR": 65.323296,
+          "time": 1754469761811792
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.286736,
+          "sigG": 45.527588,
+          "sigR": 65.46298,
+          "time": 1754469761853304
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.32714,
+          "sigG": 45.586594,
+          "sigR": 65.51814,
+          "time": 1754469761895319
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.07004,
+          "sigG": 45.26922,
+          "sigR": 65.06315,
+          "time": 1754469761933658
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.06876,
+          "sigG": 45.255554,
+          "sigR": 65.01633,
+          "time": 1754469761979019
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.016975,
+          "sigG": 45.247005,
+          "sigR": 65.03712,
+          "time": 1754469762022915
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.05403,
+          "sigG": 45.257423,
+          "sigR": 65.0524,
+          "time": 1754469762061574
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.00325,
+          "sigG": 45.22322,
+          "sigR": 65.01077,
+          "time": 1754469762103790
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.98734,
+          "sigG": 45.17094,
+          "sigR": 64.96851,
+          "time": 1754469762143606
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.976093,
+          "sigG": 45.134434,
+          "sigR": 64.94888,
+          "time": 1754469762186877
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 35.97326,
+          "sigG": 45.108185,
+          "sigR": 64.94055,
+          "time": 1754469762228698
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.035995,
+          "sigG": 45.154182,
+          "sigR": 65.03464,
+          "time": 1754469762270637
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.008663,
+          "sigG": 45.14154,
+          "sigR": 65.05829,
+          "time": 1754469762311301
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.25002,
+          "sigG": 45.404472,
+          "sigR": 65.44736,
+          "time": 1754469762354114
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.247665,
+          "sigG": 45.41364,
+          "sigR": 65.47717,
+          "time": 1754469762394622
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.29324,
+          "sigG": 45.471867,
+          "sigR": 65.58381,
+          "time": 1754469762434646
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.181747,
+          "sigG": 45.3371,
+          "sigR": 65.388176,
+          "time": 1754469762478011
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.190388,
+          "sigG": 45.366947,
+          "sigR": 65.41491,
+          "time": 1754469762519747
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.257027,
+          "sigG": 45.423607,
+          "sigR": 65.49632,
+          "time": 1754469762561613
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.26778,
+          "sigG": 45.445305,
+          "sigR": 65.51981,
+          "time": 1754469762602215
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.27654,
+          "sigG": 45.500187,
+          "sigR": 65.56858,
+          "time": 1754469762643126
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.35256,
+          "sigG": 45.63109,
+          "sigR": 65.73525,
+          "time": 1754469762686955
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.347507,
+          "sigG": 45.63588,
+          "sigR": 65.71878,
+          "time": 1754469762727584
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.335274,
+          "sigG": 45.62816,
+          "sigR": 65.67571,
+          "time": 1754469762769987
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.321518,
+          "sigG": 45.593555,
+          "sigR": 65.58472,
+          "time": 1754469762811529
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.398632,
+          "sigG": 45.701366,
+          "sigR": 65.70232,
+          "time": 1754469762853283
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.37188,
+          "sigG": 45.7034,
+          "sigR": 65.695625,
+          "time": 1754469762895899
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.428223,
+          "sigG": 45.755737,
+          "sigR": 65.70932,
+          "time": 1754469762934093
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.43939,
+          "sigG": 45.780197,
+          "sigR": 65.7236,
+          "time": 1754469762979343
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.40958,
+          "sigG": 45.740803,
+          "sigR": 65.687836,
+          "time": 1754469763020671
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.385334,
+          "sigG": 45.71991,
+          "sigR": 65.66592,
+          "time": 1754469763062149
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.39731,
+          "sigG": 45.684242,
+          "sigR": 65.66109,
+          "time": 1754469763103676
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.36561,
+          "sigG": 45.663136,
+          "sigR": 65.66645,
+          "time": 1754469763143261
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.382042,
+          "sigG": 45.673195,
+          "sigR": 65.7062,
+          "time": 1754469763186599
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.37533,
+          "sigG": 45.633602,
+          "sigR": 65.70703,
+          "time": 1754469763228621
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.389793,
+          "sigG": 45.59843,
+          "sigR": 65.68612,
+          "time": 1754469763270402
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.373142,
+          "sigG": 45.580673,
+          "sigR": 65.666115,
+          "time": 1754469763311847
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.37778,
+          "sigG": 45.569214,
+          "sigR": 65.66675,
+          "time": 1754469763354090
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.314583,
+          "sigG": 45.458466,
+          "sigR": 65.52463,
+          "time": 1754469763395140
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.377895,
+          "sigG": 45.537876,
+          "sigR": 65.629005,
+          "time": 1754469763435330
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.37007,
+          "sigG": 45.548275,
+          "sigR": 65.652695,
+          "time": 1754469763481685
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.384304,
+          "sigG": 45.59728,
+          "sigR": 65.692375,
+          "time": 1754469763520441
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.34668,
+          "sigG": 45.58238,
+          "sigR": 65.64418,
+          "time": 1754469763562385
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.299152,
+          "sigG": 45.53845,
+          "sigR": 65.576324,
+          "time": 1754469763603129
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.316254,
+          "sigG": 45.56913,
+          "sigR": 65.607346,
+          "time": 1754469763642748
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.267387,
+          "sigG": 45.529034,
+          "sigR": 65.53035,
+          "time": 1754469763687722
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.29864,
+          "sigG": 45.565277,
+          "sigR": 65.54509,
+          "time": 1754469763728770
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.30674,
+          "sigG": 45.598244,
+          "sigR": 65.59995,
+          "time": 1754469763771297
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.323486,
+          "sigG": 45.627472,
+          "sigR": 65.607956,
+          "time": 1754469763812256
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.307014,
+          "sigG": 45.624954,
+          "sigR": 65.56569,
+          "time": 1754469763853747
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.30045,
+          "sigG": 45.627647,
+          "sigR": 65.53841,
+          "time": 1754469763894835
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.30192,
+          "sigG": 45.631382,
+          "sigR": 65.54545,
+          "time": 1754469763935653
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.33414,
+          "sigG": 45.65375,
+          "sigR": 65.59492,
+          "time": 1754469763978897
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.28871,
+          "sigG": 45.626743,
+          "sigR": 65.54368,
+          "time": 1754469764021871
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.260056,
+          "sigG": 45.587925,
+          "sigR": 65.5307,
+          "time": 1754469764062751
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.170322,
+          "sigG": 45.491234,
+          "sigR": 65.44435,
+          "time": 1754469764103944
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.33371,
+          "sigG": 45.712307,
+          "sigR": 65.75403,
+          "time": 1754469764141654
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.174587,
+          "sigG": 45.429592,
+          "sigR": 65.42753,
+          "time": 1754469764187626
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.13673,
+          "sigG": 45.393326,
+          "sigR": 65.3822,
+          "time": 1754469764228718
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.143196,
+          "sigG": 45.408085,
+          "sigR": 65.41257,
+          "time": 1754469764270963
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.227047,
+          "sigG": 45.52002,
+          "sigR": 65.57575,
+          "time": 1754469764312669
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.217373,
+          "sigG": 45.47308,
+          "sigR": 65.54105,
+          "time": 1754469764353764
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.24091,
+          "sigG": 45.482464,
+          "sigR": 65.54971,
+          "time": 1754469764394887
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.20316,
+          "sigG": 45.480274,
+          "sigR": 65.542366,
+          "time": 1754469764435898
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.196377,
+          "sigG": 45.461723,
+          "sigR": 65.513336,
+          "time": 1754469764478803
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.191936,
+          "sigG": 45.479416,
+          "sigR": 65.52535,
+          "time": 1754469764520660
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.185234,
+          "sigG": 45.513508,
+          "sigR": 65.53472,
+          "time": 1754469764562532
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.25358,
+          "sigG": 45.584454,
+          "sigR": 65.609085,
+          "time": 1754469764603807
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.258114,
+          "sigG": 45.625313,
+          "sigR": 65.650764,
+          "time": 1754469764641281
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.14245,
+          "sigG": 45.444233,
+          "sigR": 65.372604,
+          "time": 1754469764688412
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.400513,
+          "sigG": 45.81559,
+          "sigR": 65.857544,
+          "time": 1754469764730840
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.367455,
+          "sigG": 45.79727,
+          "sigR": 65.81444,
+          "time": 1754469764770093
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.39375,
+          "sigG": 45.826458,
+          "sigR": 65.81127,
+          "time": 1754469764812382
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.388725,
+          "sigG": 45.852577,
+          "sigR": 65.81928,
+          "time": 1754469764853737
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.436485,
+          "sigG": 45.895607,
+          "sigR": 65.86568,
+          "time": 1754469764894499
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.486492,
+          "sigG": 45.983147,
+          "sigR": 65.95523,
+          "time": 1754469764936313
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.187206,
+          "sigG": 45.639935,
+          "sigR": 65.5203,
+          "time": 1754469764978581
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.195835,
+          "sigG": 45.664093,
+          "sigR": 65.55227,
+          "time": 1754469765019730
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.236546,
+          "sigG": 45.659573,
+          "sigR": 65.59924,
+          "time": 1754469765061871
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.251957,
+          "sigG": 45.61395,
+          "sigR": 65.56001,
+          "time": 1754469765104046
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.228683,
+          "sigG": 45.557514,
+          "sigR": 65.4899,
+          "time": 1754469765142143
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.20372,
+          "sigG": 45.521584,
+          "sigR": 65.47682,
+          "time": 1754469765187485
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.160988,
+          "sigG": 45.491196,
+          "sigR": 65.43063,
+          "time": 1754469765229082
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.152454,
+          "sigG": 45.4668,
+          "sigR": 65.42546,
+          "time": 1754469765270647
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.147087,
+          "sigG": 45.45656,
+          "sigR": 65.40109,
+          "time": 1754469765312327
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.250996,
+          "sigG": 45.617886,
+          "sigR": 65.649025,
+          "time": 1754469765351643
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.395584,
+          "sigG": 45.786736,
+          "sigR": 65.92426,
+          "time": 1754469765395445
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.398792,
+          "sigG": 45.85473,
+          "sigR": 65.97116,
+          "time": 1754469765435685
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.374275,
+          "sigG": 45.804855,
+          "sigR": 65.9653,
+          "time": 1754469765478799
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.34763,
+          "sigG": 45.791054,
+          "sigR": 65.92172,
+          "time": 1754469765520256
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.32216,
+          "sigG": 45.757114,
+          "sigR": 65.85797,
+          "time": 1754469765562176
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.291424,
+          "sigG": 45.739777,
+          "sigR": 65.78122,
+          "time": 1754469765603812
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.28292,
+          "sigG": 45.69616,
+          "sigR": 65.68506,
+          "time": 1754469765641753
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.221497,
+          "sigG": 45.657845,
+          "sigR": 65.59026,
+          "time": 1754469765687528
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.19266,
+          "sigG": 45.62074,
+          "sigR": 65.5276,
+          "time": 1754469765729360
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.18574,
+          "sigG": 45.601933,
+          "sigR": 65.46393,
+          "time": 1754469765770856
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.144333,
+          "sigG": 45.61761,
+          "sigR": 65.44954,
+          "time": 1754469765813083
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.079777,
+          "sigG": 45.518974,
+          "sigR": 65.31361,
+          "time": 1754469765853877
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.20742,
+          "sigG": 45.693638,
+          "sigR": 65.54205,
+          "time": 1754469765896215
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.419315,
+          "sigG": 45.96153,
+          "sigR": 65.882576,
+          "time": 1754469765936816
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.296295,
+          "sigG": 45.804893,
+          "sigR": 65.66844,
+          "time": 1754469765978820
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.285774,
+          "sigG": 45.815823,
+          "sigR": 65.68482,
+          "time": 1754469766020208
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.31381,
+          "sigG": 45.815296,
+          "sigR": 65.71745,
+          "time": 1754469766065308
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.32894,
+          "sigG": 45.801395,
+          "sigR": 65.73809,
+          "time": 1754469766103562
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.336136,
+          "sigG": 45.79739,
+          "sigR": 65.751526,
+          "time": 1754469766142083
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.330173,
+          "sigG": 45.800713,
+          "sigR": 65.769005,
+          "time": 1754469766187211
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.366066,
+          "sigG": 45.812088,
+          "sigR": 65.794846,
+          "time": 1754469766228999
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.358326,
+          "sigG": 45.82587,
+          "sigR": 65.83057,
+          "time": 1754469766270437
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.383015,
+          "sigG": 45.84718,
+          "sigR": 65.86323,
+          "time": 1754469766311936
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.358345,
+          "sigG": 45.85934,
+          "sigR": 65.89758,
+          "time": 1754469766352036
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.399593,
+          "sigG": 45.894356,
+          "sigR": 65.9654,
+          "time": 1754469766396292
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.321922,
+          "sigG": 45.84808,
+          "sigR": 65.88978,
+          "time": 1754469766437121
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.19578,
+          "sigG": 45.745186,
+          "sigR": 65.7259,
+          "time": 1754469766479220
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.27219,
+          "sigG": 45.81828,
+          "sigR": 65.84665,
+          "time": 1754469766520396
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.248573,
+          "sigG": 45.80505,
+          "sigR": 65.80753,
+          "time": 1754469766562067
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.32477,
+          "sigG": 45.83725,
+          "sigR": 65.82238,
+          "time": 1754469766603888
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.356693,
+          "sigG": 45.878708,
+          "sigR": 65.847885,
+          "time": 1754469766644386
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.40447,
+          "sigG": 45.923405,
+          "sigR": 65.859085,
+          "time": 1754469766687754
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.379,
+          "sigG": 45.940865,
+          "sigR": 65.862656,
+          "time": 1754469766728910
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.395718,
+          "sigG": 45.993664,
+          "sigR": 65.90496,
+          "time": 1754469766771549
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.469666,
+          "sigG": 46.031235,
+          "sigR": 65.93527,
+          "time": 1754469766812870
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.48138,
+          "sigG": 46.071396,
+          "sigR": 65.95858,
+          "time": 1754469766851808
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.43755,
+          "sigG": 46.054092,
+          "sigR": 65.91451,
+          "time": 1754469766896109
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.415436,
+          "sigG": 46.00993,
+          "sigR": 65.820045,
+          "time": 1754469766937136
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.375885,
+          "sigG": 45.93372,
+          "sigR": 65.77861,
+          "time": 1754469766979383
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.409832,
+          "sigG": 45.898315,
+          "sigR": 65.79875,
+          "time": 1754469767020290
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.282196,
+          "sigG": 45.67793,
+          "sigR": 65.50511,
+          "time": 1754469767062742
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.25858,
+          "sigG": 45.653214,
+          "sigR": 65.49654,
+          "time": 1754469767103659
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.26369,
+          "sigG": 45.661045,
+          "sigR": 65.52517,
+          "time": 1754469767143606
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.26034,
+          "sigG": 45.628086,
+          "sigR": 65.47644,
+          "time": 1754469767187337
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.25615,
+          "sigG": 45.614902,
+          "sigR": 65.46418,
+          "time": 1754469767229235
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.23731,
+          "sigG": 45.60231,
+          "sigR": 65.439896,
+          "time": 1754469767269183
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.317253,
+          "sigG": 45.705345,
+          "sigR": 65.65159,
+          "time": 1754469767311584
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.38678,
+          "sigG": 45.77679,
+          "sigR": 65.75304,
+          "time": 1754469767351665
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.524654,
+          "sigG": 45.944855,
+          "sigR": 66.0115,
+          "time": 1754469767395105
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.498177,
+          "sigG": 45.92173,
+          "sigR": 65.961555,
+          "time": 1754469767436785
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.464336,
+          "sigG": 45.876457,
+          "sigR": 65.85326,
+          "time": 1754469767478052
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.403378,
+          "sigG": 45.81399,
+          "sigR": 65.74696,
+          "time": 1754469767520648
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.36179,
+          "sigG": 45.75256,
+          "sigR": 65.62867,
+          "time": 1754469767563023
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.327778,
+          "sigG": 45.71722,
+          "sigR": 65.55198,
+          "time": 1754469767604025
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.536865,
+          "sigG": 45.97465,
+          "sigR": 65.8831,
+          "time": 1754469767644434
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.575596,
+          "sigG": 46.03237,
+          "sigR": 65.93198,
+          "time": 1754469767687528
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.595806,
+          "sigG": 46.091057,
+          "sigR": 65.95179,
+          "time": 1754469767728487
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.628906,
+          "sigG": 46.136223,
+          "sigR": 66.00318,
+          "time": 1754469767769804
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.654156,
+          "sigG": 46.158176,
+          "sigR": 66.023155,
+          "time": 1754469767811326
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.65996,
+          "sigG": 46.16271,
+          "sigR": 66.00916,
+          "time": 1754469767851632
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.64717,
+          "sigG": 46.165848,
+          "sigR": 66.01554,
+          "time": 1754469767894734
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.626865,
+          "sigG": 46.121056,
+          "sigR": 65.957306,
+          "time": 1754469767936520
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.618015,
+          "sigG": 46.118565,
+          "sigR": 65.967865,
+          "time": 1754469767978508
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.630043,
+          "sigG": 46.102516,
+          "sigR": 65.98482,
+          "time": 1754469768020335
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.604103,
+          "sigG": 46.076008,
+          "sigR": 65.9698,
+          "time": 1754469768061170
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.606026,
+          "sigG": 46.021366,
+          "sigR": 65.94652,
+          "time": 1754469768102972
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.51964,
+          "sigG": 45.894722,
+          "sigR": 65.777794,
+          "time": 1754469768144756
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.517883,
+          "sigG": 45.889843,
+          "sigR": 65.797325,
+          "time": 1754469768185633
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.534748,
+          "sigG": 45.901154,
+          "sigR": 65.8555,
+          "time": 1754469768228486
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.547756,
+          "sigG": 45.892815,
+          "sigR": 65.854454,
+          "time": 1754469768270315
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.54395,
+          "sigG": 45.894836,
+          "sigR": 65.859406,
+          "time": 1754469768312453
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.57126,
+          "sigG": 45.911964,
+          "sigR": 65.886635,
+          "time": 1754469768351892
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.54028,
+          "sigG": 45.894993,
+          "sigR": 65.86233,
+          "time": 1754469768395659
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.536964,
+          "sigG": 45.903095,
+          "sigR": 65.84669,
+          "time": 1754469768437295
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.503727,
+          "sigG": 45.918125,
+          "sigR": 65.85102,
+          "time": 1754469768478927
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.56753,
+          "sigG": 45.97995,
+          "sigR": 65.908966,
+          "time": 1754469768519902
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.58745,
+          "sigG": 46.022995,
+          "sigR": 65.95422,
+          "time": 1754469768556956
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.617073,
+          "sigG": 46.064648,
+          "sigR": 66.00557,
+          "time": 1754469768602550
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.605556,
+          "sigG": 46.081207,
+          "sigR": 66.01458,
+          "time": 1754469768644306
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.57585,
+          "sigG": 46.076344,
+          "sigR": 66.00628,
+          "time": 1754469768686822
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.59651,
+          "sigG": 46.06918,
+          "sigR": 66.0002,
+          "time": 1754469768728617
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.614796,
+          "sigG": 46.122154,
+          "sigR": 66.04791,
+          "time": 1754469768770048
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.62694,
+          "sigG": 46.14913,
+          "sigR": 66.03975,
+          "time": 1754469768811487
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.59606,
+          "sigG": 46.141796,
+          "sigR": 66.031075,
+          "time": 1754469768850168
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.5692,
+          "sigG": 46.12859,
+          "sigR": 65.98428,
+          "time": 1754469768895505
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.560764,
+          "sigG": 46.117603,
+          "sigR": 65.98682,
+          "time": 1754469768937146
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.52468,
+          "sigG": 46.06114,
+          "sigR": 65.95126,
+          "time": 1754469768978915
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.51089,
+          "sigG": 46.024544,
+          "sigR": 65.91862,
+          "time": 1754469769020674
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.498177,
+          "sigG": 45.986893,
+          "sigR": 65.88042,
+          "time": 1754469769060328
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.517265,
+          "sigG": 45.982674,
+          "sigR": 65.90129,
+          "time": 1754469769104009
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.54499,
+          "sigG": 46.00669,
+          "sigR": 65.97542,
+          "time": 1754469769145705
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.58313,
+          "sigG": 46.015953,
+          "sigR": 66.01507,
+          "time": 1754469769187157
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.538418,
+          "sigG": 45.999214,
+          "sigR": 66.00738,
+          "time": 1754469769228863
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.534218,
+          "sigG": 45.98507,
+          "sigR": 65.98458,
+          "time": 1754469769270639
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.532,
+          "sigG": 45.967922,
+          "sigR": 65.97703,
+          "time": 1754469769311695
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.426727,
+          "sigG": 45.88673,
+          "sigR": 65.84527,
+          "time": 1754469769349887
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.435898,
+          "sigG": 45.886673,
+          "sigR": 65.8429,
+          "time": 1754469769395608
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.43838,
+          "sigG": 45.898655,
+          "sigR": 65.86429,
+          "time": 1754469769437102
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.429268,
+          "sigG": 45.904736,
+          "sigR": 65.85467,
+          "time": 1754469769479005
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.422585,
+          "sigG": 45.91482,
+          "sigR": 65.86698,
+          "time": 1754469769521979
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.485455,
+          "sigG": 45.99224,
+          "sigR": 65.974045,
+          "time": 1754469769560336
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.45454,
+          "sigG": 45.983707,
+          "sigR": 65.953606,
+          "time": 1754469769604360
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.424637,
+          "sigG": 46.00068,
+          "sigR": 65.94062,
+          "time": 1754469769645534
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.402878,
+          "sigG": 45.95106,
+          "sigR": 65.89617,
+          "time": 1754469769687333
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.38915,
+          "sigG": 45.99753,
+          "sigR": 65.916176,
+          "time": 1754469769728761
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.323406,
+          "sigG": 45.90073,
+          "sigR": 65.78909,
+          "time": 1754469769770990
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.485226,
+          "sigG": 46.12806,
+          "sigR": 66.03241,
+          "time": 1754469769810884
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.410473,
+          "sigG": 46.024643,
+          "sigR": 65.9424,
+          "time": 1754469769850895
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.370487,
+          "sigG": 45.97271,
+          "sigR": 65.87771,
+          "time": 1754469769894541
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.26102,
+          "sigG": 45.831573,
+          "sigR": 65.697105,
+          "time": 1754469769937521
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.318157,
+          "sigG": 45.82931,
+          "sigR": 65.70624,
+          "time": 1754469769978222
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.311134,
+          "sigG": 45.816216,
+          "sigR": 65.7165,
+          "time": 1754469770020849
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.351467,
+          "sigG": 45.75812,
+          "sigR": 65.70085,
+          "time": 1754469770060109
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.311077,
+          "sigG": 45.68906,
+          "sigR": 65.6384,
+          "time": 1754469770104970
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.33211,
+          "sigG": 45.700203,
+          "sigR": 65.66471,
+          "time": 1754469770144664
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.26816,
+          "sigG": 45.66539,
+          "sigR": 65.58107,
+          "time": 1754469770187912
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.271168,
+          "sigG": 45.656162,
+          "sigR": 65.586395,
+          "time": 1754469770229292
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.476395,
+          "sigG": 45.872604,
+          "sigR": 65.89545,
+          "time": 1754469770271726
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.442272,
+          "sigG": 45.856953,
+          "sigR": 65.894516,
+          "time": 1754469770313084
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.50535,
+          "sigG": 45.952286,
+          "sigR": 66.03027,
+          "time": 1754469770353070
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.545887,
+          "sigG": 45.97925,
+          "sigR": 66.04597,
+          "time": 1754469770396327
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.522243,
+          "sigG": 45.967022,
+          "sigR": 66.03607,
+          "time": 1754469770438337
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.499416,
+          "sigG": 45.94999,
+          "sigR": 65.9881,
+          "time": 1754469770479200
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.45483,
+          "sigG": 45.929672,
+          "sigR": 65.92825,
+          "time": 1754469770520709
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.38631,
+          "sigG": 45.887943,
+          "sigR": 65.83961,
+          "time": 1754469770558518
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.328445,
+          "sigG": 45.82798,
+          "sigR": 65.73554,
+          "time": 1754469770601819
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.304394,
+          "sigG": 45.790783,
+          "sigR": 65.6301,
+          "time": 1754469770642679
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.28559,
+          "sigG": 45.79547,
+          "sigR": 65.62557,
+          "time": 1754469770686650
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.316742,
+          "sigG": 45.829556,
+          "sigR": 65.6427,
+          "time": 1754469770728458
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.348766,
+          "sigG": 45.869083,
+          "sigR": 65.70576,
+          "time": 1754469770769938
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.33,
+          "sigG": 45.916973,
+          "sigR": 65.72874,
+          "time": 1754469770812084
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.362648,
+          "sigG": 45.94412,
+          "sigR": 65.74497,
+          "time": 1754469770853183
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.334473,
+          "sigG": 45.89166,
+          "sigR": 65.69767,
+          "time": 1754469770894451
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.333656,
+          "sigG": 45.85876,
+          "sigR": 65.65434,
+          "time": 1754469770936332
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.33247,
+          "sigG": 45.84622,
+          "sigR": 65.64319,
+          "time": 1754469770977979
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.34097,
+          "sigG": 45.8183,
+          "sigR": 65.65199,
+          "time": 1754469771020050
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.336575,
+          "sigG": 45.783085,
+          "sigR": 65.64116,
+          "time": 1754469771058527
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.35028,
+          "sigG": 45.745148,
+          "sigR": 65.63811,
+          "time": 1754469771103457
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.34338,
+          "sigG": 45.713688,
+          "sigR": 65.620186,
+          "time": 1754469771145244
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.31122,
+          "sigG": 45.67826,
+          "sigR": 65.57521,
+          "time": 1754469771186263
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.287945,
+          "sigG": 45.646587,
+          "sigR": 65.55856,
+          "time": 1754469771228210
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.39186,
+          "sigG": 45.77586,
+          "sigR": 65.69046,
+          "time": 1754469771269441
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.40399,
+          "sigG": 45.765785,
+          "sigR": 65.70243,
+          "time": 1754469771311232
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.398663,
+          "sigG": 45.781555,
+          "sigR": 65.72063,
+          "time": 1754469771350818
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.399204,
+          "sigG": 45.80872,
+          "sigR": 65.75003,
+          "time": 1754469771394055
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.481895,
+          "sigG": 45.883617,
+          "sigR": 65.840706,
+          "time": 1754469771436164
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.47827,
+          "sigG": 45.891426,
+          "sigR": 65.85723,
+          "time": 1754469771478434
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.38672,
+          "sigG": 45.760586,
+          "sigR": 65.669044,
+          "time": 1754469771520338
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.405426,
+          "sigG": 45.798504,
+          "sigR": 65.7049,
+          "time": 1754469771557183
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.402897,
+          "sigG": 45.82376,
+          "sigR": 65.70657,
+          "time": 1754469771604137
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.359013,
+          "sigG": 45.839355,
+          "sigR": 65.72071,
+          "time": 1754469771645589
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.36014,
+          "sigG": 45.85203,
+          "sigR": 65.72001,
+          "time": 1754469771687459
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.408108,
+          "sigG": 45.888897,
+          "sigR": 65.751236,
+          "time": 1754469771729413
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.437683,
+          "sigG": 45.925415,
+          "sigR": 65.76918,
+          "time": 1754469771771051
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.433308,
+          "sigG": 45.965427,
+          "sigR": 65.777504,
+          "time": 1754469771812365
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.43879,
+          "sigG": 45.98252,
+          "sigR": 65.79238,
+          "time": 1754469771850999
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.466072,
+          "sigG": 45.979313,
+          "sigR": 65.80702,
+          "time": 1754469771894105
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.442738,
+          "sigG": 45.97972,
+          "sigR": 65.811455,
+          "time": 1754469771936086
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.412815,
+          "sigG": 45.95621,
+          "sigR": 65.785416,
+          "time": 1754469771977671
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.429905,
+          "sigG": 45.94678,
+          "sigR": 65.80922,
+          "time": 1754469772020236
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.457203,
+          "sigG": 45.930565,
+          "sigR": 65.80492,
+          "time": 1754469772058605
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.450848,
+          "sigG": 45.91775,
+          "sigR": 65.80789,
+          "time": 1754469772102700
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.411938,
+          "sigG": 45.88872,
+          "sigR": 65.76846,
+          "time": 1754469772145265
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.43078,
+          "sigG": 45.868015,
+          "sigR": 65.7671,
+          "time": 1754469772186857
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.412327,
+          "sigG": 45.85726,
+          "sigR": 65.76049,
+          "time": 1754469772228386
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.395645,
+          "sigG": 45.82417,
+          "sigR": 65.717926,
+          "time": 1754469772269295
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.376434,
+          "sigG": 45.789597,
+          "sigR": 65.64735,
+          "time": 1754469772311881
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.383408,
+          "sigG": 45.803017,
+          "sigR": 65.68189,
+          "time": 1754469772352661
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.3742,
+          "sigG": 45.813007,
+          "sigR": 65.676216,
+          "time": 1754469772395518
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.39723,
+          "sigG": 45.849743,
+          "sigR": 65.70486,
+          "time": 1754469772437249
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.41038,
+          "sigG": 45.888702,
+          "sigR": 65.71903,
+          "time": 1754469772479362
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.43955,
+          "sigG": 45.93049,
+          "sigR": 65.754074,
+          "time": 1754469772521051
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.445827,
+          "sigG": 45.960686,
+          "sigR": 65.80371,
+          "time": 1754469772558671
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.434414,
+          "sigG": 45.986137,
+          "sigR": 65.82798,
+          "time": 1754469772604486
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.439316,
+          "sigG": 46.000175,
+          "sigR": 65.84159,
+          "time": 1754469772645952
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.43712,
+          "sigG": 46.030293,
+          "sigR": 65.86424,
+          "time": 1754469772688019
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.46751,
+          "sigG": 46.072525,
+          "sigR": 65.89895,
+          "time": 1754469772729118
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.492905,
+          "sigG": 46.136417,
+          "sigR": 65.96294,
+          "time": 1754469772765992
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.511784,
+          "sigG": 46.1706,
+          "sigR": 65.98802,
+          "time": 1754469772813076
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.514698,
+          "sigG": 46.21503,
+          "sigR": 66.085594,
+          "time": 1754469772853993
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.454464,
+          "sigG": 46.091385,
+          "sigR": 65.929634,
+          "time": 1754469772895808
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.5196,
+          "sigG": 46.126076,
+          "sigR": 65.98032,
+          "time": 1754469772936482
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.50562,
+          "sigG": 46.117188,
+          "sigR": 65.98658,
+          "time": 1754469772981049
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.478283,
+          "sigG": 46.050476,
+          "sigR": 65.94696,
+          "time": 1754469773021290
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.47095,
+          "sigG": 46.005367,
+          "sigR": 65.92716,
+          "time": 1754469773059932
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.449894,
+          "sigG": 45.982635,
+          "sigR": 65.92081,
+          "time": 1754469773104721
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.443146,
+          "sigG": 45.950867,
+          "sigR": 65.878265,
+          "time": 1754469773145829
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.42625,
+          "sigG": 45.928562,
+          "sigR": 65.88231,
+          "time": 1754469773187379
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.403168,
+          "sigG": 45.900097,
+          "sigR": 65.86739,
+          "time": 1754469773228559
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.392982,
+          "sigG": 45.88987,
+          "sigR": 65.83593,
+          "time": 1754469773269030
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.379993,
+          "sigG": 45.911823,
+          "sigR": 65.856155,
+          "time": 1754469773311711
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.429226,
+          "sigG": 45.952362,
+          "sigR": 65.911804,
+          "time": 1754469773354028
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.45382,
+          "sigG": 45.972816,
+          "sigR": 65.927536,
+          "time": 1754469773395796
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.405365,
+          "sigG": 45.89039,
+          "sigR": 65.7976,
+          "time": 1754469773436795
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.394985,
+          "sigG": 45.899563,
+          "sigR": 65.82188,
+          "time": 1754469773479370
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.52232,
+          "sigG": 46.06918,
+          "sigR": 66.02638,
+          "time": 1754469773521247
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.492146,
+          "sigG": 46.073963,
+          "sigR": 66.00624,
+          "time": 1754469773561340
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.50113,
+          "sigG": 46.076687,
+          "sigR": 65.99535,
+          "time": 1754469773604353
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.496597,
+          "sigG": 46.102177,
+          "sigR": 65.99636,
+          "time": 1754469773645665
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.519463,
+          "sigG": 46.14616,
+          "sigR": 66.02345,
+          "time": 1754469773687808
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.49553,
+          "sigG": 46.129436,
+          "sigR": 65.9728,
+          "time": 1754469773729999
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.486916,
+          "sigG": 46.126987,
+          "sigR": 65.94484,
+          "time": 1754469773766089
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.463757,
+          "sigG": 46.132473,
+          "sigR": 65.95816,
+          "time": 1754469773813047
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.49337,
+          "sigG": 46.133873,
+          "sigR": 65.9643,
+          "time": 1754469773854824
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.47235,
+          "sigG": 46.136673,
+          "sigR": 65.95997,
+          "time": 1754469773896750
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.475754,
+          "sigG": 46.136555,
+          "sigR": 66.01375,
+          "time": 1754469773937165
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.45312,
+          "sigG": 46.071163,
+          "sigR": 66.002045,
+          "time": 1754469773978603
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.483482,
+          "sigG": 45.973267,
+          "sigR": 65.9075,
+          "time": 1754469774019528
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.31882,
+          "sigG": 45.77264,
+          "sigR": 65.72231,
+          "time": 1754469774059918
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.41995,
+          "sigG": 45.883354,
+          "sigR": 65.89001,
+          "time": 1754469774104017
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.283688,
+          "sigG": 45.63648,
+          "sigR": 65.52729,
+          "time": 1754469774145695
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.51437,
+          "sigG": 45.942776,
+          "sigR": 65.96006,
+          "time": 1754469774187462
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.535446,
+          "sigG": 45.942135,
+          "sigR": 65.95333,
+          "time": 1754469774229311
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.570038,
+          "sigG": 45.99901,
+          "sigR": 65.99386,
+          "time": 1754469774268877
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.484356,
+          "sigG": 45.87675,
+          "sigR": 65.90423,
+          "time": 1754469774312933
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.5298,
+          "sigG": 45.891216,
+          "sigR": 65.941345,
+          "time": 1754469774354147
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.47716,
+          "sigG": 45.8449,
+          "sigR": 65.83656,
+          "time": 1754469774397377
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.46496,
+          "sigG": 45.832966,
+          "sigR": 65.80336,
+          "time": 1754469774436850
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.40856,
+          "sigG": 45.72167,
+          "sigR": 65.65253,
+          "time": 1754469774478736
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.325268,
+          "sigG": 45.669933,
+          "sigR": 65.493614,
+          "time": 1754469774521005
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.557728,
+          "sigG": 45.919327,
+          "sigR": 65.83815,
+          "time": 1754469774561301
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.50622,
+          "sigG": 45.862377,
+          "sigR": 65.71431,
+          "time": 1754469774604160
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.575104,
+          "sigG": 45.96313,
+          "sigR": 65.80451,
+          "time": 1754469774645718
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.58553,
+          "sigG": 45.99942,
+          "sigR": 65.86099,
+          "time": 1754469774687592
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.491386,
+          "sigG": 45.905697,
+          "sigR": 65.71799,
+          "time": 1754469774728720
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.5447,
+          "sigG": 45.965565,
+          "sigR": 65.81124,
+          "time": 1754469774766967
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.540638,
+          "sigG": 45.987225,
+          "sigR": 65.78765,
+          "time": 1754469774808188
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.584095,
+          "sigG": 46.00247,
+          "sigR": 65.83028,
+          "time": 1754469774853231
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.590824,
+          "sigG": 45.999535,
+          "sigR": 65.83035,
+          "time": 1754469774895462
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.56501,
+          "sigG": 45.86957,
+          "sigR": 65.677246,
+          "time": 1754469774937319
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.633656,
+          "sigG": 45.953064,
+          "sigR": 65.83852,
+          "time": 1754469774979157
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.627552,
+          "sigG": 45.920708,
+          "sigR": 65.82959,
+          "time": 1754469775020336
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.620514,
+          "sigG": 45.85308,
+          "sigR": 65.791466,
+          "time": 1754469775061592
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.576286,
+          "sigG": 45.80845,
+          "sigR": 65.75908,
+          "time": 1754469775103646
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.61184,
+          "sigG": 45.854965,
+          "sigR": 65.81468,
+          "time": 1754469775146016
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.59161,
+          "sigG": 45.790855,
+          "sigR": 65.78338,
+          "time": 1754469775187582
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.549103,
+          "sigG": 45.773167,
+          "sigR": 65.76114,
+          "time": 1754469775228371
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.55757,
+          "sigG": 45.750946,
+          "sigR": 65.73674,
+          "time": 1754469775269441
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.42207,
+          "sigG": 45.579235,
+          "sigR": 65.57251,
+          "time": 1754469775312372
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.456272,
+          "sigG": 45.516857,
+          "sigR": 65.53257,
+          "time": 1754469775354162
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.42135,
+          "sigG": 45.444523,
+          "sigR": 65.38421,
+          "time": 1754469775394963
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.435463,
+          "sigG": 45.451187,
+          "sigR": 65.33738,
+          "time": 1754469775436737
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.556595,
+          "sigG": 45.53991,
+          "sigR": 65.44631,
+          "time": 1754469775477509
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.510666,
+          "sigG": 45.506985,
+          "sigR": 65.41883,
+          "time": 1754469775520355
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.480244,
+          "sigG": 45.53008,
+          "sigR": 65.43634,
+          "time": 1754469775559940
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.4678,
+          "sigG": 45.528873,
+          "sigR": 65.41287,
+          "time": 1754469775602009
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.467316,
+          "sigG": 45.525608,
+          "sigR": 65.406746,
+          "time": 1754469775644105
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.50778,
+          "sigG": 45.59714,
+          "sigR": 65.50383,
+          "time": 1754469775686634
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.54202,
+          "sigG": 45.66146,
+          "sigR": 65.593445,
+          "time": 1754469775728497
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.299683,
+          "sigG": 45.35364,
+          "sigR": 65.16647,
+          "time": 1754469775768564
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.441536,
+          "sigG": 45.613213,
+          "sigR": 65.47354,
+          "time": 1754469775812171
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.40999,
+          "sigG": 45.63942,
+          "sigR": 65.50384,
+          "time": 1754469775854054
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.425964,
+          "sigG": 45.63337,
+          "sigR": 65.50408,
+          "time": 1754469775895502
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.395344,
+          "sigG": 45.604946,
+          "sigR": 65.520424,
+          "time": 1754469775937673
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.39789,
+          "sigG": 45.48788,
+          "sigR": 65.46998,
+          "time": 1754469775978627
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.333874,
+          "sigG": 45.4023,
+          "sigR": 65.42776,
+          "time": 1754469776020891
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.28354,
+          "sigG": 45.332447,
+          "sigR": 65.38762,
+          "time": 1754469776059843
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.380665,
+          "sigG": 45.465725,
+          "sigR": 65.57778,
+          "time": 1754469776102209
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.215286,
+          "sigG": 45.219948,
+          "sigR": 65.25998,
+          "time": 1754469776149454
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.3041,
+          "sigG": 45.355534,
+          "sigR": 65.460365,
+          "time": 1754469776187617
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.335724,
+          "sigG": 45.42294,
+          "sigR": 65.547905,
+          "time": 1754469776228450
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.358616,
+          "sigG": 45.415348,
+          "sigR": 65.526726,
+          "time": 1754469776268653
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.35083,
+          "sigG": 45.38833,
+          "sigR": 65.502464,
+          "time": 1754469776312013
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.35268,
+          "sigG": 45.38359,
+          "sigR": 65.5023,
+          "time": 1754469776352368
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.35139,
+          "sigG": 45.405212,
+          "sigR": 65.515785,
+          "time": 1754469776394898
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.32555,
+          "sigG": 45.403225,
+          "sigR": 65.50179,
+          "time": 1754469776435841
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.288956,
+          "sigG": 45.404343,
+          "sigR": 65.49535,
+          "time": 1754469776476713
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.495182,
+          "sigG": 45.668777,
+          "sigR": 65.78798,
+          "time": 1754469776520824
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.378822,
+          "sigG": 45.565464,
+          "sigR": 65.657646,
+          "time": 1754469776561919
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.357723,
+          "sigG": 45.569305,
+          "sigR": 65.665405,
+          "time": 1754469776604529
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.341236,
+          "sigG": 45.58502,
+          "sigR": 65.66224,
+          "time": 1754469776644395
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.320095,
+          "sigG": 45.5955,
+          "sigR": 65.6611,
+          "time": 1754469776686518
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.34552,
+          "sigG": 45.62869,
+          "sigR": 65.67834,
+          "time": 1754469776729218
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.360153,
+          "sigG": 45.647125,
+          "sigR": 65.66438,
+          "time": 1754469776767478
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.32556,
+          "sigG": 45.64203,
+          "sigR": 65.643456,
+          "time": 1754469776813246
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.336082,
+          "sigG": 45.61525,
+          "sigR": 65.640884,
+          "time": 1754469776851700
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.342724,
+          "sigG": 45.58865,
+          "sigR": 65.66249,
+          "time": 1754469776896021
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.30695,
+          "sigG": 45.55695,
+          "sigR": 65.67454,
+          "time": 1754469776937080
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.330135,
+          "sigG": 45.501873,
+          "sigR": 65.64925,
+          "time": 1754469776977218
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.326042,
+          "sigG": 45.461178,
+          "sigR": 65.6405,
+          "time": 1754469777021212
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.324383,
+          "sigG": 45.453262,
+          "sigR": 65.67011,
+          "time": 1754469777062550
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.313805,
+          "sigG": 45.473824,
+          "sigR": 65.70332,
+          "time": 1754469777104777
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.325,
+          "sigG": 45.487144,
+          "sigR": 65.723724,
+          "time": 1754469777145679
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.29807,
+          "sigG": 45.475754,
+          "sigR": 65.74432,
+          "time": 1754469777186839
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.290848,
+          "sigG": 45.477413,
+          "sigR": 65.73216,
+          "time": 1754469777229445
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.265366,
+          "sigG": 45.417374,
+          "sigR": 65.67639,
+          "time": 1754469777267659
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.22224,
+          "sigG": 45.411705,
+          "sigR": 65.641365,
+          "time": 1754469777312210
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.20226,
+          "sigG": 45.439262,
+          "sigR": 65.66376,
+          "time": 1754469777355967
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.37402,
+          "sigG": 45.591087,
+          "sigR": 65.93554,
+          "time": 1754469777397337
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.41242,
+          "sigG": 45.71324,
+          "sigR": 66.06946,
+          "time": 1754469777437008
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.228745,
+          "sigG": 45.530117,
+          "sigR": 65.78865,
+          "time": 1754469777476802
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.229607,
+          "sigG": 45.566666,
+          "sigR": 65.804665,
+          "time": 1754469777521101
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.19443,
+          "sigG": 45.55115,
+          "sigR": 65.7692,
+          "time": 1754469777561892
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.271873,
+          "sigG": 45.637123,
+          "sigR": 65.885506,
+          "time": 1754469777603881
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.3083,
+          "sigG": 45.732452,
+          "sigR": 66.006775,
+          "time": 1754469777644600
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.276978,
+          "sigG": 45.67932,
+          "sigR": 65.89647,
+          "time": 1754469777686966
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.395348,
+          "sigG": 45.776623,
+          "sigR": 66.000404,
+          "time": 1754469777729059
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.34614,
+          "sigG": 45.779896,
+          "sigR": 65.988075,
+          "time": 1754469777767682
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.32308,
+          "sigG": 45.740303,
+          "sigR": 65.97738,
+          "time": 1754469777811955
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.430893,
+          "sigG": 45.807316,
+          "sigR": 66.09539,
+          "time": 1754469777854018
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.439095,
+          "sigG": 45.729923,
+          "sigR": 66.04018,
+          "time": 1754469777895859
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.44305,
+          "sigG": 45.72558,
+          "sigR": 66.062256,
+          "time": 1754469777937795
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.42025,
+          "sigG": 45.65803,
+          "sigR": 66.01195,
+          "time": 1754469777976693
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.48755,
+          "sigG": 45.656178,
+          "sigR": 66.02587,
+          "time": 1754469778021150
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.4867,
+          "sigG": 45.66811,
+          "sigR": 66.06871,
+          "time": 1754469778062423
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.47527,
+          "sigG": 45.658283,
+          "sigR": 66.0794,
+          "time": 1754469778104349
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.374287,
+          "sigG": 45.54981,
+          "sigR": 65.96272,
+          "time": 1754469778146058
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.359497,
+          "sigG": 45.492027,
+          "sigR": 65.84525,
+          "time": 1754469778187460
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.32338,
+          "sigG": 45.467064,
+          "sigR": 65.79531,
+          "time": 1754469778229498
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.370346,
+          "sigG": 45.47199,
+          "sigR": 65.77969,
+          "time": 1754469778269126
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.33033,
+          "sigG": 45.432354,
+          "sigR": 65.66975,
+          "time": 1754469778312271
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.33884,
+          "sigG": 45.436295,
+          "sigR": 65.60921,
+          "time": 1754469778354184
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.32724,
+          "sigG": 45.45193,
+          "sigR": 65.61994,
+          "time": 1754469778395958
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.33942,
+          "sigG": 45.5194,
+          "sigR": 65.66392,
+          "time": 1754469778436975
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.405212,
+          "sigG": 45.610172,
+          "sigR": 65.81772,
+          "time": 1754469778473905
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.4567,
+          "sigG": 45.672085,
+          "sigR": 65.88662,
+          "time": 1754469778520403
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.484554,
+          "sigG": 45.723434,
+          "sigR": 65.928185,
+          "time": 1754469778561486
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.471855,
+          "sigG": 45.749615,
+          "sigR": 65.92973,
+          "time": 1754469778603323
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.467663,
+          "sigG": 45.75251,
+          "sigR": 65.90531,
+          "time": 1754469778645336
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.49446,
+          "sigG": 45.761272,
+          "sigR": 65.88973,
+          "time": 1754469778687384
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.461002,
+          "sigG": 45.780464,
+          "sigR": 65.87438,
+          "time": 1754469778728798
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.43967,
+          "sigG": 45.79214,
+          "sigR": 65.84846,
+          "time": 1754469778769207
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.3934,
+          "sigG": 45.759094,
+          "sigR": 65.79172,
+          "time": 1754469778812253
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.391273,
+          "sigG": 45.765755,
+          "sigR": 65.85368,
+          "time": 1754469778853057
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.517048,
+          "sigG": 45.89801,
+          "sigR": 66.08751,
+          "time": 1754469778896542
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.516987,
+          "sigG": 45.892685,
+          "sigR": 66.15626,
+          "time": 1754469778937891
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.46307,
+          "sigG": 45.796196,
+          "sigR": 66.08456,
+          "time": 1754469778974055
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.480194,
+          "sigG": 45.747257,
+          "sigR": 66.04313,
+          "time": 1754469779019976
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.401794,
+          "sigG": 45.645462,
+          "sigR": 65.87759,
+          "time": 1754469779061946
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.35828,
+          "sigG": 45.578667,
+          "sigR": 65.78504,
+          "time": 1754469779103932
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.274303,
+          "sigG": 45.50743,
+          "sigR": 65.66798,
+          "time": 1754469779144948
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.285652,
+          "sigG": 45.488308,
+          "sigR": 65.660484,
+          "time": 1754469779185114
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.290302,
+          "sigG": 45.50245,
+          "sigR": 65.67258,
+          "time": 1754469779227906
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.311325,
+          "sigG": 45.557804,
+          "sigR": 65.73568,
+          "time": 1754469779268819
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.296833,
+          "sigG": 45.5801,
+          "sigR": 65.757706,
+          "time": 1754469779311176
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.274822,
+          "sigG": 45.57394,
+          "sigR": 65.724266,
+          "time": 1754469779352896
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.29017,
+          "sigG": 45.595757,
+          "sigR": 65.719574,
+          "time": 1754469779395596
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.28757,
+          "sigG": 45.618813,
+          "sigR": 65.73897,
+          "time": 1754469779437243
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.13333,
+          "sigG": 45.429203,
+          "sigR": 65.4461,
+          "time": 1754469779475195
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.335,
+          "sigG": 45.710995,
+          "sigR": 65.815445,
+          "time": 1754469779520970
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.32963,
+          "sigG": 45.710083,
+          "sigR": 65.81166,
+          "time": 1754469779562931
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.347862,
+          "sigG": 45.72169,
+          "sigR": 65.82705,
+          "time": 1754469779604507
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.30185,
+          "sigG": 45.705647,
+          "sigR": 65.76933,
+          "time": 1754469779646193
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.30774,
+          "sigG": 45.73229,
+          "sigR": 65.76051,
+          "time": 1754469779687160
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.285965,
+          "sigG": 45.711887,
+          "sigR": 65.74157,
+          "time": 1754469779729520
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.24208,
+          "sigG": 45.696213,
+          "sigR": 65.72551,
+          "time": 1754469779771399
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.27112,
+          "sigG": 45.7111,
+          "sigR": 65.742355,
+          "time": 1754469779812841
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.277336,
+          "sigG": 45.716892,
+          "sigR": 65.75224,
+          "time": 1754469779854137
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.263294,
+          "sigG": 45.647583,
+          "sigR": 65.71615,
+          "time": 1754469779895726
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.275036,
+          "sigG": 45.660004,
+          "sigR": 65.739845,
+          "time": 1754469779937467
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.27091,
+          "sigG": 45.65016,
+          "sigR": 65.75247,
+          "time": 1754469779980539
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.292454,
+          "sigG": 45.65136,
+          "sigR": 65.76404,
+          "time": 1754469780019437
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.29112,
+          "sigG": 45.63348,
+          "sigR": 65.7571,
+          "time": 1754469780061467
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.2873,
+          "sigG": 45.63024,
+          "sigR": 65.77228,
+          "time": 1754469780102910
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.315643,
+          "sigG": 45.667675,
+          "sigR": 65.79289,
+          "time": 1754469780144909
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.318203,
+          "sigG": 45.69135,
+          "sigR": 65.81021,
+          "time": 1754469780185194
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.310974,
+          "sigG": 45.704697,
+          "sigR": 65.84882,
+          "time": 1754469780227744
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.358597,
+          "sigG": 45.738663,
+          "sigR": 65.861374,
+          "time": 1754469780269621
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.351913,
+          "sigG": 45.76687,
+          "sigR": 65.875984,
+          "time": 1754469780311763
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.336823,
+          "sigG": 45.76658,
+          "sigR": 65.83334,
+          "time": 1754469780353942
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.34331,
+          "sigG": 45.776382,
+          "sigR": 65.82854,
+          "time": 1754469780396124
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.35854,
+          "sigG": 45.776985,
+          "sigR": 65.803955,
+          "time": 1754469780436954
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.34988,
+          "sigG": 45.782776,
+          "sigR": 65.78851,
+          "time": 1754469780475812
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.343235,
+          "sigG": 45.802944,
+          "sigR": 65.78839,
+          "time": 1754469780520982
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.357395,
+          "sigG": 45.814316,
+          "sigR": 65.78708,
+          "time": 1754469780561992
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.394497,
+          "sigG": 45.88035,
+          "sigR": 65.846085,
+          "time": 1754469780607000
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.40836,
+          "sigG": 45.918823,
+          "sigR": 65.87987,
+          "time": 1754469780645733
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.386745,
+          "sigG": 45.917187,
+          "sigR": 65.80977,
+          "time": 1754469780684314
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.38182,
+          "sigG": 45.935387,
+          "sigR": 65.8277,
+          "time": 1754469780728732
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.50948,
+          "sigG": 46.097084,
+          "sigR": 66.0854,
+          "time": 1754469780771183
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.554035,
+          "sigG": 46.103996,
+          "sigR": 66.10521,
+          "time": 1754469780812331
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.379665,
+          "sigG": 45.883217,
+          "sigR": 65.80048,
+          "time": 1754469780854456
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.411156,
+          "sigG": 45.883892,
+          "sigR": 65.83074,
+          "time": 1754469780896175
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.53792,
+          "sigG": 46.05254,
+          "sigR": 66.09096,
+          "time": 1754469780937785
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.522366,
+          "sigG": 46.009415,
+          "sigR": 66.038284,
+          "time": 1754469780977571
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.490395,
+          "sigG": 45.967514,
+          "sigR": 66.00745,
+          "time": 1754469781020934
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.449623,
+          "sigG": 45.90663,
+          "sigR": 65.95674,
+          "time": 1754469781062295
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.424828,
+          "sigG": 45.875484,
+          "sigR": 65.932594,
+          "time": 1754469781104487
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.395782,
+          "sigG": 45.856293,
+          "sigR": 65.87501,
+          "time": 1754469781145883
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.4184,
+          "sigG": 45.8769,
+          "sigR": 65.921936,
+          "time": 1754469781185657
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.44708,
+          "sigG": 45.875427,
+          "sigR": 65.9316,
+          "time": 1754469781229571
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.398922,
+          "sigG": 45.87845,
+          "sigR": 65.89714,
+          "time": 1754469781271135
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.42514,
+          "sigG": 45.90857,
+          "sigR": 65.95868,
+          "time": 1754469781312553
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.425682,
+          "sigG": 45.932076,
+          "sigR": 65.948715,
+          "time": 1754469781354245
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.407482,
+          "sigG": 45.887352,
+          "sigR": 65.90022,
+          "time": 1754469781395452
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.381573,
+          "sigG": 45.874386,
+          "sigR": 65.84421,
+          "time": 1754469781437550
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.385014,
+          "sigG": 45.898624,
+          "sigR": 65.859886,
+          "time": 1754469781477751
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.44044,
+          "sigG": 46.027878,
+          "sigR": 66.022675,
+          "time": 1754469781521015
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.4788,
+          "sigG": 46.052788,
+          "sigR": 66.01552,
+          "time": 1754469781562181
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.428997,
+          "sigG": 46.075768,
+          "sigR": 66.02453,
+          "time": 1754469781605069
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.461273,
+          "sigG": 46.099644,
+          "sigR": 66.02151,
+          "time": 1754469781646185
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.45756,
+          "sigG": 46.091415,
+          "sigR": 66.00848,
+          "time": 1754469781683973
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.460606,
+          "sigG": 46.12006,
+          "sigR": 66.03897,
+          "time": 1754469781729378
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.319836,
+          "sigG": 45.966476,
+          "sigR": 65.829185,
+          "time": 1754469781770864
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.351383,
+          "sigG": 45.962673,
+          "sigR": 65.85691,
+          "time": 1754469781812465
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.35382,
+          "sigG": 45.942146,
+          "sigR": 65.87682,
+          "time": 1754469781854015
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.44084,
+          "sigG": 46.04215,
+          "sigR": 66.02638,
+          "time": 1754469781895251
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.314957,
+          "sigG": 45.849884,
+          "sigR": 65.79662,
+          "time": 1754469781937742
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.30676,
+          "sigG": 45.82617,
+          "sigR": 65.78474,
+          "time": 1754469781978183
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.421402,
+          "sigG": 45.95871,
+          "sigR": 65.97117,
+          "time": 1754469782020633
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.388973,
+          "sigG": 45.9355,
+          "sigR": 65.97731,
+          "time": 1754469782062682
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.376495,
+          "sigG": 45.925457,
+          "sigR": 65.97203,
+          "time": 1754469782104432
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.356293,
+          "sigG": 45.923584,
+          "sigR": 65.941475,
+          "time": 1754469782146272
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.352047,
+          "sigG": 45.923412,
+          "sigR": 65.91442,
+          "time": 1754469782183748
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.352238,
+          "sigG": 45.932728,
+          "sigR": 65.92932,
+          "time": 1754469782229171
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.398193,
+          "sigG": 46.013737,
+          "sigR": 66.05663,
+          "time": 1754469782270643
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.448647,
+          "sigG": 46.028736,
+          "sigR": 66.10353,
+          "time": 1754469782312067
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.3522,
+          "sigG": 45.95607,
+          "sigR": 66.016685,
+          "time": 1754469782352529
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.384533,
+          "sigG": 46.019554,
+          "sigR": 66.09876,
+          "time": 1754469782395817
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.52301,
+          "sigG": 46.20966,
+          "sigR": 66.25627,
+          "time": 1754469782437915
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.52734,
+          "sigG": 46.208458,
+          "sigR": 66.24024,
+          "time": 1754469782477899
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.473843,
+          "sigG": 46.127907,
+          "sigR": 66.126495,
+          "time": 1754469782520160
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.199326,
+          "sigG": 45.773403,
+          "sigR": 65.59785,
+          "time": 1754469782562445
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.42722,
+          "sigG": 46.068974,
+          "sigR": 65.9735,
+          "time": 1754469782603581
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.487045,
+          "sigG": 46.085007,
+          "sigR": 65.967705,
+          "time": 1754469782648967
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.45848,
+          "sigG": 46.09884,
+          "sigR": 65.98343,
+          "time": 1754469782685695
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.51607,
+          "sigG": 46.0834,
+          "sigR": 65.96055,
+          "time": 1754469782729243
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.515842,
+          "sigG": 46.104427,
+          "sigR": 66.010445,
+          "time": 1754469782770788
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.480732,
+          "sigG": 46.080627,
+          "sigR": 65.96793,
+          "time": 1754469782812677
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.476006,
+          "sigG": 46.05449,
+          "sigR": 65.95559,
+          "time": 1754469782854064
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.49554,
+          "sigG": 46.000572,
+          "sigR": 65.9206,
+          "time": 1754469782895352
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.508705,
+          "sigG": 45.978897,
+          "sigR": 65.92664,
+          "time": 1754469782937251
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.4837,
+          "sigG": 45.965904,
+          "sigR": 65.91289,
+          "time": 1754469782991378
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.43956,
+          "sigG": 45.94444,
+          "sigR": 65.892265,
+          "time": 1754469783021244
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.42982,
+          "sigG": 45.920944,
+          "sigR": 65.84921,
+          "time": 1754469783061675
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.439274,
+          "sigG": 45.909634,
+          "sigR": 65.862686,
+          "time": 1754469783104667
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.469044,
+          "sigG": 45.926914,
+          "sigR": 65.87556,
+          "time": 1754469783145473
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.45611,
+          "sigG": 45.91329,
+          "sigR": 65.8827,
+          "time": 1754469783185708
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.439354,
+          "sigG": 45.926373,
+          "sigR": 65.855774,
+          "time": 1754469783227561
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.540512,
+          "sigG": 46.038303,
+          "sigR": 65.99013,
+          "time": 1754469783270186
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.455223,
+          "sigG": 45.977394,
+          "sigR": 65.89488,
+          "time": 1754469783311549
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.458477,
+          "sigG": 45.905724,
+          "sigR": 65.849236,
+          "time": 1754469783354052
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.409725,
+          "sigG": 45.9001,
+          "sigR": 65.78863,
+          "time": 1754469783393956
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.41804,
+          "sigG": 45.912758,
+          "sigR": 65.80739,
+          "time": 1754469783437850
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.386696,
+          "sigG": 45.93655,
+          "sigR": 65.78845,
+          "time": 1754469783477585
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.407135,
+          "sigG": 45.958096,
+          "sigR": 65.7994,
+          "time": 1754469783519503
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.423607,
+          "sigG": 45.957256,
+          "sigR": 65.80855,
+          "time": 1754469783561508
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.441338,
+          "sigG": 45.981983,
+          "sigR": 65.80405,
+          "time": 1754469783604457
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.455826,
+          "sigG": 45.98534,
+          "sigR": 65.82292,
+          "time": 1754469783645469
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.42084,
+          "sigG": 45.973576,
+          "sigR": 65.81301,
+          "time": 1754469783684696
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.39249,
+          "sigG": 45.928352,
+          "sigR": 65.79396,
+          "time": 1754469783728677
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.436054,
+          "sigG": 45.902977,
+          "sigR": 65.79381,
+          "time": 1754469783770029
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.42961,
+          "sigG": 45.901623,
+          "sigR": 65.75991,
+          "time": 1754469783811772
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.29021,
+          "sigG": 45.715744,
+          "sigR": 65.561386,
+          "time": 1754469783853723
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.287613,
+          "sigG": 45.696304,
+          "sigR": 65.58443,
+          "time": 1754469783894108
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.299446,
+          "sigG": 45.672623,
+          "sigR": 65.54132,
+          "time": 1754469783943432
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.25644,
+          "sigG": 45.588196,
+          "sigR": 65.51219,
+          "time": 1754469783979276
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.23755,
+          "sigG": 45.56984,
+          "sigR": 65.50664,
+          "time": 1754469784020109
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.222797,
+          "sigG": 45.56419,
+          "sigR": 65.46243,
+          "time": 1754469784062516
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.225224,
+          "sigG": 45.559734,
+          "sigR": 65.44129,
+          "time": 1754469784104616
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.343758,
+          "sigG": 45.729446,
+          "sigR": 65.67453,
+          "time": 1754469784146221
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.373234,
+          "sigG": 45.724342,
+          "sigR": 65.69222,
+          "time": 1754469784186270
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.40602,
+          "sigG": 45.759907,
+          "sigR": 65.734886,
+          "time": 1754469784229079
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.4094,
+          "sigG": 45.817783,
+          "sigR": 65.7794,
+          "time": 1754469784271282
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.403698,
+          "sigG": 45.8001,
+          "sigR": 65.756546,
+          "time": 1754469784312714
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.410366,
+          "sigG": 45.83052,
+          "sigR": 65.78139,
+          "time": 1754469784354374
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.39217,
+          "sigG": 45.834793,
+          "sigR": 65.75575,
+          "time": 1754469784391449
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.393513,
+          "sigG": 45.848076,
+          "sigR": 65.76265,
+          "time": 1754469784438026
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.375465,
+          "sigG": 45.866592,
+          "sigR": 65.76836,
+          "time": 1754469784479232
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.30288,
+          "sigG": 45.795143,
+          "sigR": 65.6569,
+          "time": 1754469784519959
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.347763,
+          "sigG": 45.830032,
+          "sigR": 65.67374,
+          "time": 1754469784562353
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.327816,
+          "sigG": 45.83667,
+          "sigR": 65.67897,
+          "time": 1754469784601837
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.34363,
+          "sigG": 45.844334,
+          "sigR": 65.69153,
+          "time": 1754469784644521
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.35334,
+          "sigG": 45.847195,
+          "sigR": 65.6954,
+          "time": 1754469784685460
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.337715,
+          "sigG": 45.790134,
+          "sigR": 65.656044,
+          "time": 1754469784729035
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.474575,
+          "sigG": 45.87279,
+          "sigR": 65.83884,
+          "time": 1754469784770993
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.27288,
+          "sigG": 45.63477,
+          "sigR": 65.51856,
+          "time": 1754469784812802
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.451633,
+          "sigG": 45.839016,
+          "sigR": 65.83957,
+          "time": 1754469784854399
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.43377,
+          "sigG": 45.805595,
+          "sigR": 65.824905,
+          "time": 1754469784892604
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.40704,
+          "sigG": 45.800217,
+          "sigR": 65.82258,
+          "time": 1754469784937468
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.382885,
+          "sigG": 45.78386,
+          "sigR": 65.81011,
+          "time": 1754469784979710
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.38988,
+          "sigG": 45.77858,
+          "sigR": 65.83873,
+          "time": 1754469785021175
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.382084,
+          "sigG": 45.77568,
+          "sigR": 65.83208,
+          "time": 1754469785062709
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.434,
+          "sigG": 45.79827,
+          "sigR": 65.882675,
+          "time": 1754469785104030
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.410984,
+          "sigG": 45.791256,
+          "sigR": 65.85848,
+          "time": 1754469785144260
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.346325,
+          "sigG": 45.615788,
+          "sigR": 65.65155,
+          "time": 1754469785186028
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.348606,
+          "sigG": 45.710613,
+          "sigR": 65.78054,
+          "time": 1754469785230743
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.332874,
+          "sigG": 45.711315,
+          "sigR": 65.72432,
+          "time": 1754469785271121
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.362103,
+          "sigG": 45.738808,
+          "sigR": 65.72016,
+          "time": 1754469785312985
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.398003,
+          "sigG": 45.779457,
+          "sigR": 65.773506,
+          "time": 1754469785354506
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.422787,
+          "sigG": 45.834,
+          "sigR": 65.84866,
+          "time": 1754469785393315
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.360897,
+          "sigG": 45.734623,
+          "sigR": 65.68631,
+          "time": 1754469785438256
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.38867,
+          "sigG": 45.783768,
+          "sigR": 65.7384,
+          "time": 1754469785480071
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.480038,
+          "sigG": 45.896515,
+          "sigR": 65.90502,
+          "time": 1754469785521941
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.30946,
+          "sigG": 45.700893,
+          "sigR": 65.56123,
+          "time": 1754469785562717
+        },
+        {
+          "qualityCheck": false,
+          "sigB": 36.518265,
+          "sigG": 45.988674,
+          "sigR": 65.98685,
+          "time": 1754469785604933
+        }
+      ],
+      "result": {
+        "HF": [
+          24.13447,
+          59.72573,
+          72.4214,
+          77.68201,
+          76.75567,
+          67.935394
+        ],
+        "HR": [
+          62,
+          62,
+          62,
+          62,
+          62,
+          60
+        ],
+        "LF": [
+          37.85333,
+          20.114706,
+          19.298946,
+          14.324717,
+          12.535645,
+          15.27295
+        ],
+        "MSI": [
+          0.4594524,
+          0.7169908,
+          0.5225622,
+          0.36274862,
+          0.5347702,
+          0.36482129
+        ],
+        "PSI": [
+          0.42546764,
+          0.4133748,
+          0.42906085,
+          0.41499862,
+          0.42829248,
+          0.5055772
+        ],
+        "RMSSD": [
+          21.276157,
+          21.276157,
+          24.037008,
+          23.570227,
+          23.570227,
+          24.45998
+        ],
+        "SDNN": [
+          106.552605,
+          106.7121,
+          109.125084,
+          105.20663,
+          102.23833,
+          93.5506
+        ],
+        "SDSD": [
+          16.378393,
+          16.378393,
+          19.04381,
+          18.885796,
+          18.885796,
+          20.830868
+        ],
+        "TINN": [
+          154.6496063526257,
+          224.6510345859657,
+          171.8882585695057,
+          128.17545066255207,
+          175.2034183039326,
+          130.27209121102084
+        ],
+        "TP": [
+          88.870346,
+          91.04351,
+          118.421814,
+          103.456985,
+          98.20155,
+          85.08576
+        ],
+        "calc_times": [
+          1754469745021206,
+          1754469747021206,
+          1754469749021206,
+          1754469751021206,
+          1754469753021206,
+          1754469755021206
+        ],
+        "caution": "Video duration is too short, over 1 min is required, current duration :40.6sec",
+        "lnHF": [
+          1.3826377,
+          1.7761614,
+          1.859867,
+          1.8903204,
+          1.8851105,
+          1.8320961
+        ],
+        "lnLF": [
+          1.578104,
+          1.3035138,
+          1.2855335,
+          1.1560861,
+          1.0981467,
+          1.1839229
+        ],
+        "lnTP": [
+          1.9487569,
+          1.959249,
+          2.0734317,
+          2.0147598,
+          1.9921184,
+          1.9298569
+        ],
+        "meanRR": [
+          960.7143,
+          967.8571,
+          970.5128,
+          967.90125,
+          977.7778,
+          981.4815
+        ],
+        "norm_HF": [
+          0.27156943,
+          0.656013,
+          0.61155456,
+          0.75086284,
+          0.7816136,
+          0.7984344
+        ],
+        "norm_LF": [
+          0.42593879,
+          0.22093509,
+          0.16296785,
+          0.1384606,
+          0.1276522,
+          0.17950065
+        ],
+        "norm_VLF": [
+          0.30249178,
+          0.12305188,
+          0.22547758,
+          0.11067655,
+          0.09073424,
+          0.022064973
+        ],
+        "pnn20": [
+          40.74074,
+          40.74074,
+          40,
+          38.46154,
+          38.46154,
+          30.76923
+        ],
+        "pnn50": [
+          0,
+          0,
+          4,
+          3.8461537,
+          3.8461537,
+          7.6923075
+        ]
+      }
+    }
+  },
+  "sf": {
+    "birthmonth": 9,
+    "birthyear": 1981,
+    "gender": 1,
+    "os": "ios",
+    "pCate": "nonWorker",
+    "sCate": ""
+  }
+}

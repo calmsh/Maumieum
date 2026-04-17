@@ -1,0 +1,5222 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>마음이음 - HRV 우울증 케어</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --navy: #3D5AF1;
+      --navy-dark: #2A45E0;
+      --navy-mid: #5470F5;
+      --orange: #FF7A00;
+      --orange-light: #FF9A3C;
+      --bg: #F4F6FF;
+      --card: #FFFFFF;
+      --text: #1a1a1a;
+      --text-sub: #666;
+      --border: #E8ECFF;
+
+      /* [디자인 토큰] 고령층 가독성 최적화 */
+      --fs-hero: 36px;
+      --fs-title: 28px;
+      --fs-heading: 22px;
+      --fs-body: 18px;
+      --fs-sub: 16px;
+      --fs-caption: 14px;
+
+      --fw-bold: 700;
+      --fw-medium: 500;
+      --fw-regular: 400;
+
+      --lh-tight: 1.3;
+      --lh-normal: 1.6;
+    }
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      max-width: 390px;
+      margin: 0 auto;
+      min-height: 100vh;
+      position: relative;
+      font-size: var(--fs-body);
+      font-weight: var(--fw-regular);
+      line-height: var(--lh-normal);
+    }
+
+
+    /* [NEW] 디자인 토큰 기반 공통 스타일 */
+    h1,
+    .hero-title {
+      font-size: var(--fs-hero);
+      font-weight: var(--fw-bold);
+      line-height: var(--lh-tight);
+    }
+
+    h2,
+    .section-title {
+      font-size: var(--fs-title);
+      font-weight: var(--fw-bold);
+      line-height: var(--lh-tight);
+    }
+
+    h3,
+    .card-title {
+      font-size: var(--fs-heading);
+      font-weight: var(--fw-bold);
+      line-height: var(--lh-tight);
+    }
+
+    .text-sub {
+      font-size: var(--fs-sub);
+      line-height: var(--lh-normal);
+    }
+
+    .text-caption {
+      font-size: var(--fs-caption);
+      line-height: var(--lh-normal);
+    }
+
+    .screen {
+      display: none;
+      flex-direction: column;
+      min-height: calc(100vh - 70px);
+      padding-bottom: 80px;
+    }
+
+    .screen.active {
+      display: flex;
+    }
+
+    /* NAV */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 390px;
+      background: #fff;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0 20px;
+      z-index: 9999;
+      box-shadow: 0 -2px 12px rgba(27, 40, 85, .08);
+    }
+
+    /* HOME TAB SPECIFIC */
+    .home-hero {
+      padding: 24px 20px;
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .home-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 20px;
+      margin: 0 20px 16px;
+      box-shadow: 0 4px 15px rgba(27, 40, 85, .05);
+      border: 1px solid rgba(232, 236, 255, .5);
+    }
+
+    .biometric-btn {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #F4F6FF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      margin: 0 auto;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .biometric-btn:active {
+      transform: scale(0.92);
+    }
+
+    .gauge-mini {
+      height: 6px;
+      background: #eee;
+      border-radius: 3px;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+
+    .gauge-mini-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.8s ease;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      color: #bbb;
+      font-size: 11px;
+      transition: .2s;
+    }
+
+    .nav-item.active {
+      color: var(--navy);
+    }
+
+    .nav-icon {
+      font-size: 22px;
+    }
+
+    /* HEADER */
+    .app-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 20px 16px;
+      background: var(--navy);
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* HOME REDESIGN V2 */
+    .home-header-v2 {
+      background: var(--navy);
+      padding: 24px 20px 30px;
+      color: #fff;
+      position: relative;
+      border-radius: 24px;
+      margin: 16px 20px 0;
+      box-shadow: 0 6px 16px rgba(61, 90, 241, 0.2);
+    }
+
+    .home-logo-v2 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .home-greeting-v2 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .streak-card-v2 {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      backdrop-filter: blur(4px);
+    }
+
+    .streak-count-v2 {
+      font-size: 32px;
+      font-weight: 900;
+      color: #FFD233;
+    }
+
+    .nav-card-v3 {
+      background: #fff;
+      border-radius: 20px;
+      padding: 18px 24px;
+      margin: 0 20px 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: transform 0.2s, background 0.2s;
+      border: 1px solid rgba(0, 0, 0, 0.02);
+    }
+
+    .nav-card-v3:active {
+      transform: scale(0.97);
+      background: #fcfcfc;
+    }
+
+    .nav-card-info-v2 {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-card-title-v2 {
+      font-size: 17px;
+      font-weight: 800;
+      color: #1a1a1a;
+    }
+
+    .nav-card-sub-v2 {
+      font-size: 13px;
+      color: #888;
+    }
+
+    .nav-card-arrow-v2 {
+      color: #ccc;
+      font-size: 20px;
+    }
+
+    .logo-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .header-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .header-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .55);
+      z-index: 10001;
+      /* 바텀 네비게이션(9999)보다 높게 설정 */
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal {
+      background: #fff;
+      border-radius: 24px 24px 0 0;
+      padding: 24px 20px 40px;
+      width: 390px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .modal-handle {
+      width: 40px;
+      height: 4px;
+      background: #ddd;
+      border-radius: 2px;
+      margin: 0 auto 20px;
+    }
+
+    .modal h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .modal p.sub {
+      color: #888;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .metric-box {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .metric-box .label {
+      font-size: 11px;
+      color: #888;
+      margin-bottom: 4px;
+    }
+
+    .metric-box .value {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .metric-box .unit {
+      font-size: 11px;
+      color: #888;
+    }
+
+    .close-btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: 14px;
+      border: none;
+      background: var(--orange);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: Pretendard, sans-serif;
+      box-shadow: 0 4px 14px rgba(255, 122, 0, .35);
+    }
+
+    /* rPPG MEASURE MODAL SPECIFIC */
+    .cam-container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 24px;
+      background: #000;
+      border: 4px solid #4caf50;
+      box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+    }
+
+    #hrvVideo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cam-overlay {
+      position: absolute;
+      inset: 0;
+      border: 6px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .measure-progress-svg {
+      position: absolute;
+      inset: -10px;
+      transform: rotate(-90deg);
+    }
+
+    .measure-progress-bg {
+      fill: none;
+      stroke: rgba(0, 0, 0, 0.05);
+      stroke-width: 4;
+    }
+
+    .measure-progress-fill {
+      fill: none;
+      stroke: #4caf50;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-dasharray: 283;
+      stroke-dashoffset: 283;
+      transition: stroke-dashoffset 0.1s linear;
+    }
+
+    /* SCREEN 2 - ACTIVITY RECORD */
+    .call-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .call-subtitle {
+      font-size: 12px;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    .ai-avatar-wrap {
+      margin: 24px 0 20px;
+      position: relative;
+    }
+
+    .ai-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 44px;
+      box-shadow: 0 6px 24px rgba(27, 40, 85, .35);
+    }
+
+    .pulse-ring {
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 122, 0, .4);
+      animation: pulse-anim 2s ease-out infinite;
+    }
+
+    @keyframes pulse-anim {
+      0% {
+        transform: scale(1);
+        opacity: .8
+      }
+
+      100% {
+        transform: scale(1.3);
+        opacity: 0
+      }
+    }
+
+    .waveform {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      height: 40px;
+      margin-bottom: 16px;
+    }
+
+    .wave-bar {
+      width: 4px;
+      border-radius: 2px;
+      background: var(--orange);
+      animation: wave 1.2s ease-in-out infinite;
+    }
+
+    .wave-bar:nth-child(1) {
+      animation-delay: 0s;
+      height: 12px
+    }
+
+    .wave-bar:nth-child(2) {
+      animation-delay: .1s;
+      height: 24px
+    }
+
+    .wave-bar:nth-child(3) {
+      animation-delay: .2s;
+      height: 36px
+    }
+
+    .wave-bar:nth-child(4) {
+      animation-delay: .3s;
+      height: 20px
+    }
+
+    .wave-bar:nth-child(5) {
+      animation-delay: .4s;
+      height: 30px
+    }
+
+    .wave-bar:nth-child(6) {
+      animation-delay: .5s;
+      height: 16px
+    }
+
+    .wave-bar:nth-child(7) {
+      animation-delay: .6s;
+      height: 28px
+    }
+
+    @keyframes wave {
+
+      0%,
+      100% {
+        transform: scaleY(1)
+      }
+
+      50% {
+        transform: scaleY(1.6)
+      }
+    }
+
+    .chat-bubble {
+      background: #fff;
+      border-radius: 16px;
+      padding: 16px 20px;
+      margin: 0 20px 16px;
+      font-size: 14px;
+      line-height: 1.6;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .07);
+      width: calc(100% - 40px);
+    }
+
+    .choice-label {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .choice-list {
+      width: 100%;
+      padding: 0 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-start;
+      margin-top: 10px;
+    }
+
+    .choice-item {
+      background: #fff;
+      border-radius: 20px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
+      transition: .2s;
+      font-size: 13px;
+      color: #555;
+      border: 1px solid #eee;
+      white-space: nowrap;
+    }
+
+
+    .choice-item:hover {
+      background: #F0F3FA;
+      transform: translateX(3px);
+    }
+
+    .choice-item .emoji {
+      margin-right: 6px;
+      font-size: 16px;
+    }
+
+
+    .choice-item.selected {
+      background: #EEF0FF;
+      border: 1.5px solid var(--navy);
+    }
+
+    .session-toggle {
+      display: flex;
+      gap: 10px;
+      margin: 0 20px 14px;
+    }
+
+    .session-btn {
+      flex: 1;
+      padding: 8px;
+      border-radius: 10px;
+      border: 1.5px solid #ddd;
+      background: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: Pretendard, sans-serif;
+      transition: .2s;
+    }
+
+    .session-btn.active {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+    }
+
+    /* 채팅 말풍선 전용 스타일 */
+    .chat-msg-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      padding: 10px 20px;
+      flex: 1;
+      overflow-y: auto;
+      max-height: 280px;
+      background: var(--bg);
+      border: none;
+      scroll-behavior: smooth;
+    }
+
+    .msg-bubble {
+      max-width: 80%;
+      padding: 10px 14px;
+      border-radius: 18px;
+      font-size: 13px;
+      line-height: 1.6;
+      position: relative;
+      word-break: keep-all;
+    }
+
+    .msg-ai {
+      align-self: flex-start;
+      background: #f1f1f1;
+      color: #333;
+      border-bottom-left-radius: 4px;
+    }
+
+    .msg-user {
+      align-self: flex-end;
+      background: var(--navy);
+      color: #fff;
+      border-bottom-right-radius: 4px;
+      font-weight: 500;
+    }
+
+    .call-controls {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      padding: 10px 20px;
+      margin-top: 4px;
+    }
+
+    .ctrl-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .ctrl-circle {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      transition: .2s;
+    }
+
+    .ctrl-circle:hover {
+      transform: scale(1.08);
+    }
+
+    .ctrl-mute {
+      background: #eee;
+    }
+
+    .ctrl-end {
+      background: #e53935;
+    }
+
+    .ctrl-mute {
+      background: var(--bg);
+    }
+
+    .ctrl-speaker {
+      background: var(--bg);
+    }
+
+    .ctrl-speaker {
+      background: #eee;
+    }
+
+    .ctrl-label {
+      font-size: 11px;
+      color: #888;
+    }
+
+    .stt-box {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin: 0 20px 14px;
+      min-height: 50px;
+      font-size: 13px;
+      color: #444;
+      line-height: 1.5;
+      width: calc(100% - 40px);
+    }
+
+    .stt-label {
+      font-size: 11px;
+      color: var(--navy);
+      font-weig
+      /* ── 활동기록지 테이블 (부록 G 스타일) ── */
+    }
+
+    /* ── 활동기록지 테이블 (부록 G 스타일) ── */
+    .ledger-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      font-size: 11px;
+      table-layout: fixed;
+      border: 1px solid #ccc;
+    }
+
+    .ledger-table th,
+    .ledger-table td {
+      border: 1px solid #ccc;
+      padding: 6px 4px;
+      text-align: center;
+      height: 32px;
+    }
+
+    .ledger-table .header-row {
+      background: #F5F6FA;
+      font-weight: 700;
+    }
+
+    .ledger-table .side-label {
+      background: #F5F6FA;
+      font-weight: 700;
+      width: 40px;
+    }
+
+    .ledger-table .time-slot {
+      width: 60px;
+      background: #fff;
+      color: #333;
+    }
+
+    .ledger-table .data-cell {
+      text-align: left;
+      padding-left: 8px;
+      color: #555;
+      font-size: 10px;
+      word-break: break-all;
+    }
+
+    .ledger-table .mood-cell {
+      width: 50px;
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    .report-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .report-section-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .chat-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 400px;
+      margin: 10px 0 20px;
+      padding: 0 20px;
+    }
+
+    .chat-input {
+      flex: 1;
+      padding: 14px 18px;
+      border-radius: 25px;
+      border: 1px solid #e0e6e0;
+      background: #fff;
+      font-size: 14px;
+      outline: none;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+      font-family: inherit;
+    }
+
+    .chat-send-btn {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 20px;
+      box-shadow: 0 4px 10px rgba(255, 122, 0, 0.35);
+      transition: transform 0.2s;
+    }
+
+    .chat-send-btn:active {
+      transform: scale(0.9);
+    }
+
+
+    /* Sub-header for non-home screens */
+    #screen-activity .app-header,
+    #screen-report .app-header {
+      background: var(--navy);
+    }
+
+    /* Hero bottom curve */
+    .hero-curve {
+      display: none;
+    }
+
+    /* 각 탭 상단 여백 */
+    #screen-activity,
+    #screen-report,
+    #screen-wellness {
+      padding-top: 24px;
+    }
+
+    .ledger-filter-btn {
+      padding: 5px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: #fff;
+      font-size: 12px;
+      cursor: pointer;
+      color: #666;
+      font-family: Pretendard, sans-serif;
+      transition: .15s;
+      white-space: nowrap;
+    }
+
+    .ledger-filter-btn.active {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+      font-weight: 700;
+    }
+
+    .cal-range-btn {
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: #fff;
+      font-size: 12px;
+      cursor: pointer;
+      color: #666;
+      font-family: Pretendard, sans-serif;
+      transition: .15s;
+    }
+
+    .cal-range-btn.active {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+    }
+
+    .activity-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 20px;
+      background: #EEF0FF;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background .15s;
+      color: var(--navy);
+      font-weight: 500;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+
+    .activity-chip.custom {
+      padding-right: 0 !important;
+      overflow: hidden;
+    }
+
+    .delete-btn {
+      margin-left: 8px;
+      padding: 0 12px;
+      color: #ff4d4d;
+      font-size: 16px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: stretch;
+      /* 부모 높이에 맞춤 */
+      border-left: 1px solid rgba(0, 0, 0, 0.05);
+      transition: background 0.2s;
+    }
+
+    .delete-btn:hover {
+      background: rgba(255, 77, 77, 0.1);
+    }
+
+    .activity-chip:hover,
+    .activity-chip.selected {
+      background: var(--navy);
+      color: #fff;
+    }
+
+
+    /* recordBtn mic style */
+    #recordBtn {
+      background: var(--navy) !important;
+      color: white !important;
+    }
+
+    #recordBtn.recording {
+      background: var(--orange) !important;
+    }
+
+    .wellness-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 20px;
+      margin: 0 20px 16px;
+      box-shadow: 0 4px 15px rgba(27, 40, 85, .05);
+      border: 1px solid rgba(232, 236, 255, .5);
+    }
+
+    .gauge-container {
+      position: relative;
+      width: 140px;
+      height: 75px;
+      margin: 0 auto 10px;
+      overflow: hidden;
+    }
+
+    .gauge-bg {
+      fill: none;
+      stroke: #eee;
+      stroke-width: 12;
+      stroke-linecap: round;
+    }
+
+    .gauge-fill {
+      fill: none;
+      stroke: url(#gaugeGradient);
+      stroke-width: 12;
+      stroke-linecap: round;
+      stroke-dasharray: 100, 100;
+      transition: stroke-dashoffset 0.8s ease;
+    }
+
+    .gauge-needle {
+      width: 4px;
+      height: 60px;
+      background: #333;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform-origin: 50% 100%;
+      transform: translateX(-50%) rotate(-90deg);
+      transition: transform 0.8s ease;
+      border-radius: 4px;
+      z-index: 2;
+    }
+
+    .stat-emoji {
+      font-size: 32px;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    }
+
+    .insight-bubble {
+      background: #F4F6FF;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      position: relative;
+    }
+
+    .insight-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: #FF7A00;
+      color: #fff;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 10px;
+      font-weight: 700;
+      border: 2px solid #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+  <!-- SCREEN 1: HOME (Redesigned V2) -->
+  <div class="screen active" id="screen-home">
+    <div class="home-header-v2">
+      <div class="home-logo-v2">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+            stroke-linecap="round" stroke-linejoin="round" style="color:#FFD233;">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 8l4 4-4 4M8 12h8" />
+          </svg>
+          <span style="font-size:18px; font-weight:900; letter-spacing:-0.5px;">마음이음</span>
+        </div>
+      </div>
+
+      <div class="home-greeting-v2">
+        안녕하세요, <span id="homeUserName">사용자</span>님
+      </div>
+
+      <div class="streak-card-v2">
+        <div class="streak-count-v2" id="homeStreakCount">0</div>
+        <div style="display:flex; flex-direction:column; gap:2px;">
+          <div style="font-size:15px; font-weight:700;">일 연속 훈련 중</div>
+          <div style="font-size:12px; opacity:0.9;">오늘도 마음 건강을 챙겨보세요!</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 20px; position: relative; z-index: 10;">
+      <!-- CARD 1: 중증도 진단 -->
+      <div class="nav-card-v3" onclick="openHRVModal()">
+        <div class="nav-card-info-v2">
+          <div class="nav-card-title-v2">중증도 진단</div>
+          <div class="nav-card-sub-v2">rPPG 기반 심박변이도(HRV) 측정</div>
+        </div>
+      </div>
+
+      <!-- CARD 2: PHQ-9 검사 -->
+      <div class="nav-card-v3" onclick="openPHQ9Modal()">
+        <div class="nav-card-info-v2">
+          <div class="nav-card-title-v2">PHQ-9 검사</div>
+          <div class="nav-card-sub-v2">우울 자가검진</div>
+        </div>
+      </div>
+
+      <!-- CARD 3: 결과보기 (NEW) -->
+      <div class="nav-card-v3" onclick="showIntegratedResults()">
+        <div class="nav-card-info-v2">
+          <div class="nav-card-title-v2">결과보기</div>
+          <div class="nav-card-sub-v2" style="color:#888;">리포트 확인</div>
+        </div>
+      </div>
+
+      <!-- CARD 4: 상담하기 -->
+      <div class="nav-card-v3" onclick="switchTab('activity')">
+        <div class="nav-card-info-v2">
+          <div class="nav-card-title-v2">상담하기</div>
+          <div class="nav-card-sub-v2">마음이음과 상담하기</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SCREEN 6: INTEGRATED RESULTS (MODERN TABS) -->
+  <div class="screen" id="screen-results">
+    <div
+      style="background:#3D5AF1; padding:12px 20px; color:white; text-align:center; position:relative; height:50px; display:flex; align-items:center; justify-content:center;">
+      <span onclick="switchTab('home')" style="position:absolute; left:20px; cursor:pointer;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </span>
+      <div style="font-size:15px; font-weight:700;">종합 결과 리포트</div>
+    </div>
+
+    <!-- [1] 오늘의 진단 컨테이너 -->
+    <div id="res-today-container" style="padding:20px; overflow-y:auto; flex:1;">
+      <!-- 통합 위험도 진단 결과 -->
+      <div
+        style="background:white; border-radius:24px; padding:40px 24px; text-align:center; box-shadow:0 10px 30px rgba(0,0,0,0.05); margin-bottom:20px;">
+        <div style="font-size:14px; color:#888; margin-bottom:4px;">진단 결과</div>
+        <div id="integratedSourceBadge"
+          style="display:inline-block; font-size:11px; font-weight:800; background:#f0f2f8; color:#666; padding:4px 12px; border-radius:20px; margin-bottom:8px;">
+          --</div>
+
+        <!-- 신뢰도 표시줄 추가 -->
+        <div id="confidenceArea"
+          style="margin-bottom: 24px; display: flex; flex-direction: column; align-items: center; gap: 6px;">
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span style="font-size: 11px; font-weight: 700; color: #888;">데이터 신뢰도</span>
+            <span id="confidenceLabel" style="font-size: 11px; font-weight: 800;">--</span>
+          </div>
+          <div style="width: 120px; height: 5px; background: #eee; border-radius: 10px; overflow: hidden;">
+            <div id="confidenceBar" style="width: 0%; height: 100%; background: #3D5AF1; transition: width 0.5s ease;">
+            </div>
+          </div>
+        </div>
+
+        <div id="integratedRiskLabel"
+          style="font-size:64px; font-weight:900; color:#333; letter-spacing:-2px; line-height:1;">--</div>
+        <div id="integratedRiskDesc"
+          style="font-size:15px; color:#666; margin-top:24px; line-height:1.6; font-weight:500;">분석 데이터가 부족합니다.</div>
+      </div>
+
+
+      <!-- 리포트 트렌드 카드 (사용자 요청: 결과 아래 카드 배치) -->
+      <div
+        style="background:white; border-radius:24px; padding:24px; box-shadow:0 10px 30px rgba(0,0,0,0.05); margin-top:20px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+          <div style="font-size:15px; font-weight:800; color:#333;">마음 건강 추이</div>
+          <div style="display:flex; background:#f0f2f8; border-radius:10px; padding:3px; gap:4px;">
+            <button class="trend-toggle-btn active" id="btn-trend-weekly" onclick="switchResultTab('weekly')"
+              style="border:none; background:#fff; color:var(--navy); font-size:11px; font-weight:700; padding:6px 14px; border-radius:8px; cursor:pointer; transition:0.2s; box-shadow:0 2px 4px rgba(0,0,0,0.05);">주간</button>
+            <button class="trend-toggle-btn" id="btn-trend-monthly" onclick="switchResultTab('monthly')"
+              style="border:none; background:transparent; color:#888; font-size:11px; font-weight:500; padding:6px 14px; border-radius:8px; cursor:pointer; transition:0.2s;">월간</button>
+          </div>
+        </div>
+
+        <!-- 주간 그래프 영역 -->
+        <div id="res-weekly-container" style="height:220px;">
+          <canvas id="weeklyHrvChart"></canvas>
+        </div>
+
+        <!-- 월간 그래프 영역 -->
+        <div id="res-monthly-container" style="display:none; height:240px;">
+          <canvas id="monthlyIntegratedChart"></canvas>
+        </div>
+      </div>
+
+      <!-- 상세 지표 토글 버튼 -->
+      <div id="detailedHrvToggleArea" style="display:none; margin-top:20px; margin-bottom:10px;">
+        <button id="btnToggleDetails" onclick="toggleDetailedResults()"
+          style="width:100%; padding:15px; border-radius:16px; border:1px solid #eee; background:#fff; color:#666; font-size:13px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px;">
+          상세 지표 분석
+        </button>
+      </div>
+
+      <!-- 상세 생체 지표 섹션 -->
+      <div id="detailedHrvSection" style="display:none; margin-bottom:20px;">
+        <div style="font-size:14px; font-weight:800; color:var(--navy); margin-bottom:12px;">상세 지표 분석</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px;">
+          <div style="background:#fff; padding:16px; border-radius:16px; border:1px solid #f0f0f0;">
+            <div style="font-size:10px; color:#888; margin-bottom:4px;">회복력 (SDNN)</div>
+            <div style="font-size:15px; font-weight:800; color:#333;"><span id="resDetailSDNN">--</span> <span
+                style="font-size:10px; font-weight:400;">ms</span></div>
+          </div>
+          <div style="background:#fff; padding:16px; border-radius:16px; border:1px solid #f0f0f0;">
+            <div style="font-size:10px; color:#888; margin-bottom:4px;">부교감신경 활성 (RMSSD)</div>
+            <div style="font-size:15px; font-weight:800; color:#333;"><span id="resDetailRMSSD">--</span> <span
+                style="font-size:10px; font-weight:400;">ms</span></div>
+          </div>
+          <div style="background:#fff; padding:16px; border-radius:16px; border:1px solid #f0f0f0;">
+            <div style="font-size:10px; color:#888; margin-bottom:4px;">평균 심박수</div>
+            <div style="font-size:15px; font-weight:800; color:#333;"><span id="resDetailHR">--</span> <span
+                style="font-size:10px; font-weight:400;">bpm</span></div>
+          </div>
+          <div style="background:#fff; padding:16px; border-radius:16px; border:1px solid #f0f0f0;">
+            <div style="font-size:10px; color:#888; margin-bottom:4px;">자율신경 균형 (LF/HF)</div>
+            <div style="font-size:15px; font-weight:800; color:#333;"><span id="resDetailLFHF">--</span></div>
+          </div>
+          <div style="background:#fff; padding:16px; border-radius:16px; border:1px solid #f0f0f0;">
+            <div style="font-size:10px; color:#888; margin-bottom:4px;">스트레스 지수</div>
+            <div style="font-size:15px; font-weight:800; color:#333;"><span id="resDetailStress">--</span> <span
+                style="font-size:10px; font-weight:400;">%</span></div>
+          </div>
+          <div style="background:#fff; padding:16px; border-radius:16px; border:1px solid #f0f0f0;">
+            <div style="font-size:10px; color:#888; margin-bottom:4px;">우울 점수 (PHQ-9)</div>
+            <div style="font-size:15px; font-weight:800; color:#3D5AF1;"><span id="resDetailPHQ9">--</span> <span
+                style="font-size:10px; font-weight:400;">점</span></div>
+          </div>
+        </div>
+
+        <!-- 레이더 차트 -->
+        <div
+          style="background:white; border-radius:20px; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.02); height:240px;">
+          <canvas id="resDetailRadarChart"></canvas>
+        </div>
+        <!-- 분석 코멘트 -->
+        <div style="background:#F8F9FF; border-radius:20px; padding:20px; margin-top:20px;">
+          <div style="font-size:14px; font-weight:700; margin-bottom:10px; color:var(--navy);">분석 코멘트</div>
+          <div id="integratedComment" style="font-size:13px; color:#555; line-height:1.6;">
+            중증도 진단과 PHQ-9 검사를 모두 완료하시면 개인화된 분석 결과를 제공해 드립니다.
+          </div>
+        </div>
+      </div>
+
+      <button onclick="switchTab('home')"
+        style="width:100%; margin-top:24px; padding:16px; border-radius:16px; border:none; background:var(--navy); color:white; font-size:15px; font-weight:700; cursor:pointer;">홈으로
+        돌아가기</button>
+    </div>
+  </div>
+
+  <!-- SCREEN 2: ACTIVITY RECORD -->
+  <div class="screen" id="screen-activity">
+
+    <div class="session-toggle" style="margin-top:16px;">
+      <button class="session-btn active" id="btnMorning" onclick="setSession('morning')">아침 대화</button>
+      <button class="session-btn" id="btnEvening" onclick="setSession('evening')">저녁 회고</button>
+    </div>
+
+    <!-- CALL START LANDING -->
+    <div id="callLanding" style="display:flex;flex-direction:column;align-items:center;padding:10px 20px 20px;">
+      <div
+        style="width:110px;height:110px;border-radius:50%;background:#2D2B52;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(0,0,0,0.3);margin-bottom:18px;">
+        <svg width="80" height="60" viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradBlue" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#56CCF2" />
+              <stop offset="100%" stop-color="#2F80ED" />
+            </linearGradient>
+            <linearGradient id="gradYellow" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#F2C94C" />
+              <stop offset="100%" stop-color="#F2994A" />
+            </linearGradient>
+          </defs>
+          <!-- Left Ring Bottom Part -->
+          <circle cx="28" cy="30" r="16" stroke="url(#gradBlue)" stroke-width="8" fill="none" />
+          <!-- Right Ring FULL -->
+          <circle cx="52" cy="30" r="16" stroke="url(#gradYellow)" stroke-width="8" fill="none" />
+          <!-- Left Ring Top Part (for interlocking) -->
+          <path d="M28 14 A 16 16 0 0 1 44 30" stroke="url(#gradBlue)" stroke-width="8" stroke-linecap="butt"
+            fill="none" />
+        </svg>
+        <div style="color:white; font-size:18px; font-weight:800; margin-top:-5px; letter-spacing:1px;">이음</div>
+      </div>
+      <div style="font-size:18px;font-weight:700;margin-bottom:6px;">마음이음 연결</div>
+      <div style="font-size:13px;color:#888;margin-bottom:32px;">활동 기록을 시작하려면 통화를 연결하세요.</div>
+      <div style="display:flex;flex-direction:column;gap:12px;width:100%;max-width:280px;">
+        <div style="text-align:center;font-size:12px;color:#888;margin-bottom:4px;">오늘의 세션</div>
+        <button onclick="startCall()"
+          style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:18px;border-radius:18px;border:none;background:linear-gradient(135deg,#FF7A00,#FF9A3C);color:#fff;font-size:17px;font-weight:700;cursor:pointer;font-family:Pretendard, sans-serif;box-shadow:0 4px 16px rgba(255,122,0,.4);transition:.2s;">
+          <span style="font-size:22px;"></span> 통화 시작
+        </button>
+        <div style="text-align:center;font-size:12px;color:#aaa;">평균 통화 시간: 5~10분</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin: 20px 0 0; width:100%; max-width:280px;">
+        <div onclick="openHistoryModal('아침 대화')"
+          style="background:#fff;border-radius:14px;padding:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06);cursor:pointer;transition:transform 0.1s;"
+          onmousedown="this.style.transform='scale(0.97)'" onmouseup="this.style.transform='scale(1)'"
+          onmouseleave="this.style.transform='scale(1)'">
+          <div style="font-size:22px;margin-bottom:6px;">☀️</div>
+          <div style="font-size:12px;font-weight:700;">아침 세션 상세 기록</div>
+          <div style="font-size:11px;color:#888;margin-top:2px;">오전 기록 조회</div>
+        </div>
+        <div onclick="openHistoryModal('저녁 회고')"
+          style="background:#fff;border-radius:14px;padding:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06);cursor:pointer;transition:transform 0.1s;"
+          onmousedown="this.style.transform='scale(0.97)'" onmouseup="this.style.transform='scale(1)'"
+          onmouseleave="this.style.transform='scale(1)'">
+          <div style="font-size:22px;margin-bottom:6px;">🌙</div>
+          <div style="font-size:12px;font-weight:700;">저녁 세션 상세 기록</div>
+          <div style="font-size:11px;color:#888;margin-top:2px;">저녁 회고 조회</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CALL IN PROGRESS (Inside screen-activity to prevent leak) -->
+    <div id="callActive"
+      style="display:none;flex-direction:column;align-items:center;width:100%;padding:10px 20px 20px;">
+      <div class="call-screen">
+        <div style="font-size:15px;font-weight:700;">활동 기록 중</div>
+        <div class="call-subtitle">인공지능과 대화 중</div>
+        <div class="ai-avatar-wrap">
+          <div class="pulse-ring"></div>
+          <div class="ai-avatar"
+            style="display:flex; flex-direction:column; align-items:center; justify-content:center; background:#2D2B52; gap:4px;">
+            <svg width="70" height="52" viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="callGradBlue" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#56CCF2" />
+                  <stop offset="100%" stop-color="#2F80ED" />
+                </linearGradient>
+                <linearGradient id="callGradYellow" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#F2C94C" />
+                  <stop offset="100%" stop-color="#F2994A" />
+                </linearGradient>
+              </defs>
+              <circle cx="28" cy="30" r="16" stroke="url(#callGradBlue)" stroke-width="8" fill="none" />
+              <circle cx="52" cy="30" r="16" stroke="url(#callGradYellow)" stroke-width="8" fill="none" />
+              <path d="M28 14 A 16 16 0 0 1 44 30" stroke="url(#callGradBlue)" stroke-width="8" stroke-linecap="butt"
+                fill="none" />
+            </svg>
+            <div style="color:white; font-size:14px; font-weight:800; margin-top:-2px; letter-spacing:1px;">이음</div>
+          </div>
+        </div>
+        <div class="waveform" id="waveform">
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+        </div>
+      </div>
+
+      <!-- 기존 단일 버블 대신 채팅 히스토리 영역으로 대체 -->
+      <div id="callChatHistory" class="chat-msg-wrap">
+        <!-- 메시지들이 여기에 동적으로 생성됨 -->
+      </div>
+
+      <div class="stt-box" style="display: none;">
+        <div class="stt-label">🎤 음성 인식 결과</div>
+        <div id="sttResult" style="min-height: 20px;">버튼을 눌러 말씀해 주세요...</div>
+      </div>
+
+      <div class="choice-label">눌러서 대답하기 (마이크 대체용)</div>
+      <div class="choice-list" style="display:flex;flex-direction:column;gap:8px;width:100%;">
+        <div class="choice-item" style="width:100%;margin:0;" onclick="selectChoice(this,'산책이나 운동을 했어요')"><span
+            class="emoji"></span>산책이나 운동을 했어요<span></span></div>
+        <div class="choice-item" style="width:100%;margin:0;" onclick="selectChoice(this,'공부나 업무를 했어요')"><span
+            class="emoji"></span>공부나 업무를 했어요<span></span></div>
+        <div class="choice-item" style="width:100%;margin:0;" onclick="selectChoice(this,'친구나 가족을 만났어요')"><span
+            class="emoji"></span>친구나 가족을 만났어요<span></span></div>
+        <div class="choice-item" style="width:100%;margin:0;" onclick="selectChoice(this,'집에서 쉬었어요')"><span
+            class="emoji"></span>집에서 쉬었어요<span></span></div>
+        <div class="choice-item" style="width:100%;margin:0;" onclick="selectChoice(this,'아무것도 못 했어요')"><span
+            class="emoji"></span>아무것도 못 했어요<span></span></div>
+      </div>
+
+      <!-- 텍스트 입력창 추가 -->
+      <div class="chat-input-wrap">
+        <input type="text" id="chatInput" class="chat-input" placeholder="여기에 마음을 적어주세요..."
+          onkeypress="if(event.keyCode==13) handleChatInput()">
+        <div class="chat-send-btn" onclick="handleChatInput()">🕊️</div>
+      </div>
+
+      <div class="call-controls">
+        <div class="ctrl-btn" onclick="toggleMute()">
+          <div class="ctrl-circle ctrl-mute" id="muteBtn" style="background:#eee;">🎤</div>
+          <div class="ctrl-label" id="muteLabel">마이크 켜기</div>
+        </div>
+        <div class="ctrl-btn" onclick="endCall()">
+          <div class="ctrl-circle ctrl-end">📵</div>
+          <div class="ctrl-label">통화 종료</div>
+        </div>
+        <div class="ctrl-btn" onclick="toggleSpeaker()">
+          <div class="ctrl-circle ctrl-speaker" id="speakerBtn">🔊</div>
+          <div class="ctrl-label">스피커</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- SCREEN 3: COMBINED REPORT (daily review + weekly) -->
+  <div class="screen" id="screen-report">
+
+    <!-- 활동기록지 -->
+    <div class="report-card" style="margin: 0 20px 20px;">
+      <div class="report-section-title"><span></span> 활동기록지</div>
+
+      <!-- 주차 화살표 네비게이션 -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+        <button onclick="changeLedgerWeek(-1)"
+          style="width:34px;height:34px;border-radius:50%;border:1px solid #E8ECFF;background:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;">‹</button>
+        <span id="ledgerWeekLabel" style="font-size:15px;font-weight:700;color:#1a1a1a;">1주차</span>
+        <button onclick="changeLedgerWeek(1)"
+          style="width:34px;height:34px;border-radius:50%;border:1px solid #E8ECFF;background:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;">›</button>
+      </div>
+
+      <!-- 요일 선택 -->
+      <div style="display:flex;gap:5px;margin-bottom:14px;flex-wrap:wrap;" id="daySelector">
+        <button class="ledger-filter-btn active" onclick="selectLedgerDay(1,this)">월</button>
+        <button class="ledger-filter-btn" onclick="selectLedgerDay(2,this)">화</button>
+        <button class="ledger-filter-btn" onclick="selectLedgerDay(3,this)">수</button>
+        <button class="ledger-filter-btn" onclick="selectLedgerDay(4,this)">목</button>
+        <button class="ledger-filter-btn" onclick="selectLedgerDay(5,this)">금</button>
+        <button class="ledger-filter-btn" onclick="selectLedgerDay(6,this)">토</button>
+        <button class="ledger-filter-btn" onclick="selectLedgerDay(7,this)">일</button>
+      </div>
+
+      <div id="activityLedgerContainer" style="overflow-x:auto;">
+        <!-- 테이블이 JS로 생성됨 -->
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- SCREEN 4: 자기관리 (기분 달력 + 감사 일기 + 활동 일정) -->
+  <div class="screen" id="screen-wellness">
+    <!-- [수정] 전역 주차 선택기 (Sticky 카드 스타일) -->
+    <div class="wellness-card"
+      style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; position: sticky; top: 0; z-index: 100; background: #ffffff; border: 1px solid rgba(61, 90, 241, 0.1); box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+
+      <span style="font-size: 16px; font-weight: 800; color: #000;">자기관리 리포트</span>
+
+      <div
+        style="display: flex; align-items: center; gap: 12px; background: #fff; padding: 6px 16px; border-radius: 20px; border: 1px solid #eee;">
+        <button onclick="changeLedgerWeek(-1)"
+          style="border: none; background: none; font-size: 14px; color: #888; cursor: pointer; padding: 4px;">◀</button>
+        <span id="wellnessWeekLabelTop"
+          style="font-weight: 800; font-size: 14px; color: #3D5AF1; min-width: 50px; text-align: center;">1주차</span>
+        <button onclick="changeLedgerWeek(1)"
+          style="border: none; background: none; font-size: 14px; color: #888; cursor: pointer; padding: 4px;">▶</button>
+      </div>
+    </div>
+
+
+
+
+
+    <!-- Mood Gauge Section [NEW] -->
+    <div class="wellness-card">
+      <!-- 카드 제목 좌측 상단 배치 -->
+      <div style="text-align: left; margin-bottom: 18px;">
+        <span style="font-size: 15px; font-weight: 700; color: #000;">선택한 기간의 평균 기분 점수</span>
+      </div>
+
+
+      <div class="gauge-container">
+        <svg viewBox="0 0 100 55" style="width:100%; height:100%;">
+          <defs>
+            <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#4caf50" />
+              <stop offset="50%" stop-color="#ff9800" />
+              <stop offset="100%" stop-color="#e53935" />
+            </linearGradient>
+          </defs>
+          <path class="gauge-bg" d="M 10 50 A 40 40 0 0 1 90 50" />
+          <path id="gaugePath" class="gauge-fill" d="M 10 50 A 40 40 0 0 1 90 50" style="stroke-dashoffset: 100;" />
+        </svg>
+        <div id="gaugeNeedle" class="gauge-needle"></div>
+      </div>
+
+      <!-- 평균 점수 (그래프 아래로 이동) -->
+      <div style="text-align: center; margin: 10px 0 15px;">
+
+        <div style="display: flex; align-items: baseline; justify-content: center; gap: 4px;">
+          <span id="wellnessAvgScore"
+            style="font-size: 38px; font-weight: 900; color: #3D5AF1; line-height: 1;">--</span>
+          <span style="font-size: 18px; font-weight: 700; color: #bbb;">/10</span>
+        </div>
+      </div>
+      <div id="wellnessAvgLabel" style="font-size: 13px; font-weight: 600; color: #666; text-align: center;">데이터 수집 중...
+      </div>
+
+
+      <!-- Good / Not So Good Stats -->
+      <div
+        style="display: flex; justify-content: space-around; margin-top: 25px; border-top: 1px solid #f0f0f0; padding-top: 20px;">
+        <div style="flex: 1; text-align: center;">
+          <div class="stat-emoji">😊</div>
+          <div style="font-size: 11px; color: #888; margin-top: 5px;">좋음</div>
+          <div id="countGood" style="font-size: 18px; font-weight: 800; color: #1a1a1a; margin-top: 2px;">0</div>
+          <div id="barGood"
+            style="width: 24px; height: 3px; background: #4caf50; margin: 4px auto 0; border-radius: 2px; display: none;">
+          </div>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <div class="stat-emoji">😐</div>
+          <div style="font-size: 11px; color: #888; margin-top: 5px;">보통</div>
+          <div id="countNormal" style="font-size: 18px; font-weight: 800; color: #1a1a1a; margin-top: 2px;">0</div>
+          <div id="barNormal"
+            style="width: 24px; height: 3px; background: #ffc107; margin: 4px auto 0; border-radius: 2px; display: none;">
+          </div>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <div class="stat-emoji">😔</div>
+          <div style="font-size: 11px; color: #888; margin-top: 5px;">나쁨</div>
+          <div id="countBad" style="font-size: 18px; font-weight: 800; color: #1a1a1a; margin-top: 2px;">0</div>
+          <div id="barBad"
+            style="width: 24px; height: 3px; background: #e53935; margin: 4px auto 0; border-radius: 2px; display: none;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 기분 달력 -->
+    <div class="wellness-card">
+      <div style="margin-bottom:18px;">
+        <span style="font-size:15px;font-weight:700;color: #000;">기분 기록</span>
+
+      </div>
+      <div id="moodCalendarGrid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:10px;"></div>
+    </div>
+
+    <!-- [순서 변경] 주간 활동 및 점수 추이 차트 (기분 기록 아래로) -->
+    <div class="wellness-card">
+      <div style="margin-bottom: 18px;">
+        <span style="font-size: 15px; font-weight: 700; color: #000;">활동별 점수 추이</span>
+
+      </div>
+      <div id="activityTrendChartContainer" style="height: 220px; position: relative;">
+        <canvas id="activityTrendChart"></canvas>
+        <div id="activityTrendEmptyState"
+          style="display:none; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:#aaa; font-size:12px; text-align:center; width:100%;">
+          해당 주차에 기록된 활동 데이터가 없습니다.
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <!-- 활동 일정 관리 -->
+    <div
+      style="margin:0 20px 16px;background:#fff;border-radius:20px;padding:18px;box-shadow:0 2px 12px rgba(0,0,0,.06);">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+        <div style="font-size:15px;font-weight:700;">활동 일정 관리</div>
+        <button onclick="window.openActivityManager()"
+          style="background:none; border:1px solid #ddd; border-radius:8px; padding:4px 10px; font-size:11px; color:#888; cursor:pointer;">편집</button>
+      </div>
+      <div id="activityBankChips" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;"></div>
+      <div id="scheduleConfig"
+        style="display:none;background:#F4F6FF;border-radius:14px;padding:14px;margin-bottom:12px;">
+        <div style="font-size:13px;font-weight:700;margin-bottom:10px;" id="scheduleSelectedName"></div>
+        <div style="display:flex;gap:10px;align-items:center;margin-bottom:10px;">
+          <label style="font-size:12px;color:#666;">시간</label>
+          <input type="time" id="scheduleTime"
+            style="flex:1;border:1px solid #E8ECFF;border-radius:10px;padding:8px 10px;font-size:13px;outline:none;">
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;margin-bottom:10px;">
+          <label style="font-size:12px;color:#666;">날짜</label>
+          <div style="flex:1; display:flex; gap:5px; align-items:center;">
+            <select id="scheduleMonth"
+              style="flex:1;border:1px solid #E8ECFF;border-radius:10px;padding:8px 5px;font-size:13px;outline:none;background:#fff;">
+              <option value="1">1월</option>
+              <option value="2">2월</option>
+              <option value="3">3월</option>
+              <option value="4">4월</option>
+              <option value="5">5월</option>
+              <option value="6">6월</option>
+              <option value="7">7월</option>
+              <option value="8">8월</option>
+              <option value="9">9월</option>
+              <option value="10">10월</option>
+              <option value="11">11월</option>
+              <option value="12">12월</option>
+            </select>
+            <select id="scheduleDay"
+              style="flex:1;border:1px solid #E8ECFF;border-radius:10px;padding:8px 5px;font-size:13px;outline:none;background:#fff;">
+              <option value="1">1일</option>
+              <option value="2">2일</option>
+              <option value="3">3일</option>
+              <option value="4">4일</option>
+              <option value="5">5일</option>
+              <option value="6">6일</option>
+              <option value="7">7일</option>
+              <option value="8">8일</option>
+              <option value="9">9일</option>
+              <option value="10">10일</option>
+              <option value="11">11일</option>
+              <option value="12">12일</option>
+              <option value="13">13일</option>
+              <option value="14">14일</option>
+              <option value="15">15일</option>
+              <option value="16">16일</option>
+              <option value="17">17일</option>
+              <option value="18">18일</option>
+              <option value="19">19일</option>
+              <option value="20">20일</option>
+              <option value="21">21일</option>
+              <option value="22">22일</option>
+              <option value="23">23일</option>
+              <option value="24">24일</option>
+              <option value="25">25일</option>
+              <option value="26">26일</option>
+              <option value="27">27일</option>
+              <option value="28">28일</option>
+              <option value="29">29일</option>
+              <option value="30">30일</option>
+              <option value="31">31일</option>
+            </select>
+          </div>
+        </div>
+        <button onclick="saveScheduledActivity()"
+          style="width:100%;padding:12px;background:var(--navy);color:#fff;border:none;border-radius:12px;font-size:13px;font-weight:700;cursor:pointer;">일정
+          추가</button>
+      </div>
+      <div id="scheduledList" style="display:flex;flex-direction:column;gap:8px;"></div>
+    </div>
+
+  </div>
+
+  <!-- SCREEN 5: GRATITUDE DIARY (Separated) -->
+  <div class="screen" id="screen-gratitude">
+
+    <!-- 감사 일기 입력 -->
+    <div
+      style="margin:20px; background:#fff; border-radius:24px; padding:24px; box-shadow:0 4px 15px rgba(0,0,0,0.05);">
+      <div style="font-size:16px; font-weight:800; margin-bottom:16px;">오늘 감사한 일</div>
+
+      <!-- 테마 이미지 선택기 (가로 스크롤) -->
+      <style>
+        #gratitudeThemeSelector::-webkit-scrollbar {
+          height: 4px;
+        }
+
+        #gratitudeThemeSelector::-webkit-scrollbar-track {
+          background: #f0f0f0;
+          border-radius: 10px;
+        }
+
+        #gratitudeThemeSelector::-webkit-scrollbar-thumb {
+          background: #ccc;
+          border-radius: 10px;
+        }
+      </style>
+      <div id="gratitudeThemeSelector"
+        style="display:flex; gap:10px; overflow-x:auto; padding:4px 0 16px; -webkit-overflow-scrolling:touch;">
+        <!-- JS에서 렌더링 -->
+      </div>
+      <input type="file" id="gratitudeFileInput" style="display:none;" accept="image/*"
+        onchange="handleImageFile(event)">
+
+      <textarea id="gratitudeInput" rows="3" placeholder="오늘 감사한 일을 한 줄씩 적어보세요..."
+        style="width:100%; border:1.5px solid #E8ECFF; border-radius:14px; padding:16px; font-size:14px; resize:none; font-family:Pretendard, sans-serif; outline:none; background:#fcfcff; color:#333;"></textarea>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-top:12px;">
+        <div id="gratitudeStars" style="display:flex; gap:6px; font-size:28px; cursor:pointer;">
+          <span onclick="setGratitudeStar(1)">☆</span>
+          <span onclick="setGratitudeStar(2)">☆</span>
+          <span onclick="setGratitudeStar(3)">☆</span>
+          <span onclick="setGratitudeStar(4)">☆</span>
+          <span onclick="setGratitudeStar(5)">☆</span>
+        </div>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <span id="locationBadge"
+            style="font-size:11px; color:#3D5AF1; background:#EEF0FF; padding:4px 8px; border-radius:8px;">📍 위치 파악
+            중...</span>
+          <button onclick="saveGratitudeEntry()"
+            style="padding:12px 22px; background:var(--navy); color:#fff; border:none; border-radius:14px; font-size:13px; font-weight:700; cursor:pointer; box-shadow:0 4px 12px rgba(61,90,241,0.2);">기억
+            저장</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 감사 일기 히스토리 -->
+    <div style="margin: 0 20px 20px;">
+      <div id="gratitudeList" style="display:flex; flex-direction:column; gap:16px;"></div>
+    </div>
+  </div>
+
+  <!-- 활동 만족도 모달 (0-10 점수 기반으로 수정) -->
+  <div class="modal-overlay" id="satisfactionModal" style="display:none;">
+    <div class="modal" style="text-align:center;padding:28px 20px;">
+      <div class="modal-handle"></div>
+      <div style="font-size:16px;font-weight:800;margin-bottom:8px;">활동 완료!</div>
+      <div id="satisfactionActivityName" style="font-size:14px;color:#888;margin-bottom:20px;"></div>
+      <div style="font-size:13px;color:#555;margin-bottom:24px;">이 활동을 하신 후 지금 기분은 어떠신가요? (0~10점)</div>
+
+      <div style="margin-bottom: 24px;">
+        <div
+          style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 12px; color: #888; padding: 0 10px;">
+          <span>매우 나쁨(0)</span>
+          <span>보통(5)</span>
+          <span>매우 좋음(10)</span>
+        </div>
+        <input type="range" id="satisfactionRange" min="0" max="10" step="1" value="5"
+          style="width: 100%; height: 6px; -webkit-appearance: none; background: #EEF0FF; border-radius: 3px; outline: none;"
+          oninput="document.getElementById('satisfactionVal').textContent = this.value">
+        <div id="satisfactionVal" style="font-size: 32px; font-weight: 900; color: var(--navy); margin-top: 10px;">5
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 10px;">
+        <button onclick="closeSatisfactionModal()"
+          style="flex: 1; padding: 14px; border-radius: 14px; border: 1px solid #eee; background: #fff; font-size: 14px; color: #888; cursor: pointer;">나중에</button>
+        <button onclick="saveMoodRating()"
+          style="flex: 1; padding: 14px; border-radius: 14px; border: none; background: var(--navy); color: #fff; font-size: 14px; font-weight: 700; cursor: pointer;">점수
+          저장</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 커스텀 활동 추가 모달 -->
+  <div class="modal-overlay" id="customActivityModal" style="display:none;">
+    <div class="modal" style="text-align:center;padding:28px 20px;">
+      <div class="modal-handle"></div>
+      <div style="font-size:16px;font-weight:800;margin-bottom:12px;">새로운 활동 추가</div>
+      <div style="font-size:13px;color:#888;margin-bottom:20px;">직접 하고 싶은 활동을 입력해 주세요.</div>
+
+      <div style="margin-bottom:20px; text-align:left;">
+        <label style="font-size:12px;color:#666;margin-left:4px;margin-bottom:6px;display:block;">활동 이름</label>
+        <input type="text" id="customActivityName" placeholder="예: 운동, 명상, 요리..."
+          style="width:100%;border:1px solid #E8ECFF;border-radius:12px;padding:12px;font-size:14px;outline:none;box-sizing:border-box;">
+      </div>
+
+      <div style="display: flex; gap: 10px;">
+        <button onclick="closeCustomActivityModal()"
+          style="flex: 1; padding: 14px; border-radius: 14px; border: 1px solid #eee; background: #fff; font-size: 14px; color: #888; cursor: pointer;">취소</button>
+        <button onclick="saveNewCustomActivity()"
+          style="flex: 1; padding: 14px; border-radius: 14px; border: none; background: var(--navy); color: #fff; font-size: 14px; font-weight: 700; cursor: pointer;">추가하기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHQ-9 자가진단 모달 (NEW) -->
+  <div class="modal-overlay" id="phq9Modal" style="display:none; align-items:center;">
+    <div class="modal" style="width:360px; max-height:85vh; border-radius:32px; padding:32px 24px; overflow-y:auto;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+        <div style="font-size:18px; font-weight:900; color:var(--navy);">PHQ-9 우울 검사</div>
+        <span onclick="closePHQ9Modal()" style="cursor:pointer; color:#ccc;">✕</span>
+      </div>
+
+      <div id="phq9ProgressContainer" style="height:4px; background:#f0f0f0; border-radius:2px; margin-bottom:24px;">
+        <div id="phq9ProgressBar"
+          style="width:0%; height:100%; background:var(--navy); border-radius:2px; transition:width 0.3s;"></div>
+      </div>
+
+      <div id="phq9QuestionContainer">
+        <div id="phq9QuestionText"
+          style="font-size:16px; font-weight:700; color:#333; line-height:1.5; margin-bottom:24px; min-height:48px;">
+          데이터를 불러오고 있습니다...
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <button class="phq9-opt" onclick="answerPHQ9(0)">없음 (0점)</button>
+          <button class="phq9-opt" onclick="answerPHQ9(1)">2~6일 (1점)</button>
+          <button class="phq9-opt" onclick="answerPHQ9(2)">7~12일 (2점)</button>
+          <button class="phq9-opt" onclick="answerPHQ9(3)">거의 매일 (3점)</button>
+        </div>
+
+        <!-- [추가] 건너뛰기 버튼 -->
+        <div style="margin-top: 20px; text-align: center;">
+          <button onclick="skipPHQ9()"
+            style="background:none; border:none; color:#888; font-size:13px; font-weight:600; cursor:pointer; text-decoration:underline;">
+            건너뛰기
+          </button>
+        </div>
+      </div>
+
+      <style>
+        .phq9-opt {
+          width: 100%;
+          padding: 16px;
+          border: 1.5px solid #eee;
+          background: white;
+          border-radius: 16px;
+          font-size: 14px;
+          color: #555;
+          font-weight: 600;
+          cursor: pointer;
+          text-align: left;
+          transition: all 0.2s;
+        }
+
+        .phq9-opt:hover {
+          border-color: var(--navy);
+          background: #F8F9FF;
+          color: var(--navy);
+        }
+      </style>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="chatDetailModal">
+    <div class="modal" style="height: 80vh; display: flex; flex-direction: column;">
+      <div class="modal-handle"></div>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; padding:0 15px;">
+        <span id="chatDetailTitle" style="font-size:16px; font-weight:800; color:#1a1a1a;">대화 기록 상세보기</span>
+        <span style="cursor:pointer; font-size:20px; color:#ccc;" onclick="closeChatDetailModal()">✕</span>
+      </div>
+      <div id="chatDetailContent"
+        style="flex:1; overflow-y:auto; padding:0 20px 20px; font-size:14px; color:#333; line-height:1.7; white-space: pre-wrap; background:#f9f9f9; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
+        <!-- 대화 내용이 여기에 삽입됨 -->
+      </div>
+      <!-- [NEW] 활동 관리 버튼 추가 -->
+      <div id="chatDetailFooter"
+        style="display:flex; gap:10px; padding:15px; background:#fff; border-radius:0 0 24px 24px;">
+        <button id="btnEditRecord"
+          style="flex:1; padding:12px; border-radius:12px; border:1px solid var(--navy); background:#fff; color:var(--navy); font-size:13px; font-weight:700; cursor:pointer;">편집</button>
+        <button id="btnDeleteRecord"
+          style="flex:1; padding:12px; border-radius:12px; border:none; background:#ff4d4d; color:#fff; font-size:13px; font-weight:700; cursor:pointer;">삭제</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- SCREEN 2: ACTIVITY RECORD -->
+
+
+
+
+
+
+
+
+
+  <!-- HRV REAL-TIME MEASURE MODAL -->
+  <!-- HRV REAL-TIME MEASURE MODAL (REDESIGNED) -->
+  <div class="modal-overlay" id="hrvMeasureModal"
+    style="display:none; align-items:center; justify-content:center; background:rgba(0,0,0,0.5); z-index:10000; padding:20px;">
+    <div class="modal"
+      style="width:100%; max-width:360px; max-height:92vh; border-radius:32px; padding:0; position:relative; display:flex; flex-direction:column; background:#F4F6FF; overflow:hidden; box-shadow:0 25px 50px rgba(0,0,0,0.2);">
+
+      <!-- Compact Header (Integrated) -->
+      <div
+        style="padding:16px 20px; color:var(--text); text-align:center; position:relative; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+        <span onclick="closeHRVModal()" style="position:absolute; right:20px; cursor:pointer; color:#888;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </span>
+        <div style="font-size:14px; font-weight:800; color:#333;">중증도 진단 (HRV)</div>
+      </div>
+
+      <div
+        style="flex:1; display:flex; flex-direction:column; align-items:center; padding:0 20px 20px; overflow-y:auto;">
+        <!-- Card 1: Main Info -->
+        <div
+          style="background:var(--navy); width:100%; padding:24px 20px; border-radius:24px; color:white; text-align:center; margin-bottom:16px; box-shadow:0 8px 20px rgba(61,90,241,0.15);">
+          <div style="font-size:22px; font-weight:900; margin-bottom:8px;">얼굴을 비춰주세요</div>
+          <div style="font-size:13px; opacity:0.9; line-height:1.4; font-weight:500;">잠깐이면 돼요, 편하게 계세요</div>
+        </div>
+
+        <!-- Card 2: Camera Section -->
+        <div style="position:relative; margin-bottom:20px; width:100%; display:flex; justify-content:center;">
+          <div style="position:relative;">
+            <div class="cam-container"
+              style="width:300px; height:300px; border:5px solid #fff; box-shadow:0 10px 25px rgba(0,0,0,0.06);">
+              <video id="hrvVideo" autoplay playsinline style="width:100%; height:100%; object-fit:cover;"></video>
+              <canvas id="hrvCanvas" style="display:none;"></canvas>
+
+              <svg class="measure-progress-svg" viewBox="0 0 100 100"
+                style="width:100%; height:100%; top:0; left:0; position:absolute;">
+                <circle class="measure-progress-bg" cx="50" cy="50" r="48" style="stroke-width:4;"></circle>
+                <circle id="measureProgressCircle" class="measure-progress-fill" cx="50" cy="50" r="48"
+                  style="stroke-width:4; stroke:white;"></circle>
+              </svg>
+            </div>
+
+            <div id="measureTimer"
+              style="position:absolute; bottom:-12px; left:50%; transform:translateX(-50%); background:#FF5252; color:white; padding:6px 16px; border-radius:20px; font-size:14px; font-weight:800; box-shadow:0 6px 12px rgba(255,82,82,0.3); z-index:100;">
+              준비됐어요
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Guide Box (Home screen card style) -->
+        <div
+          style="background:white; width:100%; border-radius:24px; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.03); border:1px solid rgba(232,236,255,0.6);">
+          <div style="font-size:15px; font-weight:800; margin-bottom:12px; color:#333;">이렇게 하면 잘 돼요</div>
+          <div style="display:flex; flex-direction:column; gap:6px;">
+            <div style="font-size:13px; color:#666; padding-bottom:8px; border-bottom:1px solid #f8f8f8;">밝은 곳이 좋아요
+            </div>
+            <div style="font-size:13px; color:#666; padding-bottom:8px; border-bottom:1px solid #f8f8f8;">가까이 와주세요
+            </div>
+            <div style="font-size:13px; color:#666;">편하게 앉아 계세요</div>
+          </div>
+        </div>
+
+        <!-- Footer Action (Inside scroll for safety) -->
+        <div style="width:100%; padding-top:20px; padding-bottom:20px;">
+          <button id="btnStartMeasure" onclick="startHRVMeasure()"
+            style="width:100%; padding:17px; border-radius:18px; border:none; background:var(--navy); color:white; font-size:16px; font-weight:800; cursor:pointer; box-shadow:0 8px 20px rgba(61,90,241,0.25);">시작하기</button>
+
+          <!-- 건너뛰기 버튼 추가 -->
+          <div style="text-align:center; margin-top:16px;">
+            <button onclick="skipHRV()"
+              style="background:none; border:none; color:#888; font-size:13px; font-weight:600; cursor:pointer; text-decoration:underline;">
+              건너뛰기
+            </button>
+          </div>
+          <div id="measureStatus" style="font-size:12px; color:#aaa; text-align:center; margin-top:12px;">준비가 되면 시작 버튼을
+            눌러주세요.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HRV DETAILED REPORT MODAL -->
+  <div class="modal-overlay" id="hrvReportModal" style="display:none; align-items:center;">
+    <div class="modal" style="width:360px; max-height:90vh; overflow-y:auto; border-radius:32px; padding:28px 20px;">
+      <div style="font-size:16px; font-weight:800; margin-bottom:20px; text-align:center;">카메라 rPPG 기반 생체 지표 분석</div>
+
+      <div class="metric-grid">
+        <div class="metric-box">
+          <div class="label">자율신경 균형 <span style="font-weight:400; font-size:9px;">SDNN</span></div>
+          <div class="value"><span id="resSDNN">--</span> <span class="unit">ms</span></div>
+        </div>
+        <div class="metric-box">
+          <div class="label">부교감 활성도 <span style="font-weight:400; font-size:9px;">RMSSD</span></div>
+          <div class="value"><span id="resRMSSD">--</span> <span class="unit">ms</span></div>
+        </div>
+        <div class="metric-box">
+          <div class="label">평균 심박수 <span style="font-weight:400; font-size:9px;">Heart Rate</span></div>
+          <div class="value"><span id="resHR">--</span> <span class="unit">회/분</span></div>
+        </div>
+        <div class="metric-box">
+          <div class="label">교감/부교감 <span style="font-weight:400; font-size:9px;">LF/HF Ratio</span></div>
+          <div class="value"><span id="resLFHF">--</span> <span class="unit">비율</span></div>
+        </div>
+        <div class="metric-box">
+          <div class="label">스트레스 지수 <span style="font-weight:400; font-size:9px;">Stress Index</span></div>
+          <div class="value"><span id="resStress">--</span> <span class="unit">%</span></div>
+        </div>
+      </div>
+
+      <!-- Radar Chart -->
+      <div style="height:250px; margin:20px 0;">
+        <canvas id="hrvRadarChart"></canvas>
+      </div>
+
+      <button onclick="closeHRVReport()"
+        style="width:100%; padding:16px; border-radius:16px; border:none; background:var(--orange); color:#fff; font-size:15px; font-weight:700; cursor:pointer;">확인</button>
+    </div>
+  </div>
+
+  <!-- END CALL CONFIRMATION MODAL -->
+  <div class="modal-overlay" id="endCallModal">
+    <div class="modal" style="text-align:center;">
+      <div class="modal-handle"></div>
+      <div style="font-size:48px;margin-bottom:12px;">📵</div>
+      <h3 style="font-size:18px;margin-bottom:8px;">통화를 종료하시겠어요?</h3>
+      <p class="sub" style="margin-bottom:24px;">오늘의 기록이 활동기록지에 반영됩니다.</p>
+      <div style="display:flex;gap:10px;">
+        <button onclick="cancelEndCall()"
+          style="flex:1;padding:14px;border-radius:14px;border:1.5px solid #ddd;background:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:Pretendard, sans-serif;color:#666;">계속하기</button>
+        <button onclick="confirmEndCall()"
+          style="flex:1;padding:14px;border-radius:14px;border:none;background:#e53935;color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:Pretendard, sans-serif;">종료</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HISTORY MODAL -->
+  <div class="modal-overlay" id="historyModal">
+    <div class="modal" style="display:flex;flex-direction:column;max-height:80vh;">
+      <div class="modal-handle"></div>
+      <h3 id="historyTitle" style="font-size:18px;margin-bottom:4px;text-align:center;">누적 기록</h3>
+      <p class="sub" style="text-align:center;margin-bottom:16px;">지금까지 진행한 세션 상세 기록입니다.</p>
+
+      <div id="historyListContainer"
+        style="flex:1;overflow-y:auto;padding-right:4px;display:flex;flex-direction:column;gap:12px;margin-bottom:16px;">
+      </div>
+
+      <button onclick="closeHistoryModal()"
+        style="width:100%;padding:14px;border-radius:14px;border:none;background:#FF7A00;color:#fff;font-size:15px;font-weight:700;cursor:pointer;font-family:Pretendard, sans-serif;">닫기</button>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAV: 홈 - 활동 - 기록 -->
+  <div class="bottom-nav">
+    <div class="nav-item active" id="nav-home">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        <polyline points="9 22 9 12 15 12 15 22" />
+      </svg>
+      <span>홈</span>
+    </div>
+    <div class="nav-item" id="nav-report">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="20" x2="18" y2="10" />
+        <line x1="12" y1="20" x2="12" y2="4" />
+        <line x1="6" y1="20" x2="6" y2="14" />
+      </svg>
+      <span>기록</span>
+    </div>
+    <div class="nav-item" id="nav-wellness">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+      </svg>
+      <span>자기관리</span>
+    </div>
+    <div class="nav-item" id="nav-gratitude">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+      </svg>
+      <span>감사일기</span>
+    </div>
+  </div>
+
+  <script>
+
+    // ── rPPG & HRV 측정 엔진 (실시간 픽셀 분석) ───────────────────
+    let hrvStream = null;
+    let measureInterval = null;
+    let samples = [];
+    let isMeasuring = false;
+    let radarChart = null;
+    let lastHrvResult = null;
+
+    /**
+     * 실제 데이터(hrv_sessions) 기반 연속 훈련 일수 계산
+     */
+    function calculateStreak() {
+      const sessions = JSON.parse(localStorage.getItem('hrv_sessions') || '[]');
+      if (sessions.length === 0) return 0;
+
+      // 날짜 집합 추출 (중복 제거)
+      const dates = new Set();
+      sessions.forEach(s => {
+        if (s.isDiagnostic) return; // [필터] 중증도 진단 데이터는 스트릭 계산에서 제외
+        const d = new Date(s.timestamp || s.id);
+        dates.add(d.toDateString());
+      });
+
+      // 정렬된 날짜 배열 만들기
+      const sortedDates = Array.from(dates).map(d => new Date(d)).sort((a, b) => b - a);
+
+      let streak = 0;
+      let checkDate = new Date();
+      checkDate.setHours(0, 0, 0, 0);
+
+      // 오늘 또는 어제부터 시작하는지 확인
+      const firstDate = sortedDates[0];
+      firstDate.setHours(0, 0, 0, 0);
+
+      const diff = Math.floor((checkDate - firstDate) / (1000 * 60 * 60 * 24));
+
+      if (diff > 1) return 0; // 이틀 이상 공백 시 스트릭 0
+
+      // 연속된 일수 카운트
+      for (let i = 0; i < sortedDates.length; i++) {
+        const d = sortedDates[i];
+        d.setHours(0, 0, 0, 0);
+
+        if (i === 0) {
+          streak = 1;
+        } else {
+          const prev = sortedDates[i - 1];
+          const gap = Math.floor((prev - d) / (1000 * 60 * 60 * 24));
+          if (gap === 1) {
+            streak++;
+          } else if (gap > 1) {
+            break;
+          }
+        }
+      }
+      return streak;
+    }
+
+    function openHRVModal() {
+      document.getElementById('hrvMeasureModal').style.display = 'flex';
+      resetMeasureUI();
+    }
+
+    // ── PHQ-9 자가진단 로직 ──────────────────────────────────
+    const phq9Questions = [
+      "평소 하던 일에 대한 흥미나 즐거움이 거의 없음",
+      "기분이 가라앉거나, 우울하거나, 희망이 없다고 느낌",
+      "잠들기 어렵거나 자꾸 깨어남, 혹은 너무 많이 잠",
+      "다소 피곤하거나 기운이 거의 없음",
+      "입맛이 없거나 너무 많이 먹음",
+      "자신을 부정적으로 생각함 - 혹은 자신이 실패자라고 느끼거나 자신이나 가족을 실망시켰다고 느낌",
+      "신문을 읽거나 TV를 보는 것과 같은 일에 집중하기 어려움",
+      "다른 사람들이 눈치챌 정도로 거동이나 말투가 느려짐, 혹은 반대로 너무 초조해서 가만히 있지 못함",
+      "차라리 죽는 것이 낫겠다는 생각, 혹은 어떤 식으로든 스스로를 해치려는 생각"
+    ];
+    let phq9CurrentIdx = 0;
+    let phq9TotalScore = 0;
+
+    function openPHQ9Modal() {
+      phq9CurrentIdx = 0;
+      phq9TotalScore = 0;
+      document.getElementById('phq9Modal').style.display = 'flex';
+      renderPHQ9Question();
+    }
+
+    function closePHQ9Modal() {
+      document.getElementById('phq9Modal').style.display = 'none';
+    }
+
+    function skipPHQ9() {
+      if (confirm("중증도 진단을 건너뛰고 바로 결과창으로 이동하시겠습니까?")) {
+        closePHQ9Modal();
+        showIntegratedResults();
+      }
+    }
+
+    function renderPHQ9Question() {
+      const qText = document.getElementById('phq9QuestionText');
+      const pBar = document.getElementById('phq9ProgressBar');
+
+      const progress = ((phq9CurrentIdx + 1) / phq9Questions.length) * 100;
+      pBar.style.width = `${progress}%`;
+      qText.textContent = `${phq9CurrentIdx + 1}. ${phq9Questions[phq9CurrentIdx]}`;
+    }
+
+    function answerPHQ9(score) {
+      phq9TotalScore += score;
+      phq9CurrentIdx++;
+
+      if (phq9CurrentIdx < phq9Questions.length) {
+        renderPHQ9Question();
+      } else {
+        savePHQ9Result();
+      }
+    }
+
+    function savePHQ9Result() {
+      const result = {
+        score: phq9TotalScore,
+        date: new Date().toISOString(),
+        label: getPhq9Label(phq9TotalScore)
+      };
+
+      // 1. 최신 결과 저장
+      localStorage.setItem('phq9_latest', JSON.stringify(result));
+
+      // 2. 히스토리 누적 저장
+      const history = JSON.parse(localStorage.getItem('phq9_history') || '[]');
+      history.push(result);
+      localStorage.setItem('phq9_history', JSON.stringify(history));
+
+      if (confirm("검사가 모두 완료되었습니다. 바로 결과창에서 분석 내용을 확인하시겠습니까?")) {
+        closePHQ9Modal();
+        showIntegratedResults();
+      } else {
+        closePHQ9Modal();
+      }
+    }
+
+    function getPhq9Label(score) {
+      if (score <= 9) return "정상";
+      if (score <= 19) return "중등도";
+      return "중증";
+    }
+
+    let weeklyHrvChart = null;
+    let monthlyIntegratedChart = null;
+
+    function switchResultTab(tabName) {
+      if (tabName === 'today') return; // 이제 분리된 탭이 아니므로 무시
+
+      // 버튼 토글 상태 업데이트
+      document.querySelectorAll('.trend-toggle-btn').forEach(btn => {
+        btn.classList.remove('active');
+        btn.style.background = 'transparent';
+        btn.style.color = '#888';
+        btn.style.fontWeight = '500';
+        btn.style.boxShadow = 'none';
+      });
+
+      const activeBtn = document.getElementById(`btn-trend-${tabName}`);
+      if (activeBtn) {
+        activeBtn.classList.add('active');
+        activeBtn.style.background = '#fff';
+        activeBtn.style.color = 'var(--navy)';
+        activeBtn.style.fontWeight = '700';
+        activeBtn.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+      }
+
+      // 컨테이너 노출 여부
+      document.getElementById('res-weekly-container').style.display = tabName === 'weekly' ? 'block' : 'none';
+      document.getElementById('res-monthly-container').style.display = tabName === 'monthly' ? 'block' : 'none';
+
+      if (tabName === 'weekly') renderWeeklyTrend();
+      if (tabName === 'monthly') renderMonthlyTrend();
+    }
+
+    function renderWeeklyTrend() {
+      const ctx = document.getElementById('weeklyHrvChart').getContext('2d');
+      if (weeklyHrvChart) weeklyHrvChart.destroy();
+
+      // [DEMO용 샘플 데이터] 데이터가 쌓이기 전 모습을 보여주기 위한 가상 데이터
+      const mockStressData = [48, 52, 45, 58, 50, 42, 38];
+      const mockLabels = ['4/6', '4/7', '4/8', '4/9', '4/10', '4/11', '4/12'];
+
+      weeklyHrvChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: mockLabels,
+          datasets: [
+            {
+              label: '스트레스 지수(%)',
+              data: mockStressData,
+              borderColor: '#ff5252',
+              borderWidth: 3,
+              pointBackgroundColor: '#fff',
+              pointBorderColor: '#ff5252',
+              pointBorderWidth: 2,
+              pointRadius: 5,
+              pointHoverRadius: 7,
+              tension: 0.4,
+              fill: false
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: {
+            intersect: false,
+            mode: 'index',
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 100,
+              title: { display: true, text: 'Stress (%)', font: { size: 10, weight: '700' } },
+              grid: { color: '#f0f0f0' },
+              ticks: { stepSize: 20, font: { size: 10 } }
+            },
+            x: {
+              grid: { display: false },
+              ticks: { font: { size: 10 } }
+            }
+          },
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: { boxWidth: 10, usePointStyle: true, font: { size: 10, weight: '500' } }
+            }
+          }
+        }
+      });
+    }
+
+    function renderMonthlyTrend() {
+      const ctx = document.getElementById('monthlyIntegratedChart').getContext('2d');
+      if (monthlyIntegratedChart) monthlyIntegratedChart.destroy();
+
+      // [DEMO용 샘플 데이터] 3개월(3월, 4월, 5월) 추이 가상 데이터
+      const mockPhqDataRaw = [];
+      const mockHrvDataRaw = [];
+      const mockLabels = [];
+
+      const monthNames = ['3월', '4월', '5월'];
+
+      // 9개의 슬롯 (0~8)으로 구성하여 5월 마지막 데이터에서 차트가 끝나도록 조정
+      for (let i = 0; i < 9; i++) {
+        // 레이블: 3월(0), 4월(4), 5월(8)에 정확히 배치
+        if (i === 0) mockLabels.push(monthNames[0]);
+        else if (i === 4) mockLabels.push(monthNames[1]);
+        else if (i === 8) mockLabels.push(monthNames[2]);
+        else mockLabels.push('');
+
+        const progress = i / 8;
+
+        // 1. PHQ-9 (2주에 한 번 측정 - 인덱스 0, 2, 4, 6, 8)
+        if (i % 2 === 0) {
+          const phqBase = 14 - (progress * 8);
+          mockPhqDataRaw.push(Math.max(0, Math.round(phqBase + (Math.random() * 2 - 1))));
+        } else {
+          mockPhqDataRaw.push(null);
+        }
+
+        // 2. 스트레스 지수 (월 1회 측정 - 인덱스 0, 4, 8)
+        if (i % 4 === 0) {
+          const stressBase = 58 - (progress * 25);
+          mockHrvDataRaw.push(Math.max(0, Math.round(stressBase + (Math.random() * 4 - 2))));
+        } else {
+          mockHrvDataRaw.push(null);
+        }
+      }
+
+      monthlyIntegratedChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: mockLabels,
+          datasets: [
+            {
+              label: '우울 점수 (PHQ-9)',
+              data: mockPhqDataRaw,
+              borderColor: '#3D5AF1',
+              borderWidth: 3,
+              pointRadius: 4,
+              pointBackgroundColor: '#fff',
+              pointBorderColor: '#3D5AF1',
+              pointBorderWidth: 2,
+              tension: 0.4,
+              spanGaps: true,
+              yAxisID: 'y1',
+              fill: false
+            },
+            {
+              label: '스트레스 지수(%)',
+              data: mockHrvDataRaw,
+              borderColor: '#ff5252',
+              borderWidth: 3,
+              spanGaps: true,
+              pointRadius: 5,
+              pointBackgroundColor: '#fff',
+              pointBorderColor: '#ff5252',
+              pointBorderWidth: 2,
+              tension: 0.4,
+              yAxisID: 'y2',
+              fill: false
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: {
+            intersect: false,
+            mode: 'index',
+          },
+          scales: {
+            y1: {
+              beginAtZero: true,
+              max: 27,
+              title: { display: true, text: 'PHQ-9 점수', font: { size: 10, weight: '700' } },
+              grid: { color: '#f0f0f0' },
+              ticks: { font: { size: 10 } }
+            },
+            y2: {
+              position: 'right',
+              beginAtZero: true,
+              max: 100,
+              title: { display: true, text: 'Stress (%)', font: { size: 10, weight: '700' } },
+              grid: { drawOnChartArea: false }
+            },
+            x: {
+              ticks: {
+                autoSkip: false,
+                maxRotation: 0,
+                font: { size: 10 }
+              }
+            }
+          },
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: { boxWidth: 10, usePointStyle: true, font: { size: 10, weight: '500' } }
+            }
+          }
+        }
+      });
+    }
+
+    function showIntegratedResults() {
+      // 당일 데이터 체크를 위한 헬퍼
+      const isToday = (dateStr) => {
+        if (!dateStr) return false;
+        const d = new Date(dateStr);
+        const today = new Date();
+        return d.getDate() === today.getDate() &&
+          d.getMonth() === today.getMonth() &&
+          d.getFullYear() === today.getFullYear();
+      };
+
+      const hrvRaw = lastHrvResult || JSON.parse(localStorage.getItem('hrv_latest_result') || 'null');
+      const phqRaw = JSON.parse(localStorage.getItem('phq9_latest') || 'null');
+
+      // [강화] 오늘 측정한 데이터만 유효한 것으로 간주 (구버전 데이터로 인한 오작동 방지)
+      const hrvData = (hrvRaw && isToday(hrvRaw.date)) ? hrvRaw : null;
+      const phqData = (phqRaw && isToday(phqRaw.date)) ? phqRaw : null;
+
+      currentIntegratedHrvData = hrvData;
+
+      switchTab('results'); // 결과 화면으로 전환
+      switchResultTab('weekly'); // 진단 결과 아래 트렌드 카드는 '주간' 기본 활성화
+
+      // 상세 섹션 초기화 (숨김)
+      const detailSect = document.getElementById('detailedHrvSection');
+      const toggleArea = document.getElementById('detailedHrvToggleArea');
+      const toggleBtn = document.getElementById('btnToggleDetails');
+
+      detailSect.style.display = 'none';
+      toggleBtn.textContent = '상세 지표 분석';
+
+      let hrvScore = 0;
+      let phqPerc = 0;
+
+      // 1. HRV 데이터 랜더링 (30%)
+      if (hrvData) {
+        hrvScore = hrvData.stress || 0;
+        toggleArea.style.display = 'block'; // HRV 데이터가 있을 때만 토글 버튼 노출
+      } else {
+        toggleArea.style.display = 'none';
+      }
+
+      // 2. PHQ-9 데이터 랜더링 (70%)
+      if (phqData) {
+        phqPerc = Math.round((phqData.score / 27) * 100);
+      }
+
+      // 3. 통합 결과 계산 및 출력 로직 수정
+      let finalScore = 0;
+      let label = "";
+      let desc = "";
+      let color = "";
+      let comment = "";
+
+      if (hrvData && phqData) {
+        // [CASE 1] 둘 다 있을 때: 3:7 가중치 합산
+        finalScore = Math.round((hrvScore * 0.3) + (phqPerc * 0.7));
+
+        if (finalScore <= 34) {
+          label = "정상";
+          desc = "마음이 안정적인 상태입니다. 현재의 생활 습관을 유지해 주세요.";
+          color = "#4caf50";
+          comment = "생체 지표와 주관적 지표 모두 양호합니다. 긍정적인 마음가짐이 잘 유지되고 있네요!";
+        } else if (finalScore <= 71) {
+          label = "중등도";
+          desc = "약간의 스트레스나 우울감이 감지됩니다. 충분한 휴식이 필요할 수 있습니다.";
+          color = "#ff9800";
+          comment = "최근 조금 피로하시거나 고민이 있으신가요? '상담하기'를 통해 속마음을 털어놓아 보세요.";
+        } else {
+          label = "중증";
+          desc = "심리적 불편감이 큰 상태로 보입니다. 전문가와의 상담을 적극 권장합니다.";
+          color = "#e53935";
+          comment = "지표상으로 우울 위험도가 높게 나타납니다. 혼자 고민하지 마시고 꼭 주변이나 전문가의 도움을 받으세요.";
+        }
+      } else if (hrvData) {
+        // [CASE 2] HRV만 있을 때: 생체 지표 기반 결과 노출
+        finalScore = hrvScore;
+        const riskMap = { 'Normal': '정상', 'Moderate': '중등도', 'Severe': '중증' };
+        const riskColorMap = { 'Normal': '#4caf50', 'Moderate': '#ff9800', 'Severe': '#e53935' };
+
+        label = riskMap[hrvData.risk] || "분석 완료";
+        color = riskColorMap[hrvData.risk] || "#3D5AF1";
+        desc = "HRV 지표 분석 결과입니다. 현재 " + label + " 상태로 측정되었습니다.";
+        comment = "더욱 정교한 종합 분석을 위해 우울자가검진(PHQ-9)도 함께 진행해 보시는 것을 추천합니다.";
+      } else if (phqData) {
+        // [CASE 3] PHQ-9만 있을 때: 설문 기반 결과 노출
+        finalScore = phqPerc;
+        label = (phqData.score <= 9) ? "정상" : (phqData.score <= 19) ? "중등도" : "중증";
+        color = (label === "정상") ? "#4caf50" : (label === "중등도") ? "#ff9800" : "#e53935";
+        desc = "자가설문(PHQ-9) 기반 분석 결과입니다. 현재 " + label + " 상태로 분류되었습니다.";
+        comment = "객관적인 생체 데이터 확인을 위해 카메라를 이용한 '중증도 진단'을 함께 받아보세요.";
+      } else {
+        // [CASE 4] 둘 다 없을 때
+        label = "데이터 부족";
+        desc = "정확한 종합 분석을 위해 중증도 진단과 PHQ-9 검사가 모두 필요합니다.";
+        color = "#888";
+        comment = "마음 건강 상태를 확인하려면 위 두 가지 검사를 먼저 진행해 주세요. 잠시 시간을 내어 진단을 시작해 볼까요?";
+
+        // 데이터 부족 상태 UI 강제 업데이트
+        const sourceBadge = document.getElementById('integratedSourceBadge');
+        if (sourceBadge) {
+          sourceBadge.textContent = "진단 데이터 없음";
+          sourceBadge.style.background = "#f0f0f0";
+          sourceBadge.style.color = "#999";
+        }
+
+        const confLabel = document.getElementById('confidenceLabel');
+        const confBar = document.getElementById('confidenceBar');
+        if (confLabel) confLabel.textContent = "분석 불가";
+        if (confBar) confBar.style.width = "0%";
+      }
+
+      // UI 업데이트
+      const sourceBadge = document.getElementById('integratedSourceBadge');
+      const confLabel = document.getElementById('confidenceLabel');
+      const confBar = document.getElementById('confidenceBar');
+
+      if (hrvData && phqData) {
+        sourceBadge.textContent = "종합 분석 (HRV + PHQ-9)";
+        sourceBadge.style.background = "#EEF0FF";
+        sourceBadge.style.color = "#3D5AF1";
+
+        confLabel.textContent = "높음 (종합 분석)";
+        confLabel.style.color = "#3D5AF1";
+        confBar.style.width = "100%";
+        confBar.style.background = "#3D5AF1";
+
+        // [추가] 지표 간 괴리율 검사 (가중치 보완)
+        const diff = Math.abs(hrvScore - phqPerc);
+        if (diff > 40) {
+          comment = `현재 신체적 스트레스(${hrvScore}점)와 주관적 우울감(${phqPerc}점) 사이에 상당한 차이가 관찰됩니다. `;
+          comment += "갑작스러운 환경 변화나 일시적인 심리적 충격이 원인일 수 있으니, 충분한 휴식을 취하며 추이를 지켜보세요.";
+        }
+      } else if (hrvData) {
+        sourceBadge.textContent = "약식 진단 (HRV)";
+        sourceBadge.style.background = "#F4F6FF";
+        sourceBadge.style.color = "#666";
+
+        confLabel.textContent = "보통 (설문 추가 권장)";
+        confLabel.style.color = "#ff9800";
+        confBar.style.width = "50%";
+        confBar.style.background = "#ff9800";
+      } else if (phqData) {
+        sourceBadge.textContent = "약식 진단 (PHQ-9)";
+        sourceBadge.style.background = "#FFF9F4";
+        sourceBadge.style.color = "#FF7A00";
+
+        confLabel.textContent = "보통 (중증도 진단 권장)";
+        confLabel.style.color = "#ff9800";
+        confBar.style.width = "50%";
+        confBar.style.background = "#ff9800";
+      }
+
+      document.getElementById('integratedRiskLabel').textContent = label;
+      document.getElementById('integratedRiskLabel').style.color = color;
+      document.getElementById('integratedRiskDesc').textContent = desc;
+      document.getElementById('integratedComment').textContent = comment;
+    }
+
+    function toggleDetailedResults() {
+      const detailSect = document.getElementById('detailedHrvSection');
+      const toggleBtn = document.getElementById('btnToggleDetails');
+      const hrvData = currentIntegratedHrvData;
+
+      if (detailSect.style.display === 'none') {
+        detailSect.style.display = 'block';
+        toggleBtn.textContent = '상세 지표 분석 접기';
+
+        if (hrvData) {
+          // 데이터 바인딩 (안전한 형변환 적용)
+          document.getElementById('resDetailSDNN').textContent = Number(hrvData.sdnn).toFixed(1);
+          document.getElementById('resDetailRMSSD').textContent = Number(hrvData.rmssd).toFixed(1);
+          document.getElementById('resDetailHR').textContent = Math.round(Number(hrvData.hr));
+          document.getElementById('resDetailLFHF').textContent = Number(hrvData.lfhf).toFixed(2);
+          document.getElementById('resDetailStress').textContent = Math.round(Number(hrvData.stress));
+
+          // PHQ-9 데이터 연동 (최근 데이터 혹은 종합 데이터에서 추출)
+          const latestPhq = JSON.parse(localStorage.getItem('phq9_latest') || 'null');
+          const phqScoreEl = document.getElementById('resDetailPHQ9');
+          if (latestPhq && phqScoreEl) {
+            phqScoreEl.textContent = latestPhq.score;
+            phqScoreEl.parentElement.parentElement.title = `PHQ-9 분석 결과: ${latestPhq.label}\n[기준] 0-9(정상), 10-19(중등도), 20-27(중증)`;
+          } else if (phqScoreEl) {
+            phqScoreEl.textContent = "--";
+            phqScoreEl.parentElement.parentElement.title = "최근 PHQ-9 검사 기록이 없습니다.";
+          }
+
+          // 툴팁(가이드) 및 점수 기준 추가
+          document.getElementById('resDetailSDNN').parentElement.parentElement.title = "회복력(SDNN): 신체의 전체적인 조절 능력 및 스트레스 저항력. \n[기준] 50ms+ (양호), 30-50ms (주의), 30 미만 (저하)";
+          document.getElementById('resDetailRMSSD').parentElement.parentElement.title = "부교감 활성(RMSSD): 신체의 안정 및 회복 수준. \n[기준] 40ms+ (양호), 20-40ms (주의), 20 미만 (저하)";
+          document.getElementById('resDetailHR').parentElement.parentElement.title = "평균 심박수: 분당 심장 박동수. \n[기준] 60-80 (이상적), 80-100 (높음/주의), 100+ (위험)";
+          document.getElementById('resDetailLFHF').parentElement.parentElement.title = "자율신경 균형: 긴장과 이완의 조화로운 비율. \n[기준] 1.0-1.5 (균형), 2.0+ (스트레스/교감 우세)";
+          document.getElementById('resDetailStress').parentElement.parentElement.title = "스트레스 지수: 현재 느껴지는 심신 부하 정도. \n[기준] 20% 미만 (안정), 50% 초과 (고스트레스)";
+
+          // 레이더 차트 초기화
+          setTimeout(() => {
+            const charCtx = document.getElementById('resDetailRadarChart').getContext('2d');
+            if (window.resRadarInstance) window.resRadarInstance.destroy();
+
+            // 실제 수치 텍스트 준비
+            const sdnnVal = Number(hrvData.sdnn).toFixed(1);
+            const rmssdVal = Number(hrvData.rmssd).toFixed(1);
+            const hrVal = Math.round(Number(hrvData.hr));
+            const lfhfVal = Number(hrvData.lfhf).toFixed(2);
+            const stressVal = Math.round(Number(hrvData.stress));
+
+            window.resRadarInstance = new Chart(charCtx, {
+              type: 'radar',
+              data: {
+                labels: [
+                  `회복력`,
+                  `부교감신경 활성`,
+                  `평균 심박수`,
+                  `자율신경 균형`,
+                  `스트레스 지수`
+                ],
+                datasets: [{
+                  label: '측정 지표',
+                  data: [
+                    Math.min(100, (Number(hrvData.sdnn) / 60) * 100),
+                    Math.min(100, (Number(hrvData.rmssd) / 50) * 100),
+                    Math.max(0, 100 - (Math.abs(Number(hrvData.hr) - 70) * 2)),
+                    Math.min(100, (2.5 - Math.abs(Number(hrvData.lfhf) - 1.2)) * 40),
+                    100 - Number(hrvData.stress)
+                  ],
+                  backgroundColor: 'rgba(61, 90, 241, 0.2)',
+                  borderColor: '#3D5AF1',
+                  borderWidth: 2,
+                  pointBackgroundColor: '#3D5AF1',
+                  pointRadius: 4
+                }]
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                  r: {
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: { display: false, stepSize: 20 },
+                    grid: { color: '#eee' },
+                    angleLines: { color: '#eee' },
+                    pointLabels: {
+                      font: { size: 10, weight: '700' },
+                      color: '#666',
+                      padding: 10
+                    }
+                  }
+                },
+                plugins: {
+                  legend: { display: false },
+                  tooltip: {
+                    callbacks: {
+                      label: function (context) {
+                        const idx = context.dataIndex;
+                        const vals = [sdnnVal + 'ms', rmssdVal + 'ms', hrVal + 'bpm', lfhfVal, stressVal + '%'];
+                        return ` 수치: ${vals[idx]}`;
+                      }
+                    }
+                  }
+                }
+              }
+            });
+          }, 50);
+        }
+      } else {
+        detailSect.style.display = 'none';
+        toggleBtn.textContent = '상세 지표 분석';
+      }
+    }
+
+
+
+    function skipHRV() {
+      closeHRVModal();
+      if (confirm("중증도 진단을 건너뛰시겠습니까? 대신 우울자가검진(PHQ-9)이라도 진행하시면 더 정확한 분석 결과를 확인하실 수 있습니다.")) {
+        openPHQ9Modal();
+      }
+    }
+
+    function closeHRVModal() {
+      stopCamera();
+      document.getElementById('hrvMeasureModal').style.display = 'none';
+    }
+
+    function resetMeasureUI() {
+      document.getElementById('measureTimer').textContent = '30';
+      document.getElementById('measureStatus').textContent = '준비가 되면 시작 버튼을 눌러주세요.';
+      document.getElementById('measureProgressCircle').style.strokeDashoffset = '283';
+      document.getElementById('btnStartMeasure').disabled = false;
+      document.getElementById('btnStartMeasure').style.opacity = '1';
+    }
+
+    async function stopCamera() {
+      if (hrvStream) {
+        hrvStream.getTracks().forEach(track => track.stop());
+        hrvStream = null;
+      }
+      isMeasuring = false;
+      if (measureInterval) clearInterval(measureInterval);
+    }
+
+    async function startHRVMeasure() {
+      // 새로운 측정을 시작할 때, 이전 세션의 설문 데이터가 섞이지 않도록 최신 설문 결과 초기화
+      localStorage.removeItem('phq9_latest');
+
+      try {
+        const video = document.getElementById('hrvVideo');
+        hrvStream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: 'user', width: 300, height: 300 }
+        });
+        video.srcObject = hrvStream;
+
+        document.getElementById('btnStartMeasure').disabled = true;
+        document.getElementById('btnStartMeasure').style.opacity = '0.5';
+        document.getElementById('measureStatus').textContent = '측정 중... 움직이지 마세요.';
+
+        samples = [];
+        isMeasuring = true;
+        let count = 30;
+        const startTime = Date.now();
+
+        // 픽셀 분석 루프 (Canvas 활용)
+        const canvas = document.getElementById('hrvCanvas');
+        const ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+        const processFrame = () => {
+          if (!isMeasuring) return;
+
+          ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+          // 중앙 영역 샘플링 (Green 채널)
+          const imgData = ctx.getImageData(canvas.width / 4, canvas.height / 4, canvas.width / 2, canvas.height / 2);
+          const data = imgData.data;
+          let greenSum = 0;
+          for (let i = 1; i < data.length; i += 4) {
+            greenSum += data[i];
+          }
+          const avgGreen = greenSum / (data.length / 4);
+          samples.push({ t: Date.now() - startTime, v: avgGreen });
+
+          requestAnimationFrame(processFrame);
+        };
+        processFrame();
+
+        // 타이머 및 진행률 업데이트
+        measureInterval = setInterval(() => {
+          count--;
+          document.getElementById('measureTimer').textContent = count;
+
+          const progress = ((30 - count) / 30) * 283;
+          document.getElementById('measureProgressCircle').style.strokeDashoffset = 283 - progress;
+
+          if (count <= 0) {
+            clearInterval(measureInterval);
+            finishMeasure();
+          }
+        }, 1000);
+
+      } catch (err) {
+        console.error('Camera Error:', err);
+        alert('카메라 권한이 필요합니다.');
+        closeHRVModal();
+      }
+    }
+
+    async function finishMeasure() {
+      isMeasuring = false;
+      stopCamera();
+      document.getElementById('measureStatus').textContent = '분석 중...';
+
+      try {
+        await analyzeHRV();
+        closeHRVModal();
+
+        // 측정 완료 후 항상 PHQ-9 검사 화면으로 유도
+        alert("분석이 완료되었습니다. 정확한 종합 분석을 위해 우울자가검진(PHQ-9)를 함께 진행합니다.(2주 1회 권장)");
+        openPHQ9Modal();
+      } catch (e) {
+        console.error("HRV 분석 중 오류:", e);
+        alert("분석 중 오류가 발생했습니다. 다시 시도해 주세요.");
+        closeHRVModal();
+      }
+    }
+
+    async function analyzeHRV() {
+      // [신규] 백엔드 리얼타임 분석 API 호출
+      try {
+        const response = await fetch('/api/analyze_hrv_real', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ samples: samples })
+        });
+
+        if (!response.ok) throw new Error("API 연동 중 오류 발생");
+
+        const realResult = await response.json();
+
+        lastHrvResult = {
+          sdnn: realResult.sdnn,
+          rmssd: realResult.rmssd,
+          hr: realResult.hr,
+          lfhf: realResult.lfhf,
+          stress: realResult.stress,
+          risk: realResult.risk,
+          date: new Date().toISOString() // 날짜 추가
+        };
+
+        // 4. 저장 (hrv_sessions 연동, isDiagnostic 플래그 부여)
+        saveHRVSession(lastHrvResult);
+      } catch (err) {
+        console.error("Analysis Error:", err);
+        throw err;
+      }
+    }
+
+    function saveHRVSession(res) {
+      const now = new Date();
+      const dateStr = now.toLocaleDateString('ko-KR', { month: '2-digit', day: '2-digit' }).replace(/ /g, '');
+      const timeStr = now.toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' });
+
+      const sessions = JSON.parse(localStorage.getItem('hrv_sessions') || '[]');
+      sessions.push({
+        id: Date.now(),
+        date: dateStr,
+        time: timeStr,
+        timestamp: now.toISOString(),
+        source: 'rppg',
+        isDiagnostic: true, // [추가] 활동 기록이나 점수 추이에 영향이 가지 않도록 설정
+        moodScore: Math.round(10 - (res.stress / 10)), // 스트레스 반비례 기분 점수
+        activityLabel: '중증도 진단',
+        sdnn: res.sdnn,
+        rmssd: res.rmssd,
+        hr: res.hr,
+        lfhf: res.lfhf,
+        stress: res.stress,
+        prediction: res.risk,
+        knu_evidence: 'rPPG 원격 광혈류 측정 분석 결과'
+      });
+      localStorage.setItem('hrv_sessions', JSON.stringify(sessions));
+      localStorage.setItem('hrv_latest_result', JSON.stringify(res)); // 최신 결과 저장 (res에 이미 date 포함됨)
+      syncWithServer();
+      refreshHomeIndices(); // 홈 화면 즉시 반영
+    }
+
+    function openHRVReport() {
+      if (!lastHrvResult) {
+        const sessions = JSON.parse(localStorage.getItem('hrv_sessions') || '[]');
+        if (sessions.length > 0) {
+          const last = sessions[sessions.length - 1];
+          lastHrvResult = {
+            sdnn: last.sdnn, rmssd: last.rmssd, hr: last.hr,
+            lfhf: last.lfhf, stress: last.stress, risk: last.prediction
+          };
+        }
+      }
+
+      if (!lastHrvResult) return;
+
+      document.getElementById('hrvReportModal').style.display = 'flex';
+
+      document.getElementById('resSDNN').textContent = lastHrvResult.sdnn;
+      document.getElementById('resRMSSD').textContent = lastHrvResult.rmssd;
+      document.getElementById('resHR').textContent = lastHrvResult.hr;
+      document.getElementById('resLFHF').textContent = lastHrvResult.lfhf;
+      document.getElementById('resStress').textContent = lastHrvResult.stress;
+
+      const rEl = document.getElementById('resRisk');
+      rEl.textContent = lastHrvResult.risk === 'Normal' ? '정상' : lastHrvResult.risk === 'Moderate' ? '경도' : '중증';
+      rEl.style.color = lastHrvResult.risk === 'Normal' ? '#4caf50' : lastHrvResult.risk === 'Moderate' ? '#ff9800' : '#e53935';
+
+      initRadarChart(lastHrvResult);
+    }
+
+    function closeHRVReport() {
+      document.getElementById('hrvReportModal').style.display = 'none';
+    }
+
+    function initRadarChart(res) {
+      const ctx = document.getElementById('hrvRadarChart').getContext('2d');
+      if (radarChart) radarChart.destroy();
+
+      // 지표 정규화 (toggleDetailedResults와 기준 통일)
+      const data = [
+        Math.min(100, (Number(res.sdnn) / 60) * 100),    // 회복력
+        Math.min(100, (Number(res.rmssd) / 50) * 100),   // 부교감 활성
+        Math.max(0, 100 - (Math.abs(Number(res.hr) - 70) * 2)), // 심박 안정
+        Math.min(100, (2.5 - Math.abs(Number(res.lfhf) - 1.2)) * 40), // 자율신경 균형
+        100 - Number(res.stress) // 스트레스 저항
+      ];
+
+      radarChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['회복력', '부교감', '심박안정', '균형', '스트레스 저항'],
+          datasets: [{
+            label: '측정 지표',
+            data: data,
+            backgroundColor: 'rgba(76, 175, 80, 0.2)',
+            borderColor: '#4caf50',
+            pointBackgroundColor: '#4caf50',
+            borderWidth: 2
+          }]
+        },
+        options: {
+          scales: {
+            r: {
+              beginAtZero: true,
+              max: 100,
+              ticks: { display: false }
+            }
+          },
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      });
+    }
+
+    // ── DATA SYNC ────────────────────────────────────────
+    const SYNC_KEYS = ['hrv_sessions', 'custom_activities', 'scheduled_activities', 'gratitude_entries'];
+
+    async function syncWithServer() {
+      const data = {};
+      SYNC_KEYS.forEach(key => {
+        data[key] = localStorage.getItem(key);
+      });
+      try {
+        await fetch('/api/save_data', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ data })
+        });
+        console.log('[Sync] Data saved to server');
+      } catch (e) {
+        console.error('[Sync] Save failed:', e);
+      }
+    }
+
+    async function loadDataFromServer() {
+      try {
+        const res = await fetch('/api/get_data');
+        const data = await res.json();
+        if (data && Object.keys(data).length > 0) {
+          Object.keys(data).forEach(key => {
+            if (data[key]) {
+              localStorage.setItem(key, data[key]);
+            }
+          });
+          console.log('[Sync] Data loaded from server');
+          return true;
+        }
+      } catch (e) {
+        console.error('[Sync] Load failed:', e);
+      }
+      return false;
+    }
+
+    // 초기 로드 시 탭 상태 확인 및 기본 세션 설정
+
+
+    // ── AI 오프닝 사전 로딩 (Pre-fetching) ─────────────────
+    let prefetchedGreetingData = null;
+    let isPreloadingGreeting = false;
+
+    async function preLoadGreeting() {
+      if (isPreloadingGreeting) return;
+
+      const sessionType = localStorage.getItem('session') || 'morning';
+      const hrv = localStorage.getItem('hrv_latest_result');
+      const phq = localStorage.getItem('phq9_latest');
+      const yesterdayActs = getYesterdayActivities();
+
+      // 현재 컨텍스트 키 생성 (상태 변화 감지용)
+      const contextKey = `${sessionType}_${hrv}_${phq}_${yesterdayActs.join(',')}`;
+      if (prefetchedGreetingData && prefetchedGreetingData.contextKey === contextKey) {
+        return; // 이미 동일한 컨텍스트로 로딩됨
+      }
+
+      console.log('[Pre-fetch] Starting background greeting load...');
+      isPreloadingGreeting = true;
+      prefetchedGreetingData = null;
+
+      try {
+        const messages = [];
+        if (yesterdayActs.length > 0) {
+          messages.push({
+            role: "system",
+            content: `【사용자의 전날 활동 정보】: [${yesterdayActs.join(', ')}]. 이 활동들에 대해 어땠는지 먼저 다정하게 물어보며 대화를 시작하세요.`
+          });
+        }
+
+        const res = await fetch('/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            messages: messages,
+            session: sessionType,
+            diagnostic_context: {
+              hrv: JSON.parse(hrv || 'null'),
+              phq9: JSON.parse(phq || 'null')
+            }
+          })
+        });
+
+        if (res.ok) {
+          const data = await res.json();
+          data.contextKey = contextKey;
+          data.initialMessages = messages;
+          prefetchedGreetingData = data;
+          console.log('[Pre-fetch] Greeting loaded and cached.');
+        }
+      } catch (e) {
+        console.error('[Pre-fetch] Failed:', e);
+      } finally {
+        isPreloadingGreeting = false;
+      }
+    }
+
+    // ── NAV ──────────────────────────────────────────────
+    function switchTab(name) {
+      console.log('[Tab] Switching to:', name);
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      const scr = document.getElementById('screen-' + name);
+      if (scr) {
+        scr.classList.add('active');
+        console.log('[Tab] Screen found and activated');
+      } else {
+        console.error('[Tab] Screen NOT found:', 'screen-' + name);
+      }
+      const nav = document.getElementById('nav-' + name);
+      if (nav) nav.classList.add('active');
+      if (name === 'report' || name === 'wellness' || name === 'activity') {
+        ledgerWeek = getCurrentProgramWeek();
+      }
+      if (name === 'report') {
+        renderActivityLedger();
+      }
+
+      if (name === 'wellness') { updateWellnessTab(); renderGratitudeList(); renderScheduledList(); }
+
+      if (name === 'home') {
+        preLoadGreeting(); // 홈 화면 진입 시 사전 로딩 트리거
+      }
+
+      window.scrollTo(0, 0);
+    }
+
+    function getYesterdayActivities() {
+      try {
+        const sessions = JSON.parse(localStorage.getItem('hrv_sessions') || '[]');
+        const scheduled = JSON.parse(localStorage.getItem('scheduled_activities') || '[]');
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        const yKey = getDateKey(yesterday);
+
+        // 1. 이미 수행된 세션 활동 추출
+        const completed = sessions.filter(s => {
+          const key = s.dateKey || (s.id ? getDateKey(new Date(s.id)) : null);
+          return key === yKey;
+        }).map(s => (s.activity || s.activityLabel || '').trim());
+
+        // 2. 전날 예약되었던 활동 추출 (이행 여부와 관계없이)
+        const planned = scheduled.filter(s => s.dateKey === yKey).map(s => s.name);
+
+        const all = [...new Set([...completed, ...planned])];
+        const excludeList = ['아침 대화', '저녁 회고', '대화 세션', '기록 없음', '예약: 활동'];
+        return all.filter(a => a.length > 0 && !excludeList.some(ex => a.includes(ex)));
+      } catch (e) { return []; }
+    }
+
+
+    // ── CALL START / END ──────────────────────────────────
+    function startCall() {
+      // 0. 이전 음성 및 오디오 즉시 중단
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      }
+
+      const landing = document.getElementById('callLanding');
+      const startBtn = landing.querySelector('button');
+
+      // 즉각적인 피드백: 버튼 상태 변경
+      if (startBtn) {
+        startBtn.textContent = '⏳ 연결 중...';
+        startBtn.disabled = true;
+      }
+
+      // 1초 지연 없이 즉시 화면 전환 및 로직 실행
+      landing.style.display = 'none';
+      const active = document.getElementById('callActive');
+      if (active) active.style.cssText = 'display:flex;flex-direction:column;align-items:center;width:100%;';
+
+      (async () => {
+        // 세션 정보 확인
+        let sessionType = localStorage.getItem('session');
+        if (!sessionType) {
+          const hour = new Date().getHours();
+          sessionType = (hour >= 5 && hour < 14) ? 'morning' : 'evening';
+          localStorage.setItem('session', sessionType);
+          const mBtn = document.getElementById('btnMorning');
+          const eBtn = document.getElementById('btnEvening');
+          if (mBtn) mBtn.classList.toggle('active', sessionType === 'morning');
+          if (eBtn) eBtn.classList.toggle('active', sessionType === 'evening');
+        }
+
+        // 1. 초기 UI 설정
+        chatMessages = [];
+        renderChatMessages();
+
+        const historyContainer = document.getElementById('callChatHistory');
+        const choiceList = document.querySelector('#callActive .choice-list');
+        if (choiceList) choiceList.innerHTML = '';
+
+        if (historyContainer) {
+          historyContainer.innerHTML = `
+            <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; opacity:0.7;">
+              <div style="font-size:14px; color:#3D5AF1; font-weight:700;">마음이음 선생님과 연결 중입니다...</div>
+            </div>
+          `;
+        }
+
+        // 2. 프리페치된 데이터가 있는지 확인하여 즉시 실행
+        try {
+          let data = null;
+          let messages = [];
+
+          // 현재 상태가 프리페치된 것과 일치하는지 확인
+          const hrv = localStorage.getItem('hrv_latest_result');
+          const phq = localStorage.getItem('phq9_latest');
+          const yesterdayActs = getYesterdayActivities();
+          const currentContextKey = `${sessionType}_${hrv}_${phq}_${yesterdayActs.join(',')}`;
+
+          if (prefetchedGreetingData && prefetchedGreetingData.contextKey === currentContextKey) {
+            console.log('[Call] Using prefetched greeting data.');
+            data = prefetchedGreetingData;
+            messages = data.initialMessages;
+            prefetchedGreetingData = null; // 사용 후 초기화
+          } else {
+            // 프리페치가 없거나 컨텍스트가 다르면 새로 가져오기
+            console.log('[Call] Pre-fetch not available or stale. Fetching fresh...');
+            messages = [];
+            if (yesterdayActs.length > 0) {
+              messages.push({
+                role: "system",
+                content: `【사용자의 전날 활동 정보】: [${yesterdayActs.join(', ')}]. 이 활동들에 대해 어땠는지 먼저 다정하게 물어보며 대화를 시작하세요.`
+              });
+            }
+
+            const res = await fetch('/chat', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                messages: messages,
+                session: sessionType,
+                diagnostic_context: {
+                  hrv: JSON.parse(hrv || 'null'),
+                  phq9: JSON.parse(phq || 'null')
+                }
+              })
+            });
+            if (!res.ok) throw new Error("Server Error: " + res.status);
+            data = await res.json();
+          }
+
+          if (data && data.reply) {
+            chatMessages = messages;
+            chatMessages.push({ role: "assistant", content: data.reply });
+            renderChatMessages();
+
+            if (data.audio_base64) {
+              playAudioBase64(data.audio_base64);
+            } else {
+              speakText(data.reply);
+            }
+          }
+
+          if (data && data.suggested_choices) {
+            renderChoices(data.suggested_choices);
+          }
+        } catch (err) {
+          console.error("연결 실패:", err);
+          if (historyContainer) {
+            historyContainer.innerHTML = `<div style="text-align:center; padding:20px; color:#ff5252; font-size:14px;">상담 선생님과 연결할 수 없습니다. 잠시 후 다시 시도해 주세요.</div>`;
+          }
+        }
+      })();
+    }
+
+    function resetCallLanding() {
+      // 통화 종료 후 랜딩 상태 복원
+      const landing = document.getElementById('callLanding');
+      const startBtn = landing.querySelector('button');
+      startBtn.innerHTML = '<span style="font-size:22px;"></span> 통화 시작';
+      startBtn.disabled = false;
+      landing.style.cssText = 'display:flex;flex-direction:column;align-items:center;padding:30px 20px 20px;';
+      document.getElementById('callActive').style.cssText = 'display:none;';
+      // 선택지 초기화
+      document.querySelectorAll('.choice-item').forEach(i => i.classList.remove('selected'));
+      document.getElementById('sttResult').textContent = '버튼을 눌러 말씀해 주세요...';
+      const historyContainer = document.getElementById('callChatHistory');
+      if (historyContainer) historyContainer.innerHTML = '';
+      chatMessages = [];
+    }
+
+
+
+
+    // ── SCREEN 2 ─────────────────────────────────────────
+    let muted = true, speakerOn = true;
+    let chatMessages = [];
+
+    function speakText(text) {
+      if (!speakerOn || !window.speechSynthesis) return;
+      window.speechSynthesis.cancel();
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = 'ko-KR';
+
+      // 목소리 톤(pitch)을 조금 높이고, 속도(rate)를 약간 늦추어 다정하고 부드러운 느낌 제공
+      utter.rate = 0.95;
+      utter.pitch = 1.15;
+
+      // 브라우저에 로드된 목소리 목록 중 여성(친근한) 목소리 우선 할당
+      const voices = window.speechSynthesis.getVoices();
+      const krVoices = voices.filter(v => v.lang.includes('ko'));
+      if (krVoices.length > 0) {
+        // 우선적으로 Google의 클라우드 기반 목소리나, Microsoft Heami/SunHi 등 일반적인 여성 보이스 채택
+        const preferred = krVoices.find(v => v.name.includes('Google') || v.name.includes('Heami') || v.name.includes('SunHi') || v.name.includes('Female'));
+        utter.voice = preferred || krVoices[0];
+      }
+
+      window.speechSynthesis.speak(utter);
+    }
+
+    let currentAudio = null;
+
+    function playAudioBase64(base64str) {
+      if (!speakerOn) return;
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      }
+      currentAudio = new Audio("data:audio/mp3;base64," + base64str);
+
+      currentAudio.onended = () => {
+        // 오디오 재생이 끝나면 즉시 마이크를 활성화하여 연속적인 대화를 지원
+        if (muted && !document.getElementById('endCallModal').classList.contains('open')) {
+          toggleMute();
+        }
+      };
+      currentAudio.play();
+    }
+
+    function renderChatMessages() {
+      const container = document.getElementById('callChatHistory');
+      if (!container) return;
+      container.innerHTML = '';
+      chatMessages.forEach((msg, idx) => {
+        if (msg.role === 'system') return;
+        const msgGroup = document.createElement('div');
+        msgGroup.style.display = 'flex';
+        msgGroup.style.flexDirection = 'column';
+        msgGroup.style.alignItems = msg.role === 'assistant' ? 'flex-start' : 'flex-end';
+
+        const div = document.createElement('div');
+        div.className = `msg-bubble msg-${msg.role === 'assistant' ? 'ai' : 'user'}`;
+        div.textContent = msg.content;
+        msgGroup.appendChild(div);
+
+
+        container.appendChild(msgGroup);
+      });
+      container.scrollTop = container.scrollHeight;
+    }
+
+    // ── 단계별 선택지 정의 ─────────────────────────────────
+    const STAGE_CHOICES = {
+      activity: [
+        { label: '산책 / 운동 완료', text: '방금 산책과 운동을 마치고 왔어요.' },
+        { label: '공부 / 업무 중', text: '지금 한창 공부나 업무를 하고 있는 중이에요.' },
+        { label: '지인과 대화', text: '친구들과 즐거운 시간을 보내며 대화를 나눴어요.' },
+        { label: '충분한 휴식', text: '집에서 편안하게 쉬면서 에너지를 충전했어요.' },
+        { label: '아직 시작 전', text: '오늘은 아직 별다른 활동을 시작하지 못했네요.' },
+      ],
+      mood: [
+        { label: '매우 평온함', text: '지금 제 기분은 아주 평온하고 안정적이에요.' },
+        { label: '평범함', text: '그냥 평소와 다름없는 평범한 기분이에요.' },
+        { label: '조금 우울함', text: '사실 오늘따라 조금 우울하고 기운이 없어요.' },
+        { label: '많이 힘듦', text: '오늘은 정말이지 너무 지치고 힘든 하루네요.' },
+        { label: '화가 남 / 짜증', text: '자꾸 화가 나고 짜증이 나서 마음이 조금 불편해요.' },
+      ],
+      cause: [
+        { label: '피로 / 과로', text: '아무래도 너무 피곤하고 지쳐서 그런 것 같아요.' },
+        { label: '대인 관계', text: '사람들과의 관계에서 오는 스트레스가 있는 것 같아요.' },
+        { label: '성과 / 결과', text: '계획했던 일들이 뜻대로 풀리지 않아 속상해요.' },
+        { label: '이유 미상', text: '딱히 집어 말할 이유는 없는데 마음이 힘드네요.' },
+        { label: '복잡한 생각', text: '이런저런 생각이 너무 많아서 정리가 안 돼요.' },
+      ],
+      pattern: [
+        { label: '맞는 것 같아요', text: '네, 정말 제가 그런 생각의 패턴을 가지고 있었네요.' },
+        { label: '새로운 깨달음', text: '아, 그게 제 생각의 함정일 수도 있겠다는 생각이 들어요.' },
+        { label: '비슷한 경험', text: '지금 말씀하신 패턴이 저에게 반복되고 있었던 것 같아요.' },
+        { label: '설명 더 듣기', text: '제 패턴이 무엇인지 아직 잘 모르겠는데 조금 더 설명해 주세요.' },
+      ],
+      sensation: [
+        { label: '가슴이 답답함', text: '가슴 부위에 뭔가 꽉 막힌 것처럼 답답함이 느껴져요.' },
+        { label: '어깨가 무거움', text: '어깨와 목이 너무 뻣뻣하고 무거워서 피곤해요.' },
+        { label: '숨이 참', text: '숨쉬기가 조금 답답하고 벅찬 느낌이 들어서 불편해요.' },
+        { label: '몸이 차가움', text: '손발이 유난히 차갑고 온몸에 힘이 없는 기분이에요.' },
+        { label: '별 차이 없음', text: '특별히 신체적으로 뚜렷하게 느껴지는 감각은 없어요.' },
+      ],
+      action: [
+        { label: '활동 예약하기', text: '방금 추천해주신 활동을 제 일정에 맞춰 예약하고 싶어요.' },
+        { label: '시도해볼게요', text: '좋아요, 알려주신 대로 한번 용기 내서 해볼게요.' },
+        { label: '기록해둘게요', text: '오늘 깨달은 소중한 마음들을 잊지 않게 기록해둘게요.' },
+        { label: '도움이 됐어요', text: '이야기 나누길 정말 잘했네요. 상담이 큰 도움이 됐어요.' },
+        { label: '조금 더 대화', text: '아직은 마음이 다 정리되지 않아서 조금 더 이야기하고 싶어요.' },
+      ],
+      time: [
+        { label: '7시쯤 했어요', text: '아침 7시쯤 했던 것 같아요.' },
+        { label: '8시쯤 했어요', text: '아침 8시쯤에 진행했어요.' },
+        { label: '9시쯤 했어요', text: '아침 9시쯤이었던 걸로 기억해요.' },
+        { label: '10시쯤 했어요', text: '오전 10시쯤에 했어요.' },
+        { label: '11시쯤 했어요', text: '오전 11시쯤이었어요.' },
+      ]
+    };
+
+
+
+    function detectStage(reply) {
+      if (/어떤 활동|무슨 활동|활동을 하셨|활동이.*있었|뭘 하셨|일과/.test(reply)) return 'activity';
+      if (/기분은|기분이.*어떠|어떤 기분|감정.*어떠|기분 점수/.test(reply)) return 'mood';
+      if (/이유가|원인이|왜.*그런|어떤.*일이|무슨 일|배경/.test(reply)) return 'cause';
+      if (/생각의 함정|인지적 오류|반복되는 패턴|그런 생각|맞나요/.test(reply)) return 'pattern';
+      if (/몸에서|신체|감각|답답|긴장|어깨|숨이/.test(reply)) return 'sensation';
+      if (/제안|해보시|시도해|도움이 될|행동|실천|마무리/.test(reply)) return 'action';
+      if (/몇 시|언제쯤/.test(reply)) return 'time';
+      return null;
+    }
+
+    function renderChoices(data) {
+      const list = document.querySelector('#callActive .choice-list');
+      if (!list) return;
+
+      let choices = [];
+      if (typeof data === 'string') {
+        choices = STAGE_CHOICES[data];
+      } else if (Array.isArray(data)) {
+        choices = data;
+      }
+
+      if (!choices || choices.length === 0) return;
+
+      list.innerHTML = choices.map(c =>
+        `<div class="choice-item" onclick="selectChoice(this, '${c.text.replace(/'/g, "\\'")}')">` +
+        `<div class="label">${c.label || c.text}</div><div style="margin-left:auto; color:#ccc; font-size:12px;">›</div></div>`
+      ).join('');
+    }
+
+
+    async function sendToLLM(text) {
+      if (!text.trim()) return;
+
+      // "예약하고 싶어요" 감지 시 자기관리 탭으로 전환 또는 예약 UI 노출
+      if (text.includes('예약하고 싶어요') || text.includes('시간을 정할래')) {
+        chatMessages.push({ role: "user", content: text });
+        renderChatMessages();
+        const reply = "좋아요! 방금 말씀드린 활동을 언제 실천하실지 시간을 정해볼까요? '자기관리' 탭의 활동 일정 관리에서 바로 등록하실 수 있도록 도와드릴게요.";
+        chatMessages.push({ role: "assistant", content: reply });
+        renderChatMessages();
+        speakText(reply);
+        setTimeout(() => switchTab('wellness'), 1500);
+        return;
+      }
+
+      // 1. 사용자 메시지 추가 및 렌더링
+      chatMessages.push({ role: "user", content: text });
+      renderChatMessages();
+
+      document.getElementById('sttResult').textContent = '생각 중...';
+
+      try {
+        const res = await fetch('/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            messages: chatMessages,
+            session: localStorage.getItem('session') || 'morning',
+            diagnostic_context: {
+              hrv: JSON.parse(localStorage.getItem('hrv_latest_result') || 'null'),
+              phq9: JSON.parse(localStorage.getItem('phq9_latest') || 'null')
+            }
+          })
+        });
+        const data = await res.json();
+        const reply = data.reply;
+        const audioB64 = data.audio_base64;
+        const evidence = data.evidence;
+        const moodScore = data.mood_score;   // 0-10 기분 점수
+        const sessionStep = data.session_step; // 1-10 세션 단계
+
+        // 2. AI 메시지 추가 (근거 포함) 및 렌더링
+        chatMessages.push({ role: "assistant", content: reply, evidence: evidence });
+        renderChatMessages();
+
+        // 3. 세션 단계 UI 업데이트
+
+        // 4. 기분 점수 → hrv_sessions에 저장 (EMA: Ecological Momentary Assessment)
+        // [중복 제거] 개별 메시지마다 저장하지 않고 종료 시 한 번만 저장함
+        // if (moodScore !== null && moodScore !== undefined) {
+        //   saveChatMoodScore(moodScore, text);
+        // }
+
+        // 5. 선택지 렌더링
+        if (data.suggested_choices && data.suggested_choices.length > 0) {
+          renderChoices(data.suggested_choices);
+        } else {
+          const stage = detectStage(reply);
+          if (stage) renderChoices(stage);
+        }
+
+
+        // 6. [신규] 자동 예약(BOOK_ACTIVITY) 처리
+        if (data.automated_action === 'BOOK_ACTIVITY' && data.action_metadata) {
+          const meta = data.action_metadata;
+          const activity = ACTIVITY_BANK.find(a => a.name === meta.activity) || { name: meta.activity, emoji: '📅' };
+
+          // 오늘 날짜 기본값 (메타데이터에 없으면)
+          const todayKey = meta.date || new Date().toISOString().split('T')[0];
+          const bookingTime = meta.time || "10:00";
+
+          console.log('[Auto-Booking] Executing for:', meta.activity, bookingTime, todayKey);
+          executeBooking(activity.name, activity.emoji, bookingTime, todayKey);
+        }
+
+
+        document.getElementById('sttResult').textContent = '버튼을 눌러 말씀해 주세요...';
+
+        if (audioB64) {
+          playAudioBase64(audioB64);
+        } else {
+          speakText(reply);
+        }
+      } catch (err) {
+        console.error(err);
+        document.getElementById('sttResult').textContent = '서버 오류가 발생했습니다.';
+      }
+    }
+
+    // ── STT (Web Speech API) & LLM ────────────────────────
+    let recognition;
+    if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+      const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+      recognition = new SR();
+      recognition.lang = 'ko-KR';
+      recognition.continuous = false;
+      recognition.interimResults = true;
+
+      recognition.onstart = () => {
+        document.getElementById('sttResult').textContent = '🎙️ 듣고 있습니다... 멈추시려면 마이크 버튼을 눌러주세요.';
+        document.getElementById('muteBtn').textContent = '🔴';
+        document.getElementById('muteBtn').style.background = '#ffcdd2';
+        document.getElementById('muteLabel').textContent = '수음 중';
+      };
+
+      recognition.onresult = e => {
+        let t = '';
+        let isFinal = false;
+        for (let i = e.resultIndex; i < e.results.length; i++) {
+          t += e.results[i][0].transcript;
+          if (e.results[i].isFinal) isFinal = true;
+        }
+        document.getElementById('sttResult').textContent = t;
+        if (isFinal) {
+          muted = true;
+          document.getElementById('muteBtn').textContent = '🎤';
+          document.getElementById('muteBtn').style.background = '#eee';
+          document.getElementById('muteLabel').textContent = '마이크 켜기';
+          sendToLLM(t);
+        }
+      };
+
+      recognition.onend = () => {
+        muted = true;
+        document.getElementById('muteBtn').textContent = '🎤';
+        document.getElementById('muteBtn').style.background = '#eee';
+        document.getElementById('muteLabel').textContent = '마이크 켜기';
+      };
+    }
+
+    function handleChatInput() {
+      const input = document.getElementById('chatInput');
+      const text = input.value.trim();
+      if (text) {
+        sendToLLM(text);
+        input.value = '';
+      }
+    }
+
+    function toggleMute() {
+      muted = !muted;
+      if (!muted) {
+        if (recognition) {
+          try { recognition.start(); } catch (e) { console.error("음성인식 시작 오류:", e); }
+        } else {
+          alert("현재 브라우저에서는 음성 인식을 지원하지 않거나 마이크 권한이 없습니다.");
+          muted = true;
+        }
+      } else {
+        if (recognition) recognition.stop();
+      }
+    }
+
+    function toggleSpeaker() {
+      speakerOn = !speakerOn;
+      document.getElementById('speakerBtn').textContent = speakerOn ? '🔊' : '🔈';
+      if (!speakerOn && window.speechSynthesis) window.speechSynthesis.cancel();
+      if (!speakerOn && currentAudio) currentAudio.pause();
+    }
+
+    function endCall() {
+      document.getElementById('endCallModal').classList.add('open');
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+      if (currentAudio) currentAudio.pause();
+    }
+    async function confirmEndCall() {
+      const modal = document.getElementById('endCallModal');
+      const inner = modal.querySelector('.modal');
+      const originalHTML = inner.innerHTML;
+
+      const userSummary = chatMessages.filter(m => m.role === 'user').map(m => m.content).join(' ');
+      // 전체 대화 흐름 보존 (나/앨리 구분)
+      const fullDialogue = chatMessages
+        .filter(m => m.role !== 'system')
+        .map(m => (m.role === 'user' ? '나: ' : '앨리: ') + m.content)
+        .join('\n');
+
+      if (userSummary.trim()) {
+        const isMor = localStorage.getItem('session') === 'morning';
+        const today = new Date().toISOString().split('T')[0];
+        let activity = isMor ? '아침 대화' : '저녁 회고';
+        let moodLabel = '기록 없음';
+
+        // UI: 저장 중 상태 표시
+        inner.innerHTML = `
+            <div style="font-size:48px;margin-bottom:12px;">💾</div>
+            <h3 style="font-size:18px;margin-bottom:8px;">대화 기록 저장 중...</h3>
+            <p class="sub" style="margin-bottom:24px;">오늘의 소중한 대화를 안전하게 보관하고 있습니다.</p>
+            <div class="pulse-ring" style="position:relative;margin:0 auto 20px;width:40px;height:40px;background:#3D5AF1;"></div>
+         `;
+
+        let moodScore = 5;
+        let activityHour = null;
+
+        try {
+          const res = await fetch('/analyze_sentiment', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ text: userSummary })
+          });
+          const data = await res.json();
+          if (data && data.moodScore !== undefined) {
+            moodScore = data.moodScore > 10 ? data.moodScore / 10 : data.moodScore;
+            activity = data.activity || activity;
+            moodLabel = data.moodLabel || moodLabel;
+            activityHour = data.activityHour;
+          }
+        } catch (e) {
+          console.error('Sentiment API Error:', e);
+        }
+
+        // 실제 기록 시간 결정 (추출된 시간이 있으면 그것을 사용, 없으면 현재 시간)
+        let finalHour = new Date().getHours();
+        let finalTime = new Date().toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' });
+        let finalId = Date.now();
+
+        if (activityHour !== null && activityHour !== undefined) {
+          finalHour = parseInt(activityHour);
+          const d = new Date();
+          d.setHours(finalHour, 0, 0, 0);
+          finalTime = d.toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' });
+          finalId = d.getTime(); // 해당 시간대로 ID 설정하여 칸에 맞게 배치
+        }
+
+        // 우울 증상 점수 역산 (0-10 척도 기반)
+        const depressionScore = Math.round((10 - moodScore) * 6);
+
+        let sessions = JSON.parse(localStorage.getItem('hrv_sessions') || '[]');
+
+        sessions.push({
+          id: finalId,
+          title: isMor ? '아침 대화' : '저녁 회고',
+          icon: isMor ? '💬' : '🌙',
+          time: finalTime,
+          hour: finalHour,
+          summary: userSummary.length > 30 ? userSummary.substring(0, 30) + '...' : userSummary,
+          fullText: fullDialogue,
+          moodScore: moodScore,
+          depressionScore: depressionScore,
+          activity: activity,
+
+          moodLabel: moodLabel,
+          chatHistory: JSON.parse(JSON.stringify(chatMessages)), // 대화 히스토리 원형 보존
+          dateKey: today
+        });
+        localStorage.setItem('hrv_sessions', JSON.stringify(sessions));
+        syncWithServer();
+      }
+
+      modal.classList.remove('open');
+      setTimeout(() => {
+        if (inner) inner.innerHTML = originalHTML;
+        resetCallLanding();
+        switchTab('report');
+      }, 600);
+
+      chatMessages = []; // 히스토리 초기화
+    }
+
+    // ── REPORT COMPONENTS (GLOBAL SCOPE) ──────────────────────
+    // ── 날짜공통 헬퍼 ──────────────────────────────────────────
+    const toMonday = (dateObj) => {
+      const d = new Date(dateObj); d.setHours(0, 0, 0, 0);
+      if (isNaN(d.getTime())) return new Date();
+      const dow = d.getDay();
+      const diff = dow === 0 ? -6 : 1 - dow;
+      d.setDate(d.getDate() + diff);
+      return d;
+    };
+
+    const getDateKey = (dateObj) => {
+      const d = new Date(dateObj);
+      if (isNaN(d.getTime())) return "";
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${y}-${m}-${day}`;
+    };
+    window.getDateKey = getDateKey;
+
+    const cleanupHrvSessions = () => {
+      let sessions = JSON.parse(localStorage.getItem('hrv_sessions') || '[]');
+      const phantomIds = [1775734738937, 1775734746715];
+
+      // 1. 기본 필터링 (유령 데이터 등 삭제 + 진단 데이터 제외)
+      const baseFiltered = sessions.filter(s => {
+        if (s.isDiagnostic) return false; // [필터] 클린업 단계에서 진단 데이터 제외 (추이 차트 등 보호)
+        const t = s.id || s.timestamp;
+        if (!t || isNaN(Number(t))) return false;
+        if (phantomIds.includes(Number(t))) return false;
+        return true;
+      });
+
+      // 2. 시간대별 중복 제거 (활동기록지 표시 기준: 같은 날 같은 시간대는 마지막 대화만 유지)
+      const uniqueMap = {};
+      baseFiltered.forEach(s => {
+        const ts = s.id || s.timestamp;
+        const d = new Date(ts);
+        const key = getDateKey(ts) + "_" + d.getHours();
+
+        // 더 최신 데이터(큰 id)로 유지
+        if (!uniqueMap[key] || (s.id || 0) > (uniqueMap[key].id || 0)) {
+          uniqueMap[key] = s;
+        }
+      });
+
+      const cleaned = Object.values(uniqueMap).sort((a, b) => (a.id || 0) - (b.id || 0));
+      localStorage.setItem('hrv_sessions', JSON.stringify(cleaned));
+      syncWithServer();
+      return cleaned;
+    };
+    window.cleanupHrvSessions = cleanupHrvSessions;
+
+    const getProgramStart = () => {
+      // [고정] 프로그램 시작일을 2026-04-06 (월요일)로 고정하여 날짜 오류 해결
+      return toMonday(new Date('2026-04-06'));
+    };
+
+    window.getProgramStart = getProgramStart;
+
+    const getCurrentProgramWeek = () => {
+      const start = getProgramStart();
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const diffMs = today - start;
+      const diffDays = Math.floor(diffMs / (24 * 60 * 60 * 1000));
+      const week = Math.floor(diffDays / 7) + 1;
+      return Math.max(1, Math.min(12, week)); // 최소 1주차, 최대 12주차
+    };
+    window.getCurrentProgramWeek = getCurrentProgramWeek;
+
+    // ─────────────────────────────────────────────────────────
+
+    // ── 활동기록지 상태 ─────────────────────────────────────
+    let ledgerWeek = getCurrentProgramWeek();   // 현재 선택 주차 (현재 시점 자동 계산)
+    let ledgerDay = 1;   // 1=월~7=일
+
+    function changeLedgerWeek(delta) {
+      ledgerWeek = Math.max(1, Math.min(8, ledgerWeek + delta));
+      if (document.getElementById('screen-wellness').classList.contains('active')) {
+        updateWellnessTab();
+      } else {
+        renderActivityLedger();
+      }
+    }
+
+    function updateWellnessTab() {
+      // 상단 레이블 업데이트
+      const topLabel = document.getElementById('wellnessWeekLabelTop');
+      if (topLabel) topLabel.textContent = `${ledgerWeek}주차`;
+
+      // 기존 컴포넌트 갱신
+      renderMoodCalendar(7);
+
+      // 신규 트렌드 차트 갱신
+      renderActivityTrendChart();
+    }
+
+
+    function selectLedgerDay(day, btn) {
+      ledgerDay = day;
+      document.querySelectorAll('#daySelector .ledger-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderActivityLedger();
+    }
+
+    function renderActivityLedger() {
+      try {
+        const container = document.getElementById('activityLedgerContainer');
+        if (!container) { console.warn('[ledger] container not found'); return; }
+
+        // 주차 레이블 업데이트
+        const labelEl = document.getElementById('ledgerWeekLabel');
+        if (labelEl) labelEl.textContent = `${ledgerWeek}주차`;
+
+        const sessions = JSON.parse(localStorage.getItem('hrv_sessions') || '[]');
+        const DAY_KO = ['일', '월', '화', '수', '목', '금', '토'];
+        // ledgerDay: 1=월,2=화,...,6=토,7=일 → JS getDay()
+        const DOW_MAP = { 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 0 };
+
+        // 날짜를 그 주의 월요일로 정렬하는 헬퍼 - [삭제: 글로벌 사용]
+
+        // 프로그램 시작 월요일 - [삭제: 글로벌 사용]
+        window.getProgramStart = getProgramStart; // 하위 호환성 유지
+
+        // 이번 주차의 시작 월요일
+        const PROGRAM_START = getProgramStart();
+        const weekStart = new Date(PROGRAM_START);
+        weekStart.setDate(PROGRAM_START.getDate() + (ledgerWeek - 1) * 7);
+        weekStart.setHours(0, 0, 0, 0);
+
+        // 표시할 날짜 목록: ledgerDay=0이면 월~일 7일, 아니면 해당 요일 1개
+        const displayDates = [];
+        for (let i = 0; i < 7; i++) {
+          const d = new Date(weekStart);
+          d.setDate(weekStart.getDate() + i);
+          if (ledgerDay === 0 || d.getDay() === DOW_MAP[ledgerDay]) {
+            displayDates.push(d);
+          }
+        }
+
+        // 세션을 날짜 키로 그룹핑 (유효한 날짜만)
+        const dateGroups = {};
+        sessions.forEach(s => {
+          if (s.isDiagnostic) return; // [필터] 활동기록지(ledger)에서 진단 데이터 제외
+          const timestamp = s.id || s.timestamp;
+          if (!timestamp) return;
+          const d = new Date(timestamp);
+          if (isNaN(d.getTime())) return;
+          const key = getDateKey(d);
+          if (!dateGroups[key]) dateGroups[key] = [];
+          dateGroups[key].push(s);
+        });
+
+        const SLOTS = [
+          { label: '오전', start: 6, end: 12 },
+          { label: '오후', start: 12, end: 18 },
+          { label: '저녁', start: 18, end: 24 },
+        ];
+
+        // 헤더 1행: 날짜 (colspan=2 per date)
+        let html = `<div style="overflow-x:auto;"><table class="ledger-table">
+        <tr class="header-row">
+          <th rowspan="2" style="min-width:30px;">시간대</th>
+          <th rowspan="2" style="min-width:34px;">구분</th>
+          ${displayDates.map(d => {
+          const key = d.toISOString().split('T')[0];
+          const hasData = (dateGroups[key] || []).length > 0;
+          return `<th colspan="2" style="text-align:center;${hasData ? 'background:#EEF0FF;' : ''}">
+              <span style="font-size:12px;">${d.getMonth() + 1}/${d.getDate()}</span>
+              <span style="font-size:11px;color:#888;margin-left:3px;">${DAY_KO[d.getDay()]}요일</span>
+            </th>`;
+        }).join('')}
+        </tr>
+        <tr class="header-row">
+          ${displayDates.map(d => {
+          const key = d.toISOString().split('T')[0];
+          const hasData = (dateGroups[key] || []).length > 0;
+          const bg = hasData ? 'background:#EEF0FF;' : '';
+          return `<th style="min-width:52px;font-size:10px;font-weight:600;${bg}">활동</th><th style="min-width:52px;font-size:10px;font-weight:600;${bg}">기분</th>`;
+        }).join('')}
+        </tr>`;
+
+        SLOTS.forEach(slot => {
+          for (let h = slot.start; h < slot.end; h++) {
+            html += `<tr>`;
+            if (h === slot.start) {
+              html += `<td rowspan="${slot.end - slot.start}" class="side-label">${slot.label}</td>`;
+            }
+            html += `<td class="time-slot">${h}~${h + 1}시</td>`;
+            displayDates.forEach(d => {
+              const key = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+              const group = dateGroups[key] || [];
+              const match = group.find(s => {
+                const sd = new Date(s.id || s.timestamp);
+                return sd.getHours() === h;
+              });
+              const act = match ? (match.activityLabel || match.activity || match.activityText || '') : '';
+              const bg = match ? 'background:#f0f4ff;' : '';
+              html += `<td class="data-cell" style="${bg}font-size:11px;vertical-align:top;word-break:break-all;text-align:center;">${act}</td>`;
+
+              html += `<td class="data-cell" style="${bg}text-align:center;vertical-align:top;">
+              <div style="font-size:12px;font-weight:700;color:#3D5AF1;">${match ? (match.moodScore ?? '-') : ''}</div>
+            </td>`;
+            });
+            html += `</tr>`;
+          }
+        });
+        // 헤더 날짜 생성 부분에서도 key 통일 필요
+        const renderKey = (d) => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+
+        // 위에서 table html 생성 시 key 부분 수정 (직접 수정보다는 전체 교체가 안전)
+        // 다시 생성 로직 재구성
+        let finalHtml = `<div style="overflow-x:auto;"><table class="ledger-table">
+        <tr class="header-row">
+          <th rowspan="2" style="min-width:30px;">시간대</th>
+          <th rowspan="2" style="min-width:34px;">구분</th>
+          ${displayDates.map(d => {
+          const key = renderKey(d);
+          const hasData = (dateGroups[key] || []).length > 0;
+          return `<th colspan="2" style="text-align:center;${hasData ? 'background:#EEF0FF;' : ''}">
+              <span style="font-size:12px;">${d.getMonth() + 1}/${d.getDate()}</span>
+              <span style="font-size:11px;color:#888;margin-left:3px;">${DAY_KO[d.getDay()]}요일</span>
+            </th>`;
+        }).join('')}
+        </tr>
+        <tr class="header-row">
+          ${displayDates.map(d => {
+          const key = renderKey(d);
+          const hasData = (dateGroups[key] || []).length > 0;
+          const bg = hasData ? 'background:#EEF0FF;' : '';
+          return `<th style="min-width:52px;font-size:10px;font-weight:600;${bg}">활동</th><th style="min-width:52px;font-size:10px;font-weight:600;${bg}">기분</th>`;
+        }).join('')}
+        </tr>`;
+
+        SLOTS.forEach(slot => {
+          for (let h = slot.start; h < slot.end; h++) {
+            finalHtml += `<tr>`;
+            if (h === slot.start) {
+              finalHtml += `<td rowspan="${slot.end - slot.start}" class="side-label">${slot.label}</td>`;
+            }
+            finalHtml += `<td class="time-slot">${h}~${h + 1}시</td>`;
+            displayDates.forEach(d => {
+              const key = renderKey(d);
+              const group = dateGroups[key] || [];
+              const match = group
+                .filter(s => {
+                  const sd = new Date(s.id || s.timestamp);
+                  return sd.getHours() === h;
+                })
+                .sort((a, b) => (b.id || 0) - (a.id || 0))[0];
+              const act = match ? (match.activityLabel || match.activity || match.activityText || '') : '';
+              const bg = match ? 'background:#f0f4ff;cursor:pointer;' : '';
+              const clickHandler = match ? `onclick="viewChatDetail(${match.id})"` : '';
+              finalHtml += `<td class="data-cell" style="${bg}font-size:11px;vertical-align:top;word-break:break-all;text-align:center;" ${clickHandler}>${act}</td>`;
+
+              finalHtml += `<td class="data-cell" style="${bg}text-align:center;vertical-align:top;" ${clickHandler}>
+              <div style="font-size:12px;font-weight:700;color:#3D5AF1;">${match ? (Number(match.moodScore).toFixed(1) ?? '-') : ''}</div>
+            </td>`;
+            });
+            finalHtml += `</tr>`;
+          }
+        });
+        finalHtml += `</table></div>`;
+        container.innerHTML = finalHtml;
+      } catch (e) { console.error('[renderActivityLedger]', e); document.getElementById('activityLedgerContainer').innerHTML = `<div style="color:red;padding:10px;font-size:12px;">오류: ${e.message}</div>`; }
+    }
+
+    function viewChatDetail(id) {
+      const sessions = JSON.parse(localStorage.getItem('hrv_sessions') || '[]');
+      const session = sessions.find(s => s.id === id);
+      if (!session) return;
+
+      const contentEl = document.getElementById('chatDetailContent');
+      const titleEl = document.getElementById('chatDetailTitle');
+      // [수정] title이 없을 경우 activity나 기본값으로 대체
+      titleEl.textContent = `${session.title || session.activity || '대화'} 기록`;
+
+      contentEl.innerHTML = '';
+      contentEl.style.background = '#f7f8fa';
+      contentEl.style.paddingTop = '15px';
+
+      // [수정] 점수 정규화 (10점 기준과 100점 기준 통합 처리)
+      // [수정] 무조건 10점 만점 기준으로 표시
+      let displayScore = Number(session.moodScore || 0);
+      const finalScoreStr = displayScore.toFixed(1);
+
+      // 상단 점수 및 라벨 요약
+      const scoreDiv = document.createElement('div');
+      scoreDiv.style.cssText = "display:flex; justify-content:space-between; align-items:center; background:#fff; padding:12px 16px; border-radius:12px; margin-bottom:20px; border:1px solid #eee; box-shadow:0 1px 3px rgba(0,0,0,0.02);";
+      scoreDiv.innerHTML = `
+        <div style="font-size:13px; font-weight:700; color:#555;">기분 점수: <span style="color:#3D5AF1; font-size:15px;">${finalScoreStr}</span></div>
+        <div style="font-size:12px; color:#888;">${session.time || ''} / ${session.activity || session.activityLabel || '전체 대화'}</div>
+      `;
+      contentEl.appendChild(scoreDiv);
+
+      const history = session.chatHistory || [];
+      if (history.length === 0) {
+        // [수정] 대화 히스토리와 전문이 모두 없을 경우 요약(summary)이라도 활용
+        const rawText = session.fullText || session.summary || "기록된 대화 내용이 없습니다.";
+        const lines = rawText.split('\n');
+
+        lines.forEach(line => {
+          let role = 'user';
+          let content = line;
+          if (line.startsWith('마음이음: ')) {
+            role = 'assistant';
+            content = line.replace('마음이음: ', '');
+          } else if (line.startsWith('나: ')) {
+            role = 'user';
+            content = line.replace('나: ', '');
+          }
+
+          const isUser = role === 'user';
+          const bubbleWrap = document.createElement('div');
+          bubbleWrap.style.cssText = `display:flex; flex-direction:column; margin-bottom:16px; align-items: ${isUser ? 'flex-end' : 'flex-start'};`;
+
+          const bubble = document.createElement('div');
+          bubble.style.cssText = `
+            max-width: 85%; padding: 12px 16px; border-radius: 18px; font-size: 14px; line-height: 1.6;
+            ${isUser ? 'background:#3D5AF1; color:#fff; border-bottom-right-radius:4px; font-weight:500;' : 'background:#f0f0f0; color:#333; border-bottom-left-radius:4px;'}
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+          `;
+          bubble.textContent = content;
+          bubbleWrap.appendChild(bubble);
+          contentEl.appendChild(bubbleWrap);
+        });
+      } else {
+        history.forEach(m => {
+          if (m.role === 'system') return;
+          const isUser = m.role === 'user';
+          const bubbleWrap = document.createElement('div');
+          bubbleWrap.style.cssText = `display:flex; flex-direction:column; margin-bottom:16px; align-items: ${isUser ? 'flex-end' : 'flex-start'};`;
+
+          const bubble = document.createElement('div');
+          bubble.style.cssText = `
+            max-width: 85%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.6;
+            ${isUser ?
+              'background:#3D5AF1; color:#fff; border-bottom-right-radius:4px; font-weight:500;' :
+              'background:#f0f0f0; color:#333; border-bottom-left-radius:4px;'}
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+          `;
+          bubble.textContent = m.content;
+          bubbleWrap.appendChild(bubble);
+          contentEl.appendChild(bubbleWrap);
+        });
+      }
+
+      document.getElementById('chatDetailModal').style.display = 'flex';
+
+      // [NEW] 관리 버튼 이벤트 연결
+      document.getElementById('btnDeleteRecord').onclick = () => deleteActivityRecord(id);
+      document.getElementById('btnEditRecord').onclick = () => editActivityRecord(id);
+    }
+
+    function deleteActivityRecord(id) {
+      if (!confirm('이 기록을 정말 삭제하시겠습니까?')) return;
+      let sessions = JSON.parse(localStorage.getItem('hrv_sessions') || '[]');
+      sessions = sessions.filter(s => s.id !== id);
+      localStorage.setItem('hrv_sessions', JSON.stringify(sessions));
+
+      // 예약 리스트와도 동기화 (예약된 활동 삭제 시)
+      let scheduled = JSON.parse(localStorage.getItem('scheduled_activities') || '[]');
+      scheduled = scheduled.filter(s => s.id !== id);
+      localStorage.setItem('scheduled_activities', JSON.stringify(scheduled));
+
+      syncWithServer();
+      closeChatDetailModal();
+      renderActivityLedger();
+      if (typeof renderMoodCalendar === 'function') renderMoodCalendar();
+      alert('기록이 삭제되었습니다.');
+    }
+
+    function refreshHomeIndices() {
+      // 연속 훈련 일수 업데이트
+      const streakCount = calculateStreak();
+      const streakEl = document.getElementById('homeStreakCount');
+      if (streakEl) streakEl.textContent = streakCount;
+
+      const sessions = JSON.parse(localStorage.getItem('hrv_sessions') || '[]');
+      if (sessions.length === 0) return;
+    }
+
+    function editActivityRecord(id) {
+      const sessions = JSON.parse(localStorage.getItem('hrv_sessions') || '[]');
+      const session = sessions.find(s => s.id === id);
+      if (!session) return;
+
+      const currentAct = session.activity || session.activityLabel || '';
+      const newActivity = prompt('활동 이름을 수정하세요:', currentAct);
+      if (newActivity === null) return;
+
+      const currentScore = session.moodScore || 0;
+      const newScore = prompt('기분 점수를 수정하세요 (0~10):', currentScore);
+      if (newScore === null) return;
+
+      const scoreNum = parseFloat(newScore);
+      if (isNaN(scoreNum) || scoreNum < 0 || scoreNum > 10) {
+        alert('0에서 10 사이의 유효한 점수를 입력해주세요.');
+        return;
+      }
+
+      session.activity = newActivity;
+      session.activityLabel = newActivity;
+      session.moodScore = scoreNum;
+      session.moodScore100 = scoreNum * 10;
+
+      localStorage.setItem('hrv_sessions', JSON.stringify(sessions));
+      syncWithServer();
+
+      // 모달 내용 갱신 및 UI 업데이트
+      viewChatDetail(id);
+      renderActivityLedger();
+      if (typeof renderMoodCalendar === 'function') renderMoodCalendar();
+      alert('기록이 수정되었습니다.');
+    }
+
+    function closeChatDetailModal() {
+      document.getElementById('chatDetailModal').style.display = 'none';
+    }
+
+
+
+
+    function cancelEndCall() {
+      document.getElementById('endCallModal').classList.remove('open');
+    }
+
+    function openHistoryModal(typeTitle) {
+      document.getElementById('historyModal').classList.add('open');
+      document.getElementById('historyTitle').textContent = `[${typeTitle}] 상세 기록`;
+
+      const container = document.getElementById('historyListContainer');
+      container.innerHTML = '';
+
+      const sessions = JSON.parse(localStorage.getItem('hrv_sessions') || '[]');
+
+      // [수합] 이름 기반이 아닌 '시간 기반'으로 아침/저녁 분류 (오분류 차단)
+      const isMorningReq = typeTitle.includes('아침');
+      const filtered = sessions.filter(s => {
+        if (s.isDiagnostic) return false; // [필터] 누적 기록 모달에서 진단 데이터 제외
+        const ts = s.id || s.timestamp;
+        const hr = new Date(ts).getHours();
+        // 오전 0~13시: 아침, 13~24시: 저녁
+        return isMorningReq ? (hr < 13) : (hr >= 13);
+      }).sort((a, b) => (b.id || 0) - (a.id || 0)); // 최신순 정렬
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<div style="text-align:center;color:#888;font-size:13px;padding:30px 0;">해당 시간대에 저장된 기록이 없습니다.</div>`;
+        return;
+      }
+
+      filtered.forEach(s => {
+        const date = new Date(s.id);
+        const dateString = date.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' });
+
+        const div = document.createElement('div');
+        div.style.cssText = 'background:#F5F6FA;border-radius:12px;padding:14px;box-shadow:inset 0 1px 3px rgba(0,0,0,.02);border:1px solid #EAEDF5;cursor:pointer; transition:background 0.2s;';
+        div.onclick = () => { closeHistoryModal(); viewChatDetail(s.id); };
+        div.onmouseover = () => div.style.background = "#EFF1F9";
+        div.onmouseout = () => div.style.background = "#F5F6FA";
+
+        div.innerHTML = `
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <div style="display:flex;flex-direction:column;gap:4px;">
+                <span style="font-size:11px;color:#888;">${dateString} ${s.time}</span>
+                <span style="font-size:13px;font-weight:700;color:#333;">${s.activity || s.activityLabel || '대화 세션'}</span>
+              </div>
+              <div style="text-align:right;">
+                <div style="font-size:14px;font-weight:800;color:#3D5AF1;">${Number(s.moodScore || 0).toFixed(1)}</div>
+                <div style="font-size:10px;color:#999;">점수</div>
+              </div>
+            </div>
+          `;
+        container.appendChild(div);
+      });
+    }
+
+    function closeHistoryModal() {
+      document.getElementById('historyModal').classList.remove('open');
+    }
+
+    function setSession(s) {
+      const prevSession = localStorage.getItem('session');
+      if (prevSession === s) return; // [방어] 이미 해당 세션이면 아무 작업 안 함
+
+      document.getElementById('btnMorning').classList.toggle('active', s === 'morning');
+      document.getElementById('btnEvening').classList.toggle('active', s === 'evening');
+      localStorage.setItem('session', s);
+
+      // 1. 음성 중단 및 UI 초기화
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      }
+
+      const choiceList = document.querySelector('#callActive .choice-list');
+      if (choiceList) choiceList.innerHTML = '';
+
+      chatMessages = [];
+      const historyContainer = document.getElementById('callChatHistory');
+      if (historyContainer) historyContainer.innerHTML = '';
+
+      // 2. 이미 대화 중이었다면 새로운 세션으로 즉시 재시작
+      const activeScreen = document.getElementById('callActive');
+      if (activeScreen && activeScreen.style.display !== 'none') {
+        console.log(`[Session] Switching to ${s} while active - Restarting call...`);
+        startCall();
+      }
+    }
+
+    function selectChoice(el, text) {
+      document.querySelectorAll('.choice-item').forEach(i => i.classList.remove('selected'));
+      el.classList.add('selected');
+      document.getElementById('sttResult').textContent = text + ' 선택하셨습니다.';
+      sendToLLM(text);
+    }
+
+
+    // ── SCREEN 3 CHART ────────────────────────────────────
+    let timelineInited = false;
+    function initTimelineChart() {
+      if (timelineInited) return; timelineInited = true;
+      const labels = ['08:00', '09:30', '11:00', '12:30', '14:00', '15:30', '17:00', '18:30', '20:00', '22:00'];
+      const mood = [55, 62, 70, 65, 58, 72, 80, 75, 68, 60];
+      const stress = [40, 35, 28, 38, 50, 30, 22, 28, 35, 42];
+      new Chart(document.getElementById('timelineChart'), {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [
+            { label: '기분', data: mood, borderColor: '#FF7A00', backgroundColor: 'rgba(255,122,0,.1)', tension: 0.5, fill: true, pointRadius: 3 },
+            { label: '우울 위험도', data: stress, borderColor: '#FF9A3C', backgroundColor: 'rgba(255,154,60,.1)', tension: 0.5, fill: true, borderDash: [4, 4], pointRadius: 3 }
+          ]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { min: 0, max: 100, ticks: { font: { size: 9 } }, grid: { color: '#f0f0f0' } },
+            x: { ticks: { font: { size: 9 } }, grid: { display: false } }
+          }
+        }
+      });
+    }
+
+    // ── SCREEN 4 (Storybook) ──────────────────────────
+    let currentStoryIdx = 0;
+
+    function loadStoryContent() {
+      let allSessions = JSON.parse(localStorage.getItem('hrv_sessions') || '[]');
+      let sessions = allSessions.filter(s => !s.isDiagnostic); // [필터] 치유 스토리북에서는 대화 데이터만 사용
+      const originalEl = document.getElementById('originalText');
+      const healedEl = document.getElementById('healedText');
+      const pageNumEl = document.getElementById('pageNum');
+
+      if (sessions.length === 0) {
+        originalEl.textContent = '"아직 대화 기록이 없어요. 활동 탭에서 이야기를 들려주세요."';
+        healedEl.textContent = '"내일은 더 밝은 이야기가 우리를 기다릴 거예요."';
+        pageNumEl.textContent = '0/0 페이지';
+        return;
+      }
+
+      // 인덱스 범위 조정
+      if (currentStoryIdx >= sessions.length) currentStoryIdx = sessions.length - 1;
+      if (currentStoryIdx < 0) currentStoryIdx = 0;
+
+      const target = sessions[sessions.length - 1 - currentStoryIdx]; // 최신순
+      originalEl.textContent = `"${target.fullText || target.summary}"`;
+
+      // 날짜 표시 (세션 ID는 타임스탬프)
+      const dateObj = new Date(target.id);
+      const dateStr = dateObj.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'short' });
+      const dateEl = document.getElementById('storyDate');
+      if (dateEl) dateEl.textContent = dateStr;
+
+      // 이미 변환된 결과가 세션 객체에 저장되어 있다면 표시, 없으면 안내
+      if (target.healed_text) {
+        healedEl.textContent = `"${target.healed_text}"`;
+        renderCognitiveAnalysis(target.cognitive_analysis);
+      } else {
+        healedEl.textContent = '"✨ 아래 버튼을 눌러 당신의 문장을 치유의 글로 바꿔보세요."';
+        renderCognitiveAnalysis(null);
+      }
+
+      pageNumEl.textContent = `${currentStoryIdx + 1}/${sessions.length} 페이지`;
+    }
+
+    async function transformStory() {
+      let allSessions = JSON.parse(localStorage.getItem('hrv_sessions') || '[]');
+      let sessions = allSessions.filter(s => !s.isDiagnostic); // [필터] 치유 스토리북에서는 대화 데이터만 사용
+      if (sessions.length === 0) return;
+
+      const idx = sessions.length - 1 - currentStoryIdx;
+      const target = sessions[idx];
+      const originalText = target.fullText || target.summary;
+      const healedEl = document.getElementById('healedText');
+
+      healedEl.innerHTML = '<span style="opacity:0.6; font-size:12px;">AI가 당신의 마음을 치유의 언어로 재구성 중...</span>';
+
+      try {
+        // 1. 인지재구조화 (Story Rewriting)
+        const resStory = await fetch('http://localhost:8001/restructure_cognitive', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text: originalText })
+        });
+        const dataStory = await resStory.json();
+
+        // 2. 인지 분석 및 처방 (CBT Analysis)
+        const resAnalysis = await fetch('http://localhost:8001/analyze_cognitive', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text: originalText })
+        });
+        const dataAnalysis = await resAnalysis.json();
+
+        if (dataStory.healed_text && dataAnalysis.prescription) {
+          // 결과 저장
+          sessions[idx].healed_text = dataStory.healed_text;
+          sessions[idx].cognitive_analysis = dataAnalysis;
+          localStorage.setItem('hrv_sessions', JSON.stringify(sessions));
+          syncWithServer();
+
+          // UI 업데이트: 스토리
+          healedEl.style.opacity = 0;
+          setTimeout(() => {
+            healedEl.textContent = `"${dataStory.healed_text}"`;
+            healedEl.style.transition = 'opacity 0.8s';
+            healedEl.style.opacity = 1;
+          }, 300);
+
+          // UI 업데이트: 처방전
+          renderCognitiveAnalysis(dataAnalysis);
+        }
+      } catch (e) {
+        console.error("Story reconstruction error:", e);
+        healedEl.textContent = "마음을 연결하는 중에 잠시 오류가 발생했어요. 다시 시도해 볼까요?";
+      }
+    }
+
+    function renderCognitiveAnalysis(analysis) {
+      if (!analysis) {
+        document.getElementById('mindAnalysisContainer').style.display = 'none';
+        document.getElementById('initialStoryAction').style.display = 'block';
+        return;
+      }
+
+      document.getElementById('initialStoryAction').style.display = 'none';
+      document.getElementById('mindAnalysisContainer').style.display = 'block';
+
+      // 칩(Trap) 렌더링
+      const trapContainer = document.getElementById('trapChips');
+      trapContainer.innerHTML = '';
+      if (analysis.traps && analysis.traps.length > 0) {
+        analysis.traps.forEach(trap => {
+          const chip = document.createElement('div');
+          chip.style.cssText = "padding:6px 12px; border-radius:20px; background:#EEF0FF; color:#3D5AF1; font-size:11px; font-weight:700; border:1px solid #C5CEEC;";
+          chip.textContent = trap;
+          trapContainer.appendChild(chip);
+        });
+      }
+
+      document.getElementById('prescriptionText').textContent = analysis.prescription;
+      document.getElementById('evidenceText').textContent = analysis.evidence;
+    }
+
+    function prevPage() {
+      if (currentStoryIdx > 0) {
+        currentStoryIdx--;
+        loadStoryContent();
+      }
+    }
+
+    function nextPage() {
+      const sessions = JSON.parse(localStorage.getItem('hrv_sessions') || '[]');
+      if (currentStoryIdx < sessions.length - 1) {
+        currentStoryIdx++;
+        loadStoryContent();
+      }
+    }
+
+    // ── MODAL CLOSE ON OUTSIDE CLICK ──────────────────────
+    document.querySelectorAll('.modal-overlay').forEach(m => {
+      m.addEventListener('click', e => { if (e.target === m) m.classList.remove('open'); });
+    });
+
+    // ── 자기관리 탭 기능 ──────────────────────────────────────────
+
+
+
+    // ── 2. 기분 달력 (주차별 고정 7일 렌더링) ─────────────────
+    function renderMoodCalendar() {
+      // 이제 days 파라미터 대신 ledgerWeek 전역 변수와 고정 7일(주차별)을 사용합니다.
+      const days = 7;
+
+      // ── 데이터 클린업: 유령 데이터 및 특정 날짜 삭제 (사용자 요청) ──
+      const sessions = cleanupHrvSessions();
+      const dayMap = {};
+      const phantomIds = [1775734738937, 1775734746715];
+
+      const validSessions = sessions.filter(s => {
+        if (s.isDiagnostic) return false; // [필터] 달력에서 진단 데이터 제외
+        const t = s.id || s.timestamp;
+        if (!t || isNaN(Number(t))) return false;
+        if (phantomIds.includes(Number(t))) return false;
+
+        const hasScore = s.moodScore100 != null || s.moodScore != null;
+        const hasActivity = s.activity != null || s.activityLabel != null;
+        return hasScore && hasActivity;
+      });
+
+      validSessions.forEach(s => {
+        // [날짜 매핑 일원화] getDateKey(local)를 사용하여 UTC 밀림 방지
+        const ts = s.id || s.timestamp;
+        const d = getDateKey(ts);
+
+        let raw = Number(s.moodScore || 0);
+        // [점수 보정] 혹시라도 남아있을 100점 기준 데이터를 10점으로 변환
+        if (raw > 10) raw = raw / 10;
+
+        if (!d || isNaN(raw)) return;
+        const safeRaw = Math.min(10, Math.max(0, raw));
+        if (!dayMap[d]) dayMap[d] = [];
+        dayMap[d].push(safeRaw);
+      });
+
+      const avgEl = document.getElementById('wellnessAvgScore');
+      const lblEl = document.getElementById('wellnessAvgLabel');
+      const gaugeFill = document.getElementById('gaugePath');
+      const needle = document.getElementById('gaugeNeedle');
+      const cntGood = document.getElementById('countGood');
+      const cntBad = document.getElementById('countBad');
+
+      const grid = document.getElementById('moodCalendarGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+
+      // 1. 요일 헤더 (루프 밖에서 한 번만 생성)
+      const headerLabels = ['월', '화', '수', '목', '금', '토', '일'];
+      headerLabels.forEach(label => {
+        grid.innerHTML += `<div style="text-align:center;font-size:10px;font-weight:700;color:#888;padding-bottom:10px;">${label}</div>`;
+      });
+
+      // 기분 상태 매핑 함수 (10점 만점 기준)
+      const getMoodInfo = (score) => {
+        if (score == null) return { label: 'N/A', emoji: '·', color: '#eee' };
+        if (score >= 9) return { label: '기쁨', emoji: '😊', color: '#4caf50' };
+        if (score >= 7) return { label: '좋음', emoji: '🙂', color: '#8bc34a' };
+        if (score >= 4) return { label: '보통', emoji: '😐', color: '#ffc107' };
+        if (score >= 2) return { label: '나쁨', emoji: '😟', color: '#ff9800' };
+        return { label: '매우 나쁨', emoji: '😫', color: '#e53935' };
+      };
+
+      // [수정] 주차별로 시작일 계산 (글로벌 헬퍼 사용)
+      const PROGRAM_START = getProgramStart();
+      const startDate = new Date(PROGRAM_START);
+      startDate.setDate(PROGRAM_START.getDate() + (ledgerWeek - 1) * 7);
+      startDate.setHours(0, 0, 0, 0);
+
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      const weekLabel = document.getElementById('wellnessWeekLabel');
+      if (weekLabel) weekLabel.textContent = `${ledgerWeek}주차`;
+
+      // 통계 집계용 변수
+      let total = 0, count = 0;
+      let goodCount = 0;
+      let normalCount = 0;
+      let badCount = 0;
+      let goodMoodActivities = {};
+
+      // 렌더링 루프 (7, 14, 30일)
+      for (let i = 0; i < days; i++) {
+        const curr = new Date(startDate);
+        curr.setDate(startDate.getDate() + i);
+
+        const key = getDateKey(curr);
+        const isFuture = curr > today;
+
+        const scores = dayMap[key] || [];
+        // [수합] 해당 날짜의 모든 세션 점수를 평균내어 표시 (사용자 요청: 최고점 -> 평균점)
+        const dailyAvg = scores.length ? (scores.reduce((a, b) => a + b, 0) / scores.length) : null;
+
+        if (dailyAvg != null && !isFuture) {
+          total += dailyAvg;
+          count++;
+          if (dailyAvg >= 7) goodCount++;
+          else if (dailyAvg >= 4) normalCount++;
+          else if (dailyAvg < 4) badCount++;
+
+          // 기분이 좋았던 날(평균 7점 이상)의 활동들 수집
+          if (dailyAvg >= 7) {
+            const daySessions = validSessions.filter(s => {
+              const ts = s.id || s.timestamp;
+              return getDateKey(ts) === key;
+            });
+            daySessions.forEach(ds => {
+              const act = ds.activityLabel || ds.activity || '개인 활동';
+              goodMoodActivities[act] = (goodMoodActivities[act] || 0) + 1;
+            });
+          }
+        }
+
+        const info = getMoodInfo(dailyAvg);
+        const color = info.color;
+        const label = info.label;
+        const emoji = info.emoji;
+
+        grid.innerHTML += `<div style="text-align:center;margin-bottom:12px;">
+          <div style="font-size:9px; color:#888; margin-bottom:5px; font-weight:700;">${label}</div>
+          <div style="width:28px;height:28px;border-radius:50%;background:${color};display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:900;box-shadow:0 2px 6px rgba(0,0,0,0.1);margin:0 auto;">
+            ${dailyAvg != null ? dailyAvg.toFixed(1) : info.emoji}
+          </div>
+          <div style="font-size:9px;color:#ccc;margin-top:5px;">${curr.getMonth() + 1}/${curr.getDate()}</div>
+        </div>`;
+      }
+
+      // 화면 업데이트
+      if (cntGood) cntGood.textContent = goodCount;
+      const cntNormal = document.getElementById('countNormal');
+      if (cntNormal) cntNormal.textContent = normalCount;
+      if (cntBad) cntBad.textContent = badCount;
+
+      // 액티브 바 표시 (가장 많은 상태 강조)
+      const bars = { 'barGood': goodCount, 'barNormal': normalCount, 'barBad': badCount };
+      Object.keys(bars).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+      });
+      const maxVal = Math.max(goodCount, normalCount, badCount);
+      if (maxVal > 0) {
+        if (goodCount === maxVal) document.getElementById('barGood').style.display = 'block';
+        else if (normalCount === maxVal) document.getElementById('barNormal').style.display = 'block';
+        else if (badCount === maxVal) document.getElementById('barBad').style.display = 'block';
+      }
+
+      if (avgEl) {
+        const finalAvg10 = count ? Math.min(10, Math.max(0, total / count)) : 0;
+        avgEl.textContent = finalAvg10.toFixed(1);
+
+        if (gaugeFill && needle) {
+          // 10점 만점 기준으로 게이지 계산
+          const offset = (1 - (finalAvg10 / 10)) * 100;
+          gaugeFill.style.strokeDashoffset = offset;
+          const angle = (finalAvg10 / 10) * 180 - 90;
+          needle.style.transform = `translateX(-50%) rotate(${angle}deg)`;
+        }
+
+        if (lblEl) {
+          lblEl.textContent = count
+            ? (finalAvg10 >= 7 ? '😊 전반적으로 안정된 상태입니다' : finalAvg10 >= 4 ? '😐 조금 더 활동을 즐겨보세요' : '😔 전문가의 도움이 필요한 시기입니다')
+            : '활동 기록 기반 데이터가 부족합니다.';
+        }
+      }
+
+
+    }
+
+    // [NEW] 주간 활동 및 점수 추이 차트 렌더링
+    let activityTrendChartInstance = null;
+    function renderActivityTrendChart() {
+      const canvas = document.getElementById('activityTrendChart');
+      if (!canvas) return;
+
+      const sessions = cleanupHrvSessions();
+      const PROGRAM_START = getProgramStart();
+
+      // 주차별/활동별 데이터 그룹화
+      const weekGroups = {}; // { week1: { activityA: [scores], activityB: [scores] }, ... }
+
+      sessions.forEach(s => {
+        const ts = s.id || s.timestamp;
+        const d = new Date(ts);
+        const diffDays = Math.floor((d - PROGRAM_START) / (24 * 60 * 60 * 1000));
+        const weekNum = Math.floor(diffDays / 7) + 1;
+
+        if (weekNum < 1) return;
+
+        if (!weekGroups[weekNum]) weekGroups[weekNum] = {};
+
+        const act = s.activityLabel || s.activity || '개인 활동';
+        let score = Number(s.moodScore || 0);
+        if (score > 10) score /= 10;
+
+        if (!weekGroups[weekNum][act]) weekGroups[weekNum][act] = [];
+        weekGroups[weekNum][act].push(score);
+      });
+
+      // [필터링] 현재 선택된 주차(ledgerWeek)에 존재하는 활동들만 추출
+      const currentWeekActivities = [...new Set(
+        sessions.filter(s => {
+          const ts = s.id || s.timestamp;
+          const d = new Date(ts);
+          const diffDays = Math.floor((d - PROGRAM_START) / (24 * 60 * 60 * 1000));
+          return (Math.floor(diffDays / 7) + 1) === ledgerWeek;
+        }).map(s => s.activityLabel || s.activity || '개인 활동')
+      )];
+
+      const emptyEl = document.getElementById('activityTrendEmptyState');
+
+      // 선택된 주차에 활동이 없는 경우 처리
+      if (currentWeekActivities.length === 0) {
+        if (activityTrendChartInstance) activityTrendChartInstance.destroy();
+        canvas.style.display = 'none';
+        if (emptyEl) emptyEl.style.display = 'block';
+        return;
+      }
+
+      canvas.style.display = 'block';
+      if (emptyEl) emptyEl.style.display = 'none';
+
+      // 차트 데이터 구성 (X축에 현재 선택된 주차만 표시)
+      const labels = [`${ledgerWeek}주차`];
+
+      const datasets = currentWeekActivities.map((act, idx) => {
+        const data = [];
+        const scores = (weekGroups[ledgerWeek] && weekGroups[ledgerWeek][act]) || [];
+        const avg = scores.length ? (scores.reduce((a, b) => a + b, 0) / scores.length) : null;
+        data.push(avg);
+
+        const colors = ['#3D5AF1', '#FF7A00', '#4CAF50', '#9C27B0', '#00BCD4', '#FFC107', '#E91E63'];
+        const color = colors[idx % colors.length];
+
+        return {
+          label: act,
+          data: data,
+          backgroundColor: color,
+          borderRadius: 6,
+          barPercentage: 0.8,
+          categoryPercentage: 0.6
+        };
+      });
+
+
+
+
+      if (activityTrendChartInstance) activityTrendChartInstance.destroy();
+
+      activityTrendChartInstance = new Chart(canvas, {
+        type: 'bar',
+        data: { labels, datasets },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 10,
+              ticks: { stepSize: 2, font: { size: 10 } },
+              grid: { color: '#f0f0f0' }
+            },
+            x: {
+              ticks: { font: { size: 10, weight: '700' } },
+              grid: { display: false }
+            }
+          },
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: { boxWidth: 10, font: { size: 10 }, padding: 10 }
+            },
+            tooltip: {
+              callbacks: {
+                label: (ctx) => ` ${ctx.dataset.label}: ${ctx.raw.toFixed(1)}점`
+              }
+            }
+          }
+        }
+      });
+    }
+
+
+    // ── 3. 활동 일정 관리 ─────────────────────────────────────
+    let selectedActivityData = null; // 선택된 활동 임시 저장
+    // [변경] 활동 뱅크를 체계적인 카테고리로 재구성
+    const CATEGORIZED_ACTIVITIES = {
+      "신체 활동": [
+        { name: '산책', emoji: '🚶' },
+        { name: '스트레칭', emoji: '🧘' }
+      ],
+      "인지 활동": [
+        { name: '독서', emoji: '📚' },
+        { name: '일기쓰기', emoji: '✏️' },
+        { name: '그림그리기', emoji: '🎨' }
+      ],
+      "사회 활동": [
+        { name: '친구연락', emoji: '📱' },
+        { name: '요리', emoji: '🍳' }
+      ],
+      "휴식 활동": [
+        { name: '명상', emoji: '🌿' },
+        { name: '음악감상', emoji: '🎵' },
+        { name: '영화감상', emoji: '🎬' }
+      ]
+    };
+
+    // 하위 호환성을 위해 평탄화된 리스트 유지
+    const ACTIVITY_BANK = Object.values(CATEGORIZED_ACTIVITIES).flat();
+
+    // 글로벌 활동 관리 기능 (삭제 확인창을 제거하여 오작동 방지)
+    function openActivityManager() {
+      const modal = document.getElementById('activityManagerModal');
+      const listEl = document.getElementById('managerActivityList');
+      if (!modal || !listEl) return;
+
+      const custom = JSON.parse(localStorage.getItem('custom_activities') || '[]');
+      if (custom.length === 0) {
+        listEl.innerHTML = '<div style="text-align:center; padding:40px; color:#ccc; font-size:13px;">추가된 활동이 없습니다.</div>';
+      } else {
+        listEl.innerHTML = custom.map(a => {
+          const escapedName = a.name.replace(/'/g, "\\'");
+          return `
+            <div style="display:flex; align-items:center; justify-content:space-between; background:#F9FAFF; border-radius:12px; padding:12px 16px; border: 1px solid #eee;">
+              <span style="font-size:14px; font-weight:500; color:#333;">${a.name}</span>
+              <button onclick="deleteActivityFromManager('${escapedName}')" 
+                      style="border:1px solid #ff4d4d; background:#fff; color:#ff4d4d; border-radius:8px; padding:6px 14px; font-size:12px; font-weight:700; cursor:pointer;">삭제 (-)</button>
+            </div>
+          `;
+        }).join('');
+      }
+      modal.style.display = 'flex';
+    }
+    window.openActivityManager = openActivityManager;
+
+    function deleteActivityFromManager(name) {
+      if (!name) return;
+      // 삭제 기능 오작동을 방지하기 위해 confirm 창을 제거하고 즉시 삭제 처리
+      let custom = JSON.parse(localStorage.getItem('custom_activities') || '[]');
+      custom = custom.filter(a => a.name !== name);
+      localStorage.setItem('custom_activities', JSON.stringify(custom));
+      syncWithServer();
+
+      openActivityManager(); // 관리 창 갱신
+      renderActivityBank();  // 메인 뱅크 갱신
+    }
+    window.deleteActivityFromManager = deleteActivityFromManager;
+
+    function renderActivityBank() {
+      const el = document.getElementById('activityBankChips');
+      if (!el) return;
+
+      const custom = JSON.parse(localStorage.getItem('custom_activities') || '[]');
+
+      // 1. 기본 활동 (분리 없이 나열)
+      let html = `
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;">
+          ${ACTIVITY_BANK.map(a => `
+            <div class="activity-chip" onclick="selectActivityChip('${a.name.replace(/'/g, "\\'")}','${a.emoji}',this)">
+              ${a.emoji} ${a.name}
+            </div>
+          `).join('')}
+          ${custom.map(a => `
+            <div class="activity-chip" onclick="selectActivityChip('${a.name.replace(/'/g, "\\'")}','',this)">
+              ${a.name}
+            </div>
+          `).join('')}
+          <div class="activity-chip" style="border:1px dashed #3D5AF1;color:#3D5AF1;" onclick="addCustomActivity()">+ 활동 직접 추가</div>
+        </div>
+      `;
+
+      el.innerHTML = html;
+    }
+
+
+
+    function addCustomActivity() {
+      const modal = document.getElementById('customActivityModal');
+      if (modal) {
+        modal.style.display = 'flex';
+        document.getElementById('customActivityName').value = '';
+        document.getElementById('customActivityEmoji').value = '✨';
+      }
+    }
+
+    function closeCustomActivityModal() {
+      const modal = document.getElementById('customActivityModal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    function saveNewCustomActivity() {
+      const name = (document.getElementById('customActivityName').value || '').trim();
+      if (!name) { alert('활동 이름을 입력해 주세요.'); return; }
+      const emoji = ''; // 이모지 없이 텍스트만 저장
+
+      const custom = JSON.parse(localStorage.getItem('custom_activities') || '[]');
+      custom.push({ name, emoji });
+      localStorage.setItem('custom_activities', JSON.stringify(custom));
+      syncWithServer();
+
+      closeCustomActivityModal();
+      renderActivityBank();
+    }
+
+    function selectActivityChip(name, emoji, el) {
+      document.querySelectorAll('.activity-chip').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+      selectedActivityData = { name, emoji };
+      const cfg = document.getElementById('scheduleConfig');
+      if (cfg) {
+        cfg.style.display = 'block';
+        document.getElementById('scheduleSelectedName').textContent = `${emoji || '✨'} ${name} 일정 추가`;
+
+        // 현재 월, 일로 초기화
+        const now = new Date();
+        const mEl = document.getElementById('scheduleMonth');
+        const dEl = document.getElementById('scheduleDay');
+        if (mEl) mEl.value = now.getMonth() + 1;
+        if (dEl) dEl.value = now.getDate();
+      }
+    }
+
+    function saveScheduledActivity() {
+      if (!selectedActivityData) return;
+      const time = document.getElementById('scheduleTime').value;
+      if (!time) { alert('실천 시간을 선택해 주세요.'); return; }
+
+      const mm = document.getElementById('scheduleMonth').value;
+      const dd = document.getElementById('scheduleDay').value;
+      const year = new Date().getFullYear();
+      const dateKey = `${year}-${String(mm).padStart(2, '0')}-${String(dd).padStart(2, '0')}`;
+
+      executeBooking(selectedActivityData.name, selectedActivityData.emoji, time, dateKey);
+
+      document.getElementById('scheduleConfig').style.display = 'none';
+      document.querySelectorAll('.activity-chip').forEach(c => c.classList.remove('selected'));
+      selectedActivityData = null;
+      alert(`📅 ${mm}월 ${dd}일 ${time}에 활동이 예약되었습니다!`);
+    }
+
+    // [신규] 핵심 예약 처리 로직 (수동/AI 공용)
+    function executeBooking(activityName, emoji, time, dateKey) {
+      if (!activityName || !time || !dateKey) return;
+
+      const targetDate = new Date(`${dateKey}T${time}:00`);
+      if (isNaN(targetDate.getTime())) return;
+      const newId = targetDate.getTime();
+
+      // 1. 일정 관리 리스트에 저장 (중복 체크 추가)
+      const list = JSON.parse(localStorage.getItem('scheduled_activities') || '[]');
+      const isDuplicate = list.some(a => a.name === activityName && a.scheduledTime === time && a.dateKey === dateKey);
+
+      if (!isDuplicate) {
+        list.push({
+          id: newId,
+          name: activityName,
+          emoji: emoji || '✨',
+          scheduledTime: time,
+          dateKey: dateKey,
+          createdAt: new Date().toISOString().split('T')[0],
+          satisfaction: null,
+          notified: false
+        });
+        localStorage.setItem('scheduled_activities', JSON.stringify(list));
+      } else {
+        console.warn('[Booking] 중복 예약 감지(scheduled_activities):', activityName, dateKey, time);
+      }
+
+      // 2. 활동기록지(hrv_sessions)에 즉시 기입 (중복 체크 추가)
+      const sessions = JSON.parse(localStorage.getItem('hrv_sessions') || '[]');
+      const isSessionDuplicate = sessions.some(s => s.activity === activityName && s.time === time && s.dateKey === dateKey);
+
+      if (!isSessionDuplicate) {
+        sessions.push({
+          id: newId,
+          title: '활동 예약',
+          icon: '📅',
+          time: time,
+          hour: parseInt(time.split(':')[0]),
+          summary: `예약: ${activityName}`,
+          activity: activityName,
+          moodScore: null,
+          isScheduled: true,
+          status: 'pending',
+          dateKey: dateKey
+        });
+        localStorage.setItem('hrv_sessions', JSON.stringify(sessions));
+      } else {
+        console.warn('[Booking] 중복 예약 감지(hrv_sessions):', activityName, dateKey, time);
+      }
+      syncWithServer();
+
+      // UI 갱신
+      renderScheduledList();
+      renderActivityLedger();
+    }
+
+
+    function renderScheduledList() {
+      const el = document.getElementById('scheduledList');
+      if (!el) return;
+      const list = JSON.parse(localStorage.getItem('scheduled_activities') || '[]');
+      if (!list.length) {
+        el.innerHTML = '<div style="text-align:center;color:#ccc;font-size:13px;padding:16px;">위에서 활동을 선택해 일정을 추가해보세요!</div>';
+        return;
+      }
+      const repeatLabel = r => ({ none: '반복없음', daily: '매일', weekdays: '평일', weekends: '주말' }[r] || r);
+
+      el.innerHTML = list.map(a => `
+        <div style="background:#F4F6FF;border-radius:14px;padding:14px;display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+          <div>
+            <span style="font-size:20px;margin-right:8px;">${a.emoji}</span>
+            <span style="font-size:13px;font-weight:700;">${a.name}</span>
+            <div style="font-size:11px;color:#aaa;margin-top:2px;margin-left:28px;">
+              ${a.scheduledTime || '시간 미정'} · ${a.dateKey ? a.dateKey.split('-')[1] + '월 ' + a.dateKey.split('-')[2] + '일' : repeatLabel(a.repeat)}
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            ${a.satisfaction == null
+          ? `<button onclick="openSatisfactionModal(${a.id})" style="padding:7px 12px;border-radius:10px;border:none;background:var(--navy);color:#fff;font-size:12px;font-weight:700;cursor:pointer;font-family:Pretendard, sans-serif;">완료</button>`
+          : `<div style="text-align:right;"><div style="font-size:16px;font-weight:900;color:var(--navy);">${a.satisfaction}점</div><div style="font-size:10px;color:#888;">기분 점수</div></div>`}
+            <button onclick="deleteScheduledActivity(${a.id})" style="padding:7px;border-radius:10px;border:none;background:rgba(0,0,0,0.03);color:#e53935;font-size:12px;cursor:pointer;">✕</button>
+          </div>
+        </div>`).join('');
+    }
+
+    let currentSatisfactionId = null;
+
+    function openSatisfactionModal(id) {
+      currentSatisfactionId = id;
+      const list = JSON.parse(localStorage.getItem('scheduled_activities') || '[]');
+      const a = list.find(x => x.id === id);
+      const nameEl = document.getElementById('satisfactionActivityName');
+      if (nameEl && a) nameEl.textContent = `${a.emoji} ${a.name}`;
+
+      // 초기값 설정
+      document.getElementById('satisfactionRange').value = 5;
+      document.getElementById('satisfactionVal').textContent = 5;
+
+      const modal = document.getElementById('satisfactionModal');
+      if (modal) modal.style.display = 'flex';
+    }
+
+    function saveMoodRating() {
+      const score = parseInt(document.getElementById('satisfactionRange').value);
+
+      // 1. 일정 관리 리스트 업데이트
+      const list = JSON.parse(localStorage.getItem('scheduled_activities') || '[]');
+      const a = list.find(x => x.id === currentSatisfactionId);
+      if (a) {
+        a.satisfaction = score;
+        localStorage.setItem('scheduled_activities', JSON.stringify(list));
+        syncWithServer();
+      }
+
+      // 2. 활동기록지(hrv_sessions) 업데이트 (연동)
+      const sessions = JSON.parse(localStorage.getItem('hrv_sessions') || '[]');
+      const session = sessions.find(s => s.id === currentSatisfactionId);
+      if (session) {
+        session.moodScore = score;
+        session.status = 'completed';
+        localStorage.setItem('hrv_sessions', JSON.stringify(sessions));
+        syncWithServer();
+      }
+
+      closeSatisfactionModal();
+      renderScheduledList();
+      renderActivityLedger(); // 기록지 새로고침
+      renderMoodCalendar(7, null); // 기분 그래프 새로고침
+      alert('✅ 기분 점수가 기록되었습니다. 수고하셨어요!');
+    }
+
+    function checkScheduledAlarms() {
+      const list = JSON.parse(localStorage.getItem('scheduled_activities') || '[]');
+      const now = new Date();
+      const currentHHMM = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
+
+      let changed = false;
+      list.forEach(a => {
+        if (a.scheduledTime === currentHHMM && !a.notified && a.satisfaction === null) {
+          // 브라우저 팝업 알림
+          if ('Notification' in window && Notification.permission === 'granted') {
+            new Notification('🔔 활동 시간입니다!', {
+              body: `${a.emoji} ${a.name} 활동을 시작할 시간이에요.`,
+              icon: '/favicon.ico'
+            });
+          } else {
+            alert(`🔔 [알람] ${a.emoji} ${a.name} 활동을 실천할 시간입니다!`);
+          }
+          a.notified = true;
+          changed = true;
+
+          // 앱 내 모달 띄우기 (선택 사항이나 확인용으로 유용)
+          openSatisfactionModal(a.id);
+        }
+
+        // 시간 지나면 알림 초기화 (반복 시 필요, 여기서는 정각 1회 기준이므로 간단히 처리)
+        if (a.scheduledTime !== currentHHMM) {
+          a.notified = false;
+          changed = true;
+        }
+      });
+
+      if (changed) {
+        localStorage.setItem('scheduled_activities', JSON.stringify(list));
+        syncWithServer();
+      }
+    }
+
+    // 1분마다 알림 체크
+    setInterval(checkScheduledAlarms, 60000);
+
+    function deleteScheduledActivity(id) {
+      // 1. 일정 관리 리스트에서 삭제
+      let list = JSON.parse(localStorage.getItem('scheduled_activities') || '[]');
+      list = list.filter(x => x.id !== id);
+      localStorage.setItem('scheduled_activities', JSON.stringify(list));
+
+      // 2. 활동기록지(hrv_sessions)에서도 동일 ID 삭제 (연동)
+      let sessions = JSON.parse(localStorage.getItem('hrv_sessions') || '[]');
+      sessions = sessions.filter(s => s.id !== id);
+      localStorage.setItem('hrv_sessions', JSON.stringify(sessions));
+
+      syncWithServer();
+      renderScheduledList();
+      renderActivityLedger(); // 기록지 UI 동시 갱신
+    }
+
+    function closeSatisfactionModal() {
+      const modal = document.getElementById('satisfactionModal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    // ── 4. 감사 일기 (Modern Card Upgrade V2) ──────────────────
+    let currentGratitudeStar = 0;
+    let selectedGratitudeTheme = 'nature';
+    let currentUserLocation = '어딘가 평화로운 곳';
+    let customImageBase64 = null; // 직접 업로드한 이미지 데이터
+
+    function renderGratitudeThemes() {
+      const el = document.getElementById('gratitudeThemeSelector');
+      if (!el) return;
+
+      // 직접 업로드 버튼만 렌더링
+      const isCustom = selectedGratitudeTheme === 'custom';
+      const customBg = customImageBase64 ? `url('${customImageBase64}') center/cover no-repeat` : '#f9f9f9';
+
+      el.innerHTML = `
+        <div onclick="triggerImageUpload()" id="customUploadBtn" 
+             style="min-width:75px; height:65px; border-radius:12px; border:2px ${isCustom ? 'solid #3D5AF1' : 'dashed #ccc'}; display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0; background:${customBg}; transition:0.2s; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+          ${customImageBase64 ? '' : `
+            <div style="font-size:20px; color:#aaa;">+</div>
+            <div style="font-size:9px; color:#aaa;">사진 업로드</div>
+          `}
+        </div>
+      `;
+    }
+
+    function triggerImageUpload() {
+      document.getElementById('gratitudeFileInput').click();
+    }
+
+    function handleImageFile(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        customImageBase64 = e.target.result;
+        selectedGratitudeTheme = 'custom';
+        renderGratitudeThemes();
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function initGeolocation() {
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(async (pos) => {
+          // 간략화를 위해 위도/경도 기반 표시 (실제로는 역지오코딩 필요)
+          currentUserLocation = "오늘의 위치에서";
+          const badge = document.getElementById('locationBadge');
+          if (badge) badge.textContent = `📍 ${currentUserLocation}`;
+        }, (err) => {
+          console.warn('Geolocation Error:', err);
+          const badge = document.getElementById('locationBadge');
+          if (badge) badge.textContent = `📍 평화로운 곳에서`;
+        });
+      }
+    }
+
+    function setGratitudeStar(n) {
+      currentGratitudeStar = n;
+      document.querySelectorAll('#gratitudeStars span').forEach((s, i) => {
+        s.textContent = i < n ? '★' : '☆';
+        s.style.color = i < n ? '#FF7A00' : '#ccc';
+      });
+    }
+
+    function saveGratitudeEntry() {
+      const text = (document.getElementById('gratitudeInput').value || '').trim();
+      if (!text) { alert('내용을 입력해주세요.'); return; }
+      if (!currentGratitudeStar) { alert('별점을 선택해주세요.'); return; }
+
+      const entries = JSON.parse(localStorage.getItem('gratitude_entries') || '[]');
+      entries.unshift({
+        id: Date.now(),
+        date: new Date().toISOString().split('T')[0],
+        text,
+        stars: currentGratitudeStar,
+        customImage: customImageBase64, // 직접 업로드된 이미지 저장
+        location: currentUserLocation
+      });
+      localStorage.setItem('gratitude_entries', JSON.stringify(entries));
+      syncWithServer();
+
+      // 상태 초기화
+      document.getElementById('gratitudeInput').value = '';
+      setGratitudeStar(0);
+      currentGratitudeStar = 0;
+      customImageBase64 = null;
+      selectedGratitudeTheme = null;
+      renderGratitudeThemes();
+      renderGratitudeList();
+    }
+
+    function renderGratitudeList() {
+      const el = document.getElementById('gratitudeList');
+      if (!el) return;
+      const entries = JSON.parse(localStorage.getItem('gratitude_entries') || '[]');
+      if (!entries.length) {
+        el.innerHTML = '<div style="text-align:center;color:#ccc;font-size:13px;padding:8px;">아직 작성된 일기가 없어요. 오늘의 감사한 일을 적어보세요!</div>';
+        return;
+      }
+
+      el.innerHTML = entries.map(e => {
+        const imageUrl = e.customImage;
+        const imageHtml = imageUrl ? `
+          <div style="height:140px; background-image:url('${imageUrl}'); background-size:cover; background-position:center; position:relative;">
+            <div style="position:absolute; top:12px; right:12px; background:rgba(255,255,255,0.9); padding:4px 10px; border-radius:10px; font-size:10px; font-weight:700; color:#3D5AF1; box-shadow:0 2px 4px rgba(0,0,0,0.1);">
+              ${e.date} ${e.location ? `· ${e.location}` : ''}
+            </div>
+          </div>` : `
+          <div style="padding: 12px 16px 0;">
+            <div style="display:inline-block; background:#EEF0FF; padding:4px 10px; border-radius:10px; font-size:10px; font-weight:700; color:#3D5AF1;">
+              ${e.date} ${e.location ? `· ${e.location}` : ''}
+            </div>
+          </div>`;
+
+        return `
+        <div style="background:#fff; border-radius:18px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.05); border:1px solid #f0f0f0;">
+          ${imageHtml}
+          <div style="padding:16px;">
+            <div style="font-size:14px; color:#333; line-height:1.6; margin-bottom:12px;">${e.text}</div>
+            <div style="display:flex; align-items:center; justify-content:space-between;">
+              <div style="font-size:18px; color:#FF7A00;">
+                ${'★'.repeat(e.stars)}<span style="color:#eee;">${'★'.repeat(5 - e.stars)}</span>
+              </div>
+              <button onclick="deleteGratitudeEntry(${e.id})" style="border:none; background:none; color:#ccc; font-size:12px; cursor:pointer;">삭제</button>
+            </div>
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    function deleteGratitudeEntry(id) {
+      let entries = JSON.parse(localStorage.getItem('gratitude_entries') || '[]');
+      entries = entries.filter(e => e.id !== id);
+      localStorage.setItem('gratitude_entries', JSON.stringify(entries));
+      syncWithServer();
+      renderGratitudeList();
+    }
+    // ── 채팅 기분 점수 저장 (EMA → hrv_sessions) ─────────────
+    function saveChatMoodScore(score, userText) {
+      const now = new Date();
+      const dateStr = now.toLocaleDateString('ko-KR', { month: '2-digit', day: '2-digit' }).replace(/ /g, '');
+      const timeStr = now.toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' });
+
+      const sessions = JSON.parse(localStorage.getItem('hrv_sessions') || '[]');
+      sessions.push({
+        id: Date.now(),
+        date: dateStr,
+        time: timeStr,
+        timestamp: now.toISOString(),
+        source: 'chat_ema',           // 채팅 EMA 출처 표시
+        moodScore: score,             // 0-10 (Bunji 방식)
+        activityLabel: userText.slice(0, 20),
+        depressionRisk: Math.round((10 - score) * 10), // 역산
+        prediction: score >= 7 ? 'Normal' : score >= 4 ? 'Moderate' : 'Severe',
+        knu_evidence: '채팅 EMA 자동 기록',
+      });
+      localStorage.setItem('hrv_sessions', JSON.stringify(sessions));
+      syncWithServer();
+      console.log(`[EMA] 기분 점수 저장: ${score}/10 → hrv_sessions`);
+    }
+
+    // ── 데이터 클린업 및 초기화 ────────────────────────────────
+    function cleanupInconsistentData() {
+      let sessions = JSON.parse(localStorage.getItem('hrv_sessions') || '[]');
+      const originalCount = sessions.length;
+
+      // 1. 10점 초과(100점 기준) 데이터 삭제 (사용자 요청: 0-10점만 보존)
+      // 2. 활동이 없거나 기분 점수 데이터가 없는 데이터 삭제
+      sessions = sessions.filter(s => {
+        const score = s.moodScore;
+        const isInvalidScale = score > 10;
+        const hasContent = s.activity || s.activityLabel || s.summary || s.healed_text;
+
+        return !isInvalidScale && hasContent;
+      });
+
+      // 3. 중복된 chat_ema 기록 정리 (동일 시간대에 여러 건이 있으면 마지막 하나만 유지)
+      const chatEmaMap = {};
+      sessions = sessions.filter(s => {
+        if (s.source === 'chat_ema') {
+          const key = s.date + ' ' + s.time;
+          chatEmaMap[key] = s;
+          return false; // 일단 다 빼서 Map에 넣음
+        }
+        return true;
+      });
+      // 마지막 하나씩만 다시 넣기
+      Object.values(chatEmaMap).forEach(s => sessions.push(s));
+
+      if (sessions.length !== originalCount) {
+        console.log(`[Cleanup] ${originalCount - sessions.length}개의 정합성 어긋나는 데이터가 정리되었습니다.`);
+        localStorage.setItem('hrv_sessions', JSON.stringify(sessions));
+        syncWithServer();
+      }
+    }
+
+    // ── 초기화 ────────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', async () => {
+      console.log('[Init] App started...');
+
+      // 1. 서버에서 데이터 동기화 시도
+      const loaded = await loadDataFromServer();
+
+      cleanupInconsistentData(); // 데이터 정리 실행
+
+      // 2. 활동 탭 기본값 설정 (선택된 게 없으면 아침 대화로 시작)
+      if (!localStorage.getItem('session')) {
+        setSession('morning');
+      } else {
+        setSession(localStorage.getItem('session'));
+      }
+
+      // PHQ-9 히스토리 마이그레이션 (기존 결과가 있으면 히스토리에 추가)
+      const latest = JSON.parse(localStorage.getItem('phq9_latest') || 'null');
+      let history = JSON.parse(localStorage.getItem('phq9_history') || '[]');
+      if (latest && history.length === 0) {
+        history.push(latest);
+        localStorage.setItem('phq9_history', JSON.stringify(history));
+      }
+
+      // 감사 일기 초기화
+      renderGratitudeThemes();
+      initGeolocation();
+      renderGratitudeList();
+
+      const navMap = {
+        'nav-home': 'home',
+        'nav-report': 'report',
+        'nav-wellness': 'wellness',
+        'nav-gratitude': 'gratitude'
+      };
+      Object.keys(navMap).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.addEventListener('click', (e) => {
+            console.log('[Click] Nav item clicked:', id);
+            switchTab(navMap[id]);
+          });
+        }
+      });
+
+      // 초기 앱 실행 시 홈 화면으로 설정
+      switchTab('home');
+      refreshHomeIndices();
+
+      // 만약 데이터를 불러왔다면 화면 갱신이 필요한 컴포넌트들 재렌더링
+      if (loaded) {
+        renderMoodCalendar();
+        renderGratitudeList();
+        renderScheduledList();
+        renderActivityBank();
+      } else {
+        // 기타 컴포넌트 기본 초기화
+        renderActivityBank();
+        renderScheduledList();
+      }
+    });
+  </script>
+  <!-- 활동 관리 모달 (모든 커스텀 활동 삭제 및 관리) -->
+  <div class="modal-overlay" id="activityManagerModal" style="display:none;">
+    <div class="modal" style="height: 70vh; display: flex; flex-direction: column; padding: 24px 20px;">
+      <div class="modal-handle"></div>
+      <div style="font-size:16px;font-weight:800;margin-bottom:8px;">활동 관리 ⚙️</div>
+      <div style="font-size:13px;color:#888;margin-bottom:20px;">추가하신 활동들을 관리하거나 삭제할 수 있습니다.</div>
+
+      <div id="managerActivityList"
+        style="flex:1; overflow-y:auto; margin-bottom:20px; display:flex; flex-direction:column; gap:10px;">
+        <!-- JS에서 렌더링 -->
+      </div>
+
+      <button onclick="document.getElementById('activityManagerModal').style.display='none'"
+        style="width:100%; padding:14px; border-radius:14px; border:none; background:var(--navy); color:#fff; font-size:14px; font-weight:700; cursor:pointer;">닫기</button>
+    </div>
+  </div>
+
+</body>
+
+</html>
