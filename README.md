@@ -28,8 +28,8 @@
 ### 2. 설치 방법
 ```bash
 # 저장소 복제
-git clone https://github.com/calmsh/Maumium.git
-cd Maumium
+git clone https://github.com/calmsh/Maumieum.git
+cd Maumieum
 
 # 필수 라이브러리 설치
 pip install -r requirements.txt
