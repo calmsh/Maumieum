@@ -28,31 +28,31 @@
 ### 2. 설치 방법
 ```bash
 # 저장소 복제
-git clone https://github.com/your-username/maumium.git
-cd maumium
+git clone https://github.com/calmsh/Maumium.git
+cd Maumium
 
 # 필수 라이브러리 설치
 pip install -r requirements.txt
 ```
 
 ### 3. 환경 설정
-`service/` 폴더 내에 `.env` 파일을 생성하고 다음과 같이 API 키를 설정합니다.
+루트 폴더 내에 `.env` 파일을 생성하고 다음과 같이 API 키를 설정합니다.
 ```env
 OPENAI_API_KEY=your_openai_api_key_here
 ```
 
 ### 4. 실행 방법
 ```bash
-# service 폴더 내부로 이동하지 않고 루트 폴더에서 실행 가능합니다.
-python service/api.py
+# 모든 파일이 루트 폴더에 준비되어 있습니다.
+python api.py
 ```
-서버 실행 후 브라우저에서 `http://localhost:8000`으로 접속하세요.
+서버 실행 후 브라우저에서 `http://localhost:8000/index.html`으로 접속하세요.
 
-## 📁 폴더 구조
+## 📁 주요 파일 구조
 
-- `service/api.py`: 백엔드 API 서버
-- `service/index.html`: 프론트엔드 웹 페이지
-- `service/manual_index.faiss`: 상담 지식 베이스 검색 인덱스
+- `api.py`: 백엔드 API 서버 (메인 실행 파일)
+- `index.html`: 프론트엔드 웹 페이지
+- `manual_index.faiss`: 상담 지식 베이스 검색 인덱스
 - `xgboost_depression_model.pkl`: HRV 분석용 학습 모델
 
 ---
